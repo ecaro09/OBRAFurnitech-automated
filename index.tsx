@@ -2255,24 +2255,29 @@ function Quotation() {
                 headStyles: { fillColor: [22, 22, 22] },
                 didDrawPage: (data) => {
                     // Footer
+                    // Fix for: Property 'getNumberOfPages' does not exist on the type of `doc.internal`.
+                    // The installed type definitions for jspdf are likely outdated. Casting to 'any' to bypass the type check.
+                    const pageCount = (doc.internal as any).getNumberOfPages();
                     const footerY = pageHeight - 20;
                     doc.setLineWidth(0.2);
                     doc.line(14, footerY, pageWidth - 14, footerY);
 
-                    const logoHeight = 8;
-                    const logoWidth = (logoHeight / 100) * 300; // Aspect ratio 300:100
-                    const logoY = footerY + (pageHeight - footerY - logoHeight) / 2;
-                    doc.addImage(pngLogo, 'PNG', 14, logoY, logoWidth, logoHeight);
-
+                    const textY = footerY + 10;
+                    
                     doc.setFontSize(8);
                     doc.setTextColor(100);
                     doc.setFont('helvetica', 'normal');
-                    const textY = footerY + (pageHeight - footerY) / 2 + 3;
                     
+                    // Left: Date
+                    const dateStr = `Generated: ${new Date().toLocaleDateString('en-US')}`;
+                    doc.text(dateStr, 14, textY);
+                    
+                    // Center: Contact Info
                     const contactText = "OBRA Office Furniture | obrafurniture@gmail.com | +63 915 743 9188";
                     doc.text(contactText, pageWidth / 2, textY, { align: 'center' });
 
-                    const pageNumText = `Page ${data.pageNumber}`;
+                    // Right: Page Number
+                    const pageNumText = `Page ${data.pageNumber} of ${pageCount}`;
                     doc.text(pageNumText, pageWidth - 14, textY, { align: 'right' });
                     
                     doc.setTextColor(0);
