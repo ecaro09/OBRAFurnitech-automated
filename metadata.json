@@ -1,5 +1,5 @@
 {
-  "name": "OBRA Office Furniture v5 Backup",
-  "description": "Prompt Gemini in this simple example",
+  "name": "OBRA Office Furniture",
+  "description": "A simple and elegant quotation system for OBRA Office Furniture. Browse the product catalog, search for items, and build a quotation for your office needs.",
   "requestFramePermissions": []
 }
