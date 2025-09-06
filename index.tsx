@@ -85,9 +85,9 @@ const productBundles = [
         name: 'Executive Starter Pack',
         description: 'A complete setup for a manager\'s office, combining elegance and functionality for peak productivity.',
         items: [
-            { code: '22-FB03-EGC BLK 1.6m', quantity: 1 }, // L-Type Executive Glass Top Table
-            { code: 'C-BD168 (HB)-EGC', quantity: 1 },    // High back executive chair
-            { code: 'LD-EGC-A4', quantity: 1 }            // Lateral Filing Steel Cabinet
+            { code: '22-FB03-EGC BLK 1.6m', quantity: 1, name: 'L-Type Executive Glass Top Table' },
+            { code: 'C-BD168 (HB)-EGC', quantity: 1, name: 'High back executive chair' },
+            { code: 'LD-EGC-A4', quantity: 1, name: 'Lateral Filing Steel Cabinet 4 Drawer' }
         ]
     },
     {
@@ -95,8 +95,8 @@ const productBundles = [
         name: '4-Person Workstation Hub',
         description: 'Equip your team with this modern and efficient 4-seater workstation, complete with ergonomic chairs.',
         items: [
-            { code: 'SQ-EGC-1707', quantity: 1 },    // 4-Seater Workstation
-            { code: 'YS-EGC-1102', quantity: 4 },    // Mesh Office Chair
+            { code: 'SQ-EGC-1707', quantity: 1, name: '4-Seater Workstation' },
+            { code: 'YS-EGC-1102', quantity: 4, name: 'Mesh Office Chair' },
         ]
     }
 ];
@@ -1388,10 +1388,12 @@ function BundleCard({ bundle }) {
                 <h3 class="bundle-name">${bundle.name}</h3>
                 <p class="bundle-description">${bundle.description}</p>
                 <ul class="bundle-item-list">
-                    ${bundle.items.map(item => {
-                        const product = initialProducts.find(p => p.code === item.code);
-                        return product ? html`<li key=${item.code}><span>${item.quantity}x</span> ${product.name}</li>` : null;
-                    })}
+                    ${bundle.items.map(item => html`
+                        <li key=${item.code}>
+                            <span class="bundle-item-qty">${item.quantity}x</span> 
+                            <span class="bundle-item-name">${item.name}</span>
+                        </li>
+                    `)}
                 </ul>
             </div>
             <div class="bundle-footer">
@@ -1417,7 +1419,7 @@ function ProductBundles() {
                     <h2 class="card-title">Product Bundles</h2>
                 </div>
             </div>
-            <p class="furnitech-feature-intro">
+            <p class="section-intro">
                 Get started quickly with our curated furniture packages. Add a complete setup to your quote with just one click.
             </p>
             <div class="product-bundles-grid">
@@ -1441,7 +1443,7 @@ function CallToActionBanner() {
                         aside.scrollIntoView({ behavior: 'smooth' });
                     }
                  }}>
-                    Start Your Free Quote Now <i class="fa-solid fa-arrow-right"></i>
+                    Start Your Free Quote Now
                 </button>
             </div>
         </div>
@@ -1598,15 +1600,15 @@ function ProductGrid() {
 
     return html`
         <div class="card product-grid-card">
-            <${CallToActionBanner} />
             <div class="product-grid-header">
                 <div class="card-title-wrapper">
                     <div class="card-title-main">
                         <i class="fa-solid fa-store"></i>
                         <h2 class="card-title">Product Catalog</h2>
                     </div>
-                    <button onClick=${generateCatalogPdf} disabled=${isGeneratingCatalog} class="btn">
-                        ${isGeneratingCatalog ? html`<div class="loading-spinner-dark"></div>` : html`<i class="fa-solid fa-file-pdf"></i>`} Download Catalog
+                    <button onClick=${generateCatalogPdf} disabled=${isGeneratingCatalog} class="btn btn-secondary">
+                        ${isGeneratingCatalog ? html`<div class="loading-spinner-dark"></div>` : html`<i class="fa-solid fa-file-pdf"></i>`} 
+                        <span class="btn-text-desktop">Download Catalog</span>
                     </button>
                 </div>
                 <div class="search-and-filter-wrapper">
@@ -1631,7 +1633,7 @@ function ProductGrid() {
                     </div>
                     <button class="btn btn-secondary btn-filter" onClick=${() => setIsFilterPanelOpen(prev => !prev)}>
                         <i class="fa-solid fa-filter"></i>
-                        <span>Filters</span>
+                        <span class="btn-text-desktop">Filters</span>
                     </button>
                 </div>
             </div>
@@ -1708,8 +1710,10 @@ function ClientInfoForm() {
     return html`
         <div class="card">
             <div class="card-title-wrapper">
-                <i class="fa-solid fa-user-tie"></i>
-                <h2 class="card-title">Client Information</h2>
+                <div class="card-title-main">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h2 class="card-title">Client Information</h2>
+                </div>
             </div>
             <div class="client-info-form">
                 <div class="form-group">
@@ -2038,7 +2042,7 @@ function Wishlist() {
                     <i class="fa-solid fa-heart"></i>
                     <h2 class="card-title">Wishlist</h2>
                 </div>
-                ${wishlist.length > 0 && html`<span class="wishlist-count">${wishlist.length}</span>`}
+                ${wishlist.length > 0 && html`<span class="item-count-badge">${wishlist.length}</span>`}
             </div>
 
             ${wishlist.length === 0 ? html`
@@ -2154,7 +2158,7 @@ function QuotationPreviewModal({ onClose, cart, clientInfo, currency, subtotal, 
 }
 
 function Quotation() {
-    const { cart, setCart, clientInfo, currency, setCurrency } = useContext(AppContext);
+    const { cart, setCart, clientInfo, currency } = useContext(AppContext);
     
     const [deliveryFee, setDeliveryFee] = useState(0);
     const [discount, setDiscount] =useState(0);
@@ -2204,7 +2208,7 @@ function Quotation() {
             // Header
             doc.addImage(pngLogo, 'PNG', 14, 12, 60, 20);
             doc.setFontSize(22);
-            doc.setFont( 'helvetica', 'bold');
+            doc.setFont('helvetica', 'bold');
             doc.text("QUOTATION", pageWidth - 14, 20, { align: 'right' });
 
             // Client Info and Dates
@@ -2238,9 +2242,9 @@ function Quotation() {
                 item.code,
                 item.selectedColor ? `${item.name} (${item.selectedColor.name})` : item.name,
                 item.dimensions,
-                item.quantity,
-                formatCurrency(item.price, currency),
-                formatCurrency(Number(item.price) * item.quantity, currency)
+                { content: item.quantity, styles: { halign: 'right' } },
+                { content: formatCurrency(item.price, currency), styles: { halign: 'right' } },
+                { content: formatCurrency(Number(item.price) * item.quantity, currency), styles: { halign: 'right' } }
             ]));
 
             autoTable(doc, {
@@ -2251,40 +2255,68 @@ function Quotation() {
                 headStyles: { fillColor: [22, 22, 22] },
                 didDrawPage: (data) => {
                     // Footer
-                    const footerY = pageHeight - 25;
+                    const footerY = pageHeight - 20;
                     doc.setLineWidth(0.2);
                     doc.line(14, footerY, pageWidth - 14, footerY);
+
+                    const logoHeight = 8;
+                    const logoWidth = (logoHeight / 100) * 300; // Aspect ratio 300:100
+                    const logoY = footerY + (pageHeight - footerY - logoHeight) / 2;
+                    doc.addImage(pngLogo, 'PNG', 14, logoY, logoWidth, logoHeight);
+
                     doc.setFontSize(8);
-                    doc.text("OBRA Office Furniture | obrafurniture@gmail.com | +63 915 743 9188", pageWidth / 2, footerY + 8, { align: 'center' });
-                    doc.text("Thank you for your business!", pageWidth / 2, footerY + 12, { align: 'center' });
+                    doc.setTextColor(100);
+                    doc.setFont('helvetica', 'normal');
+                    const textY = footerY + (pageHeight - footerY) / 2 + 3;
+                    
+                    const contactText = "OBRA Office Furniture | obrafurniture@gmail.com | +63 915 743 9188";
+                    doc.text(contactText, pageWidth / 2, textY, { align: 'center' });
+
+                    const pageNumText = `Page ${data.pageNumber}`;
+                    doc.text(pageNumText, pageWidth - 14, textY, { align: 'right' });
+                    
+                    doc.setTextColor(0);
                 }
             });
 
-            // Totals Section
-            let finalY = (doc as any).lastAutoTable.finalY + 10;
-            doc.setFontSize(12);
-            doc.setFont('helvetica', 'bold');
+            // Totals Section using autoTable for consistency
+            const finalY = (doc as any).lastAutoTable.finalY;
+            const totalsBody = [];
+            totalsBody.push(['Subtotal:', formatCurrency(subtotal, currency)]);
+            if (discountAmount > 0) {
+                totalsBody.push(['Discount:', `- ${formatCurrency(discountAmount, currency)}`]);
+            }
+            if (deliveryFee > 0) {
+                totalsBody.push(['Delivery Fee:', formatCurrency(deliveryFee, currency)]);
+            }
+            totalsBody.push(['TOTAL:', formatCurrency(total, currency)]);
 
-            const addTotalLine = (label, value) => {
-                 if (finalY > pageHeight - 35) {
-                    doc.addPage();
-                    finalY = 20;
-                 }
-                 doc.text(label, pageWidth - 60, finalY);
-                 doc.setFont('helvetica', 'normal');
-                 doc.text(value, pageWidth - 14, finalY, { align: 'right' });
-                 doc.setFont('helvetica', 'bold');
-                 finalY += 7;
-            };
-            
-            addTotalLine("Subtotal:", formatCurrency(subtotal, currency));
-            if(discountAmount > 0) addTotalLine("Discount:", `- ${formatCurrency(discountAmount, currency)}`);
-            if(deliveryFee > 0) addTotalLine("Delivery Fee:", formatCurrency(deliveryFee, currency));
-
-            doc.setLineWidth(0.3);
-            doc.line(pageWidth - 60, finalY - 2, pageWidth - 14, finalY - 2);
-            doc.setFontSize(14);
-            addTotalLine("TOTAL:", formatCurrency(total, currency));
+            autoTable(doc, {
+                startY: finalY + 8,
+                body: totalsBody,
+                theme: 'plain',
+                tableWidth: 'wrap',
+                margin: { left: pageWidth - 90 },
+                styles: { fontSize: 11, cellPadding: {top: 1, bottom: 1} },
+                columnStyles: {
+                    0: { halign: 'right' },
+                    1: { halign: 'right' }
+                },
+                didParseCell: (data) => {
+                    if (data.row.raw[0] === 'TOTAL:') {
+                        data.cell.styles.fontStyle = 'bold';
+                        data.cell.styles.fontSize = 13;
+                        // Fix for: Property 'styles' does not exist on type 'Row'. The jspdf-autotable documentation
+                        // states a styles object can be assigned to `row.styles`. We cast to `any` to bypass the type definition issue.
+                        (data.row as any).styles = { minCellHeight: 8 };
+                        // Fix for: Property 'borders' does not exist on type 'Styles'. This is likely a typo for the
+                        // deprecated 'border' property which controlled which borders to draw.
+                        (data.cell.styles as any).border = 't';
+                        doc.setLineWidth(0.3);
+                    }
+                }
+            });
+            doc.setLineWidth(0.2); // Reset line width after totals table
 
             doc.save(`Quotation-${clientInfo.company || 'Client'}-${quoteDate.toISOString().split('T')[0]}.pdf`);
         } catch (error) {
@@ -2408,12 +2440,7 @@ function Quotation() {
                     <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" class="quotation-logo" />
                     <h2 class="card-title">Quotation</h2>
                 </div>
-                 <div class="currency-selector">
-                    <i class="fa-solid fa-coins"></i>
-                    <select value=${currency} onChange=${e => setCurrency(e.target.value)}>
-                        ${Object.keys(currencyRates).map(c => html`<option value=${c}>${c}</option>`)}
-                    </select>
-                </div>
+                 <div class="item-count-badge">${cart.length}</div>
             </div>
 
             ${cart.length === 0 ? html`
@@ -2480,7 +2507,7 @@ function Quotation() {
                             <span>- ${formatCurrency(discountAmount, currency)}</span>
                         </div>
                     `}
-                    <div class="summary-line-item">
+                    <div class="summary-line-item grand-total">
                         <span>Grand Total</span>
                         <span>${formatCurrency(total, currency)}</span>
                     </div>
@@ -2490,7 +2517,7 @@ function Quotation() {
                     <button onClick=${() => setShowPreview(true)} class="btn">
                         <i class="fa-solid fa-eye"></i> Preview
                     </button>
-                    <button class="btn" onClick=${handlePrint}><i class="fa-solid fa-print"></i> Print Quote</button>
+                    <button class="btn" onClick=${handlePrint}><i class="fa-solid fa-print"></i> Print</button>
                     <button onClick=${generatePdf} class="btn btn-primary">
                         <i class="fa-solid fa-file-arrow-down"></i> Generate PDF
                     </button>
@@ -3027,6 +3054,7 @@ ${catalogString}`;
     }
 
     return html`
+        <div class="top-bar"></div>
         <${AppContext.Provider} value=${{
             cart, setCart,
             clientInfo, setClientInfo,
@@ -3042,32 +3070,25 @@ ${catalogString}`;
             generatedFurnitechVideoUrl, isGeneratingFurnitechVideo, furnitechVideoGenerationError, furnitechVideoGenerationStatus, generateFurnitechVideo,
             isAuthenticated, setIsAuthenticated, showAuthModal, setShowAuthModal,
         }}>
-            <header>
-                <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Office Furniture Logo" class="header-logo" />
-                <div class="header-controls">
-                    <div class="currency-selector">
-                        <i class="fa-solid fa-coins"></i>
-                        <span>Currency:</span>
-                        <select value=${currency} onChange=${e => setCurrency(e.target.value)}>
-                            ${Object.keys(currencyRates).map(c => html`<option value=${c}>${c}</option>`)}
-                        </select>
+            <div class="container">
+                <header>
+                    <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Office Furniture Logo" class="header-logo" />
+                    <div class="header-controls">
+                        <div class="currency-selector">
+                            <i class="fa-solid fa-coins"></i>
+                            <span>Currency:</span>
+                            <select value=${currency} onChange=${e => setCurrency(e.target.value)}>
+                                ${Object.keys(currencyRates).map(c => html`<option value=${c}>${c}</option>`)}
+                            </select>
+                        </div>
                     </div>
-                     ${!isAuthenticated
-                        ? html`
-                            <button class="btn" onClick=${() => setShowAuthModal(true)}>
-                                <i class="fa-solid fa-right-to-bracket"></i> Log In / Sign Up
-                            </button>`
-                        : html`
-                            <button class="btn" onClick=${() => setIsAuthenticated(false)}>
-                                <i class="fa-solid fa-right-from-bracket"></i> Log Out
-                            </button>`
-                    }
-                </div>
-            </header>
+                </header>
+            </div>
             <main class="container">
                 <div class="main-layout">
                     <div class="content-section">
                         <${ProductBundles} />
+                        <${CallToActionBanner} />
                         <${ProductGrid} />
                         
                         <h2 class="section-title">
