@@ -1,2 +1,1 @@
-A  auto_push.bat
-A  status.txt
+ M status.txt
