@@ -52,31 +52,23 @@ const convertSvgToPng = (svgDataUrl: string): Promise<string> => {
     });
 };
 
-// --- Data (Updated from OBRA Catalog CSV without image URLs) ---
+// --- Data from OBRA Catalog ---
 const initialProducts = [
-    {"code":"22-FB03-EGC BLK 1.6m","name":"L-Type Executive Glass Top Table","category":"Executive Tables","dimensions":"L160cm x W80cm x H75cm","price":"20380","description":"12mm tempered glass, Melamine front panel, Aluminium alloy frame, Mobile pedestal."},
-    {"code":"NKT-EGC-003 1.8M","name":"L-Type Executive Glass Top Table","category":"Executive Tables","dimensions":"L180cm x W80cm x H76cm","price":"22550","description":"12mm thickness glass counter top, Melamine legs, Melamine front panel, Extension table, Mobile pedestal."},
-    {"code":"OFT-EGC-GA13","name":"L-Type Executive Glass Top Table","category":"Executive Tables","dimensions":"L160cm x W70cm x H76 cm","price":"21825","description":"Glass top, Metal frame and modesty, Grommet hole, Mobile pedestal with safety lock."},
-    {"code":"SQ-EGC-1716 2m","name":"L-Type Executive Table","category":"Executive Tables","dimensions":"L180cm x W80cm x H76cm","price":"25200","description":"System unit bin, Side drawers with safety lock, Close-in cabinets, Grommet."},
-    {"code":"CT-EGC-1808","name":"Corner Office Table","category":"Office Tables","dimensions":"L120cm x W80cm x H76cm","price":"6527","description":"Tubular Steel frame, Side rack for storage."},
-    {"code":"STYTBL-EGC 1.2m","name":"Study Table","category":"Office Tables","dimensions":"L120cm x W60cm x H75cm","price":"7412","description":"MDF board, Wide leg room for comfort, Tubular steel frame (3 inches)."},
-    {"code":"OFT-EGC-3092","name":"Office table with metal frame","category":"Office Tables","dimensions":"L120cm x W60cm x H75cm","price":"5450","description":"MDF board with laminated finish, Metal frame and modesty panel, With cable management on side legs."},
-    {"code":"OT-EGC-614","name":"Melamine Office Table","category":"Office Tables","dimensions":"L140cm x W70cm x H76cm","price":"9450","description":"Melamine wood construction, Soft-close cabinet door, Grommet for cable management.","colors": [{ "name": "Natural Oak", "value": "#d2b48c" }, { "name": "Dark Walnut", "value": "#6f4e37" }, { "name": "White", "value": "#ffffff" }] },
-    {"code":"NKT-EGC-006 1.4M","name":"2-tone Office Table","category":"Office Tables","dimensions":"L140cm x W70cm x H76cm","price":"7625","description":"Modern 2-tone design, Grommet, Cabinet with soft close door, Drawer with combi-lock."},
-    {"code":"YS946-EGC-6 Blk","name":"Fabric Office Chair","category":"Office Chairs","dimensions":"L56cm x W46cm x H86cm","price":"2869","description":"360° swivel, Chrome plated star-base, Adjustable height, Fabric upholstery.","colors": [{ "name": "Black", "value": "#212529" }, { "name": "Gray", "value": "#6c757d" }, { "name": "Royal Blue", "value": "#0d6efd" }] },
-    {"code":"109DJNSX-EGC-BLK","name":"Leatherette Office Chair","category":"Office Chairs","dimensions":"L57cm x W54cm x H106cm","price":"4215","description":"360° swivel, Chrome plated frame star-base, Adjustable height, Upholstered in leather (seat and backrest), Recline adjustment.","colors": [{ "name": "Black", "value": "#212529" }, { "name": "White", "value": "#f8f9fa" }] },
-    {"code":"YS-EGC-1102","name":"Mesh Office Chair","category":"Office Chairs","dimensions":"L60cm x W49cm x H104cm","price":"3595","description":"360° swivel, Nylon plastic airflow backrest, Chrome plated star-base, Adjustable height.","colors": [{ "name": "Black", "value": "#212529" }, { "name": "Red", "value": "#dc3545" }, { "name": "Green", "value": "#198754" }] },
-    {"code":"A041FJNSX-EGC","name":"High-back Leatherette Executive Chair","category":"Office Chairs","dimensions":"L60cm x W52cm x H101cm","price":"5160","description":"360° swivel, Chrome plated star-base, Soft seat cushion, Padded armrest."},
-    {"code":"C-BD168 (HB)-EGC","name":"High back executive chair","category":"Office Chairs","dimensions":"N/A","price":"8650","description":"Leatherette back and seat, Aluminum armrest with padding, Aluminum starbase, Color: Black Brown.","colors": [{ "name": "Black Brown", "value": "#3d2b1f" }, { "name": "Black", "value": "#212529" }] },
-    {"code":"22-FM01-EGC BLK","name":"Conference Glass Table","category":"Conference Tables","dimensions":"L240cm x W120cm x H75cm","price":"28465","description":"Tempered Glass top, Tubular steel frame, Grommet for cable management."},
-    {"code":"SQ-EGC-1709 3.2m","name":"12-Seater Conference Table","category":"Conference Tables","dimensions":"L320cm x W120cm x H75cm","price":"20019","description":"Maximum 12 seating capacity, MDF board, Tubular steel legs."},
-    {"code":"CFT-EGC-802 (3.2)","name":"Conference Table / Workstation","category":"Conference Tables","dimensions":"L320cm x W120cm x H75cm","price":"21975","description":"Can be used as a workstation, MDF board, Metal frame with center legs, With wire management, 2 Grommets."},
-    {"code":"SQ-EGC-1707","name":"4-Seater Workstation","category":"Workstations","dimensions":"L240cm x W120cm x H75cm","price":"25900","description":"MDF board, Grommet, Space saver design, Cabinet storage with safety lock, Four seating capacity."},
-    {"code":"OFT-EGC-8140","name":"4-Seater Workstation with Drawers","category":"Workstations","dimensions":"L280cm x W120cm x H75cm","price":"31625","description":"MDF board laminated finish, Grommet, Glass divider, 4 mobile drawers with safety lock, Metal legs."},
-    {"code":"GF-EGC HF006","name":"Metal Mobile Pedestal","category":"Storage","dimensions":"L39cm x W50cm x H60cm","price":"4550","description":"Acid washed, phosphatized and electrostatic powder coating finish. Superior Gang drawer locking system, 2 personal drawers and 1 full filing drawer, Pencil tray."},
-    {"code":"LD-EGC-A4","name":"Lateral Filing Steel Cabinet 4 Drawer","category":"Storage","dimensions":"L90cm x W45cm x H133cm","price":"10899","description":"Superior gang locking system with 2 keys, Full extension drawer with full handle, Full extension ball bearing drawer runners, Powder coated metal, Gauge 22."},
-    {"code":"WLS-EGC-026","name":"Wardrobe Steel Cabinet","category":"Storage","dimensions":"L90cm x W50cm x H185cm","price":"9935","description":"2-columns 5-layer shelves, 2 swing doors, Combine shelving space with clothes-hanging space, Powder coated metal."},
-    {"code":"3L-EGC-B6","name":"18-door Steel Locker Cabinet","category":"Storage","dimensions":"L90cm x W35cm x H180cm","price":"12095","description":"Powder coated metal, High quality cold-rolled steel, Recessed handles, card holder, air ventilation and padlock hasp (padlock not included)."}
+    {"code":"OBSC-RS4","name":"4 Layer Vertical Steel Filing Cabinet","category":"Storage","price":"7900.00","description":"Maximize your office organization with our Superior Gang Drawer, designed for efficiency and security. This robust storage solution comes with a locking system and two keys, ensuring your documents are safe and private.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/Vertical-Recessed.jpg"},
+    {"code":"OBET-528fJ","name":"Executive Office Chair","category":"Office Chairs","price":"5699.00","description":"Step into the realm of comfort and elegance with our High-back Leatherette Executive Chair. Designed for the discerning professional, this chair features a 360° swivel mechanism and a chrome-plated star-base for a sleek, modern look.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/7-2.png"},
+    {"code":"OBET-SQ-1801","name":"Executive Table","category":"Executive Tables","price":"21499.00","description":"Elevate your professional space with our Executive Table, a symbol of sophistication and functionality. Finished with a high-quality melamine surface, this table is not only stylish but also exceptionally durable. It features a close-in cabinet and a mobile pedestal.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/5-1.jpg"},
+    {"code":"OBRA-WLS15","name":"15-Door Steel Locker","category":"Storage","price":"13299.00","description":"Optimize your storage with our Powder Coated Metal Locker Cabinet, crafted from high-quality cold-rolled steel for unmatched durability. This locker cabinet features recessed handles, a card holder, and air ventilation.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/3LB5.png"},
+    {"code":"OBOT-614","name":"Melamine Wood Office Table","category":"Office Tables","price":"8299.00","description":"Elevate Your Workspace: Discover the perfect blend of style and functionality with our Melamine Wood Office Table. Designed with a soft-close cabinet door and a convenient grommet for cable management, this table is a must-have for any modern professional.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/9-3.jpg"},
+    {"code":"OBTT-FT12","name":"Foldable Training Table","category":"Conference Tables","price":"5499.00","description":"Maximize Your Training Space: Introducing our White MDF Training Table, the epitome of modern functionality. Crafted with a high-quality laminated finish, this table is not only aesthetically pleasing but also incredibly durable.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/Training-Table-3.webp"},
+    {"code":"OBCT-CFT24","name":"12-Seater Conference Table","category":"Conference Tables","price":"13899.00","description":"Our 12 Seater Conference Table is the cornerstone of any large meeting room, offering ample space for teams to gather and strategize. The boat-shaped design and quality construction provide a professional setting for productive meetings.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/26-1.png"},
+    {"code":"OBEC-04AJNSX","name":"High Back Mesh Executive Chair","category":"Office Chairs","price":"4499.00","description":"Discover the epitome of comfort and style with our High Back Mesh Executive Chair. Designed for the discerning professional, this chair features a breathable mesh back that contours to your body, providing exceptional support throughout the workday.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/1000043584.jpg"},
+    {"code":"OBOT-171618","name":"L-Shape Executive Office Table","category":"Executive Tables","price":"23499.00","description":"Transform your office into a haven of sophistication with our meticulously designed Wooden L-type Executive Table. This premium table is thoughtfully equipped with a system unit bin, allowing you to keep your computer or other devices neatly tucked away.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/8-3.png"},
+    {"code":"OBOC-MNKC1","name":"Fabric Office Chair","category":"Office Chairs","price":"2699.00","description":"Upgrade your office space with our premium Fabric Office Chair. Designed for both comfort and style, this chair is a perfect choice for long hours of work. With a 360-degree swivel function, you can easily move around your workspace without any hassle.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/600x600-39-1.jpg"},
+    {"code":"OBET-GT16","name":"Glass Top Executive Office Table","category":"Executive Tables","price":"19499.00","description":"Transform your workspace with our exquisite office furniture set. The centerpiece, a stunning tempered glass counter-top, sits atop robust melamine legs, ensuring stability and longevity.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/6-3.webp"},
+    {"code":"OBOT-T01","name":"Metal Office Table","category":"Office Tables","price":"5499.00","description":"Introducing our eco-conscious office desk, meticulously crafted with an acid-washed phosphatized treatment and finished with an electrostatic powder coating to ensure durability while being kind to the planet.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/25-2.png"},
+    {"code":"OBWT-4S","name":"4-Seater Workstation Table","category":"Workstations","price":"16899.00","description":"Transform your workspace with our stylish and functional 4-seater workstation, designed to foster collaboration and maximize efficiency. Each workstation boasts a chic oak gray wood top and a vibrant choice of red or blue dividers.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/1000035614.jpg"},
+    {"code":"OBGC-S4","name":"4-Seater Gang Chair","category":"Office Chairs","price":"8199.00","description":"Introducing the ultimate seating solution – our Gang Chair, engineered for durability and comfort in busy environments. With its sleek profile and robust construction, this chair is an ideal choice for offices, conference rooms, and classrooms.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/4-Gang-Chair.jpg"},
+    {"code":"OBST-WLS28","name":"Glass Door Steel Cabinet","category":"Storage","price":"9999.00","description":"Present your collectibles, books, or awards in our elegant Metal Display Cabinet, a perfect blend of functionality and design. The robust powder-coated metal structure ensures durability, while the two swing glass doors offer a clear view.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/22-2-1.jpg"}
 ];
 
 const productBundles = [
@@ -85,9 +77,9 @@ const productBundles = [
         name: 'Executive Starter Pack',
         description: 'A complete setup for a manager\'s office, combining elegance and functionality for peak productivity.',
         items: [
-            { code: '22-FB03-EGC BLK 1.6m', quantity: 1, name: 'L-Type Executive Glass Top Table' },
-            { code: 'C-BD168 (HB)-EGC', quantity: 1, name: 'High back executive chair' },
-            { code: 'LD-EGC-A4', quantity: 1, name: 'Lateral Filing Steel Cabinet 4 Drawer' }
+            { code: 'OBET-SQ-1801', quantity: 1 }, // L-Type Executive Glass Top Table
+            { code: 'OBET-528fJ', quantity: 1 },    // High back executive chair
+            { code: 'OBSC-RS4', quantity: 1 }      // Lateral Filing Steel Cabinet
         ]
     },
     {
@@ -95,8 +87,8 @@ const productBundles = [
         name: '4-Person Workstation Hub',
         description: 'Equip your team with this modern and efficient 4-seater workstation, complete with ergonomic chairs.',
         items: [
-            { code: 'SQ-EGC-1707', quantity: 1, name: '4-Seater Workstation' },
-            { code: 'YS-EGC-1102', quantity: 4, name: 'Mesh Office Chair' },
+            { code: 'OBWT-4S', quantity: 1 },    // 4-Seater Workstation
+            { code: 'OBEC-04AJNSX', quantity: 4 },    // Mesh Office Chair
         ]
     }
 ];
@@ -158,6 +150,13 @@ const AppContext = createContext({
     setIsAuthenticated: (value: boolean) => {},
     showAuthModal: false,
     setShowAuthModal: (value: boolean) => {},
+    isVisualizingProduct: false,
+    visualizedProduct: null,
+    visualizationResult: null,
+    visualizeProduct: async (product: any) => {},
+    clearVisualization: () => {},
+    initialStudioImage: null,
+    setInitialStudioImage: (value: any) => {},
 });
 
 const formatCurrency = (amount, currency) => {
@@ -319,12 +318,14 @@ function GatedFeature({ children, title, iconClass, description }) {
 }
 
 function ProductCard({ product }) {
-    const { cart, setCart, currency, generatedDescriptions, generating, generationError, generateDescription, wishlist, setWishlist } = useContext(AppContext);
+    const { cart, setCart, currency, generatedDescriptions, generating, generationError, generateDescription, wishlist, setWishlist, visualizeProduct, isVisualizingProduct, visualizedProduct } = useContext(AppContext);
     const [selectedColor, setSelectedColor] = useState(product.colors ? product.colors[0] : null);
 
-    const isGenerating = generating[product.code];
+    const isGeneratingDesc = generating[product.code];
     const description = generatedDescriptions[product.code];
     const error = generationError[product.code];
+
+    const isVisualizingThis = isVisualizingProduct && visualizedProduct?.code === product.code;
 
     const addToCart = () => {
         setCart(prevCart => {
@@ -339,9 +340,15 @@ function ProductCard({ product }) {
         });
     };
 
-    const handleGenerate = () => {
-        if (!isGenerating) {
+    const handleGenerateDesc = () => {
+        if (!isGeneratingDesc) {
             generateDescription(product);
+        }
+    };
+
+    const handleVisualize = () => {
+        if (!isVisualizingProduct) {
+            visualizeProduct(product);
         }
     };
     
@@ -358,13 +365,18 @@ function ProductCard({ product }) {
 
     return html`
         <div class="product-card" aria-label="Product">
+            <div class="product-image-wrapper">
+                <img 
+                    src=${product.imageUrl} 
+                    alt=${product.name} 
+                    class="product-image" 
+                    loading="lazy" 
+                    onError=${(e) => { e.target.onerror = null; e.target.src = 'https://i.imgur.com/3g2N0aT.png'; }} 
+                />
+            </div>
             <div class="product-info">
                 <h3 class="product-name">${product.name}</h3>
                 <p class="product-sku">SKU: ${product.code}</p>
-                <p class="product-dimensions">
-                    <i class="fa-solid fa-ruler-combined"></i>
-                    ${product.dimensions}
-                </p>
                 ${product.colors && html`
                     <div class="color-options">
                         <span class="color-label">Color:</span>
@@ -394,8 +406,11 @@ function ProductCard({ product }) {
                 </div>
             </div>
             <div class="product-furnitech-actions">
-                <button onClick=${handleGenerate} disabled=${isGenerating} class="btn-furnitech-generate" aria-label="Generate Furnitech description for ${product.name}">
-                     ${isGenerating ? html`<div class="loading-spinner-small"></div> Generating...` : html`<i class="fa-solid fa-wand-magic-sparkles"></i> Generate Description`}
+                <button onClick=${handleVisualize} disabled=${isVisualizingProduct} class="btn-furnitech-generate" aria-label="Visualize ${product.name} with Furnitech">
+                     ${isVisualizingThis ? html`<div class="loading-spinner-small"></div> Visualizing...` : html`<i class="fa-solid fa-eye"></i> Visualize`}
+                </button>
+                <button onClick=${handleGenerateDesc} disabled=${isGeneratingDesc} class="btn-furnitech-generate" aria-label="Generate Furnitech description for ${product.name}">
+                     ${isGeneratingDesc ? html`<div class="loading-spinner-small"></div> Generating...` : html`<i class="fa-solid fa-wand-magic-sparkles"></i> Description`}
                 </button>
             </div>
             ${ (description || error) && html`
@@ -712,7 +727,8 @@ function FurnitechSpacePlanner() {
 function FurnitechImageStudio() {
     const { 
         generatedFurnitechImages, isGeneratingFurnitechImages, furnitechImageGenerationError, generateFurnitechImages,
-        editedFurnitechImageResults, setEditedFurnitechImageResults, isEditingFurnitechImage, setIsEditingFurnitechImage, furnitechImageEditingError, editFurnitechImage 
+        editedFurnitechImageResults, setEditedFurnitechImageResults, isEditingFurnitechImage, setIsEditingFurnitechImage, furnitechImageEditingError, editFurnitechImage,
+        initialStudioImage, setInitialStudioImage
     } = useContext(AppContext);
 
     const [mode, setMode] = useState('generate'); // 'generate' or 'edit'
@@ -743,6 +759,18 @@ function FurnitechImageStudio() {
     };
 
     const STYLE_SUGGESTIONS = ['Cinematic Lighting', 'Vintage Poster', 'Minimalist', 'Art Deco', 'Cyberpunk', 'Watercolor', 'Sketch', 'Logo'];
+
+    useEffect(() => {
+        if (initialStudioImage) {
+            setMode('edit');
+            setEditImages([initialStudioImage]);
+            setInitialStudioImage(null); // consume it
+            const studioCard = document.querySelector('.furnitech-image-studio-card');
+            if (studioCard) {
+                studioCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    }, [initialStudioImage]);
     
     const handleAddStyle = (style) => {
         if (style && !styles.includes(style)) {
@@ -773,6 +801,7 @@ function FurnitechImageStudio() {
                                 name: file.name,
                                 mimeType: file.type,
                                 data: event.target.result.split(',')[1],
+                                dataUrl: event.target.result,
                             });
                         } else {
                             resolve(null);
@@ -945,7 +974,7 @@ function FurnitechImageStudio() {
     };
 
     return html`
-        <div class="card">
+        <div class="card furnitech-image-studio-card">
             <div class="card-title-wrapper">
                 <div class="card-title-main">
                     <i class="fa-solid fa-paintbrush"></i>
@@ -1072,7 +1101,7 @@ function FurnitechImageStudio() {
                             <div class="image-batch-preview">
                                 ${editImages.map((image, index) => html`
                                     <div class="preview-thumb-card" key=${index}>
-                                        <img src=${`data:${image.mimeType};base64,${image.data}`} alt="Preview ${image.name}" />
+                                        <img src=${image.dataUrl} alt="Preview ${image.name}" />
                                         <button type="button" class="btn-remove-thumb" onClick=${() => removeEditImage(index)}>×</button>
                                     </div>
                                 `)}
@@ -1095,7 +1124,7 @@ function FurnitechImageStudio() {
                                      onTouchMove=${handleMouseMove}
                                      onTouchEnd=${handleMouseUp}
                                  >
-                                    <img src=${`data:${editImages[0].mimeType};base64,${editImages[0].data}`} alt="Image to edit" />
+                                    <img src=${editImages[0].dataUrl} alt="Image to edit" />
                                     ${selection && html`
                                         <div 
                                             class="selection-marquee"
@@ -1368,7 +1397,9 @@ function BundleCard({ bundle }) {
             bundle.items.forEach(bundleItem => {
                 const product = initialProducts.find(p => p.code === bundleItem.code);
                 if (product) {
-                    const selectedColor = product.colors ? product.colors[0] : null;
+                    // FIX: Cast product to `any` to access the optional `colors` property.
+                    // The type inferred from `initialProducts` does not include `colors`, but other parts of the app expect it to be potentially available.
+                    const selectedColor = (product as any).colors ? (product as any).colors[0] : null;
                     const cartId = product.code + (selectedColor ? `-${selectedColor.name}` : '');
                     const existingItemIndex = newCart.findIndex(cartItem => cartItem.cartId === cartId);
                     if (existingItemIndex > -1) {
@@ -1388,12 +1419,10 @@ function BundleCard({ bundle }) {
                 <h3 class="bundle-name">${bundle.name}</h3>
                 <p class="bundle-description">${bundle.description}</p>
                 <ul class="bundle-item-list">
-                    ${bundle.items.map(item => html`
-                        <li key=${item.code}>
-                            <span class="bundle-item-qty">${item.quantity}x</span> 
-                            <span class="bundle-item-name">${item.name}</span>
-                        </li>
-                    `)}
+                    ${bundle.items.map(item => {
+                        const product = initialProducts.find(p => p.code === item.code);
+                        return product ? html`<li key=${item.code}><span>${item.quantity}x</span> ${product.name}</li>` : null;
+                    })}
                 </ul>
             </div>
             <div class="bundle-footer">
@@ -1419,7 +1448,7 @@ function ProductBundles() {
                     <h2 class="card-title">Product Bundles</h2>
                 </div>
             </div>
-            <p class="section-intro">
+            <p class="furnitech-feature-intro">
                 Get started quickly with our curated furniture packages. Add a complete setup to your quote with just one click.
             </p>
             <div class="product-bundles-grid">
@@ -1438,12 +1467,12 @@ function CallToActionBanner() {
                 <h2>Ready to Build Your Perfect Office?</h2>
                 <p>Get a comprehensive, no-obligation quotation in minutes.</p>
                 <button class="btn btn-cta" onClick=${() => {
-                    const aside = document.querySelector('aside');
-                    if (aside) {
-                        aside.scrollIntoView({ behavior: 'smooth' });
+                    const quoteSection = document.querySelector('.quotation-builder-section');
+                    if (quoteSection) {
+                        quoteSection.scrollIntoView({ behavior: 'smooth' });
                     }
                  }}>
-                    Start Your Free Quote Now
+                    Start Your Free Quote Now <i class="fa-solid fa-arrow-right"></i>
                 </button>
             </div>
         </div>
@@ -1459,6 +1488,7 @@ function ProductGrid() {
     const [isSearchFocused, setIsSearchFocused] = useState(false);
     const [isGeneratingCatalog, setIsGeneratingCatalog] = useState(false);
     const [isFilterPanelOpen, setIsFilterPanelOpen] = useState(false);
+    const [showAll, setShowAll] = useState(false);
     const { currency } = useContext(AppContext);
 
     const categories = useMemo(() => [...new Set(initialProducts.map(p => p.category))], []);
@@ -1512,6 +1542,9 @@ function ProductGrid() {
 
         return sorted;
     }, [searchQuery, selectedCategories, sortOrder, selectedPriceRanges, fuse]);
+    
+    const productLimit = 6;
+    const productsToShow = showAll ? filteredAndSortedProducts : filteredAndSortedProducts.slice(0, productLimit);
 
     const handleSearchChange = (e) => {
         const query = e.target.value;
@@ -1564,12 +1597,11 @@ function ProductGrid() {
             doc.text("Product Catalog", 196, 20, { align: 'right' });
 
             // Table
-            const head = [['SKU', 'Product Name', 'Category', 'Dimensions', 'Price']];
+            const head = [['SKU', 'Product Name', 'Category', 'Price']];
             const body = initialProducts.map(item => ([
                 item.code,
                 item.name,
                 item.category,
-                item.dimensions,
                 formatCurrency(item.price, currency)
             ]));
 
@@ -1600,15 +1632,15 @@ function ProductGrid() {
 
     return html`
         <div class="card product-grid-card">
+            <${CallToActionBanner} />
             <div class="product-grid-header">
                 <div class="card-title-wrapper">
                     <div class="card-title-main">
                         <i class="fa-solid fa-store"></i>
                         <h2 class="card-title">Product Catalog</h2>
                     </div>
-                    <button onClick=${generateCatalogPdf} disabled=${isGeneratingCatalog} class="btn btn-secondary">
-                        ${isGeneratingCatalog ? html`<div class="loading-spinner-dark"></div>` : html`<i class="fa-solid fa-file-pdf"></i>`} 
-                        <span class="btn-text-desktop">Download Catalog</span>
+                    <button onClick=${generateCatalogPdf} disabled=${isGeneratingCatalog} class="btn">
+                        ${isGeneratingCatalog ? html`<div class="loading-spinner-dark"></div>` : html`<i class="fa-solid fa-file-pdf"></i>`} Download Catalog
                     </button>
                 </div>
                 <div class="search-and-filter-wrapper">
@@ -1633,7 +1665,7 @@ function ProductGrid() {
                     </div>
                     <button class="btn btn-secondary btn-filter" onClick=${() => setIsFilterPanelOpen(prev => !prev)}>
                         <i class="fa-solid fa-filter"></i>
-                        <span class="btn-text-desktop">Filters</span>
+                        <span>Filters</span>
                     </button>
                 </div>
             </div>
@@ -1688,13 +1720,20 @@ function ProductGrid() {
                     </div>
                 </div>
             `}
-            ${filteredAndSortedProducts.length > 0 ? html`
+            ${productsToShow.length > 0 ? html`
                 <div class="product-grid">
-                    ${filteredAndSortedProducts.map(product => html`<${ProductCard} key=${product.code} product=${product} />`)}
+                    ${productsToShow.map(product => html`<${ProductCard} key=${product.code} product=${product} />`)}
                 </div>
             ` : html`
                 <div class="no-results">
                     <p>No products found matching your criteria.</p>
+                </div>
+            `}
+            ${filteredAndSortedProducts.length > productLimit && html`
+                <div class="product-grid-footer">
+                    <button onClick=${() => setShowAll(prev => !prev)} class="btn">
+                        ${showAll ? 'Show Less' : `Show All ${filteredAndSortedProducts.length} Products`}
+                    </button>
                 </div>
             `}
         </div>
@@ -1708,12 +1747,10 @@ function ClientInfoForm() {
         setClientInfo(prev => ({ ...prev, [name]: value }));
     };
     return html`
-        <div class="card">
+        <div class="card client-info-card">
             <div class="card-title-wrapper">
-                <div class="card-title-main">
-                    <i class="fa-solid fa-user-tie"></i>
-                    <h2 class="card-title">Client Information</h2>
-                </div>
+                <i class="fa-solid fa-user-tie"></i>
+                <h2 class="card-title">Client Information</h2>
             </div>
             <div class="client-info-form">
                 <div class="form-group">
@@ -1799,7 +1836,9 @@ function ProductMention({ productCode }) {
 
     const addToCart = () => {
         setCart(prevCart => {
-            const selectedColor = product.colors ? product.colors[0] : null;
+            // FIX: Cast product to `any` to access the optional `colors` property.
+            // The type inferred from `initialProducts` does not include `colors`, but other parts of the app expect it to be potentially available.
+            const selectedColor = (product as any).colors ? (product as any).colors[0] : null;
             const cartId = product.code + (selectedColor ? `-${selectedColor.name}` : '');
             const existingItem = prevCart.find(item => item.cartId === cartId);
             if (existingItem) {
@@ -2021,7 +2060,9 @@ function Wishlist() {
         const product = initialProducts.find(p => p.code === code);
         if (product) {
             setCart(prevCart => {
-                const selectedColor = product.colors ? product.colors[0] : null;
+                // FIX: Cast product to `any` to access the optional `colors` property.
+                // The type inferred from `initialProducts` does not include `colors`, but other parts of the app expect it to be potentially available.
+                const selectedColor = (product as any).colors ? (product as any).colors[0] : null;
                 const cartId = product.code + (selectedColor ? `-${selectedColor.name}` : '');
                 const existingItem = prevCart.find(item => item.cartId === cartId);
                 if (existingItem) {
@@ -2036,13 +2077,13 @@ function Wishlist() {
     };
 
     return html`
-        <div class="card">
+        <div class="card wishlist-card">
             <div class="card-title-wrapper">
                 <div class="card-title-main">
                     <i class="fa-solid fa-heart"></i>
                     <h2 class="card-title">Wishlist</h2>
                 </div>
-                ${wishlist.length > 0 && html`<span class="item-count-badge">${wishlist.length}</span>`}
+                ${wishlist.length > 0 && html`<span class="wishlist-count">${wishlist.length}</span>`}
             </div>
 
             ${wishlist.length === 0 ? html`
@@ -2158,7 +2199,7 @@ function QuotationPreviewModal({ onClose, cart, clientInfo, currency, subtotal, 
 }
 
 function Quotation() {
-    const { cart, setCart, clientInfo, currency } = useContext(AppContext);
+    const { cart, setCart, clientInfo, currency, setCurrency } = useContext(AppContext);
     
     const [deliveryFee, setDeliveryFee] = useState(0);
     const [discount, setDiscount] =useState(0);
@@ -2208,7 +2249,7 @@ function Quotation() {
             // Header
             doc.addImage(pngLogo, 'PNG', 14, 12, 60, 20);
             doc.setFontSize(22);
-            doc.setFont('helvetica', 'bold');
+            doc.setFont( 'helvetica', 'bold');
             doc.text("QUOTATION", pageWidth - 14, 20, { align: 'right' });
 
             // Client Info and Dates
@@ -2237,14 +2278,13 @@ function Quotation() {
             doc.text(expiryDate.toLocaleDateString('en-US'), pageWidth - 14, 58, { align: 'right' });
 
             // Items Table
-            const head = [['SKU', 'Product Name', 'Dimensions', 'Qty', 'Unit Price', 'Total']];
+            const head = [['SKU', 'Product Name', 'Qty', 'Unit Price', 'Total']];
             const body = cart.map(item => ([
                 item.code,
                 item.selectedColor ? `${item.name} (${item.selectedColor.name})` : item.name,
-                item.dimensions,
-                { content: item.quantity, styles: { halign: 'right' } },
-                { content: formatCurrency(item.price, currency), styles: { halign: 'right' } },
-                { content: formatCurrency(Number(item.price) * item.quantity, currency), styles: { halign: 'right' } }
+                item.quantity,
+                formatCurrency(item.price, currency),
+                formatCurrency(Number(item.price) * item.quantity, currency)
             ]));
 
             autoTable(doc, {
@@ -2255,73 +2295,40 @@ function Quotation() {
                 headStyles: { fillColor: [22, 22, 22] },
                 didDrawPage: (data) => {
                     // Footer
-                    // Fix for: Property 'getNumberOfPages' does not exist on the type of `doc.internal`.
-                    // The installed type definitions for jspdf are likely outdated. Casting to 'any' to bypass the type check.
-                    const pageCount = (doc.internal as any).getNumberOfPages();
-                    const footerY = pageHeight - 20;
+                    const footerY = pageHeight - 25;
                     doc.setLineWidth(0.2);
                     doc.line(14, footerY, pageWidth - 14, footerY);
-
-                    const textY = footerY + 10;
-                    
                     doc.setFontSize(8);
-                    doc.setTextColor(100);
-                    doc.setFont('helvetica', 'normal');
-                    
-                    // Left: Date
-                    const dateStr = `Generated: ${new Date().toLocaleDateString('en-US')}`;
-                    doc.text(dateStr, 14, textY);
-                    
-                    // Center: Contact Info
-                    const contactText = "OBRA Office Furniture | obrafurniture@gmail.com | +63 915 743 9188";
-                    doc.text(contactText, pageWidth / 2, textY, { align: 'center' });
-
-                    // Right: Page Number
-                    const pageNumText = `Page ${data.pageNumber} of ${pageCount}`;
-                    doc.text(pageNumText, pageWidth - 14, textY, { align: 'right' });
-                    
-                    doc.setTextColor(0);
+                    doc.text("OBRA Office Furniture | obrafurniture@gmail.com | +63 915 743 9188", pageWidth / 2, footerY + 8, { align: 'center' });
+                    doc.text("Thank you for your business!", pageWidth / 2, footerY + 12, { align: 'center' });
                 }
             });
 
-            // Totals Section using autoTable for consistency
-            const finalY = (doc as any).lastAutoTable.finalY;
-            const totalsBody = [];
-            totalsBody.push(['Subtotal:', formatCurrency(subtotal, currency)]);
-            if (discountAmount > 0) {
-                totalsBody.push(['Discount:', `- ${formatCurrency(discountAmount, currency)}`]);
-            }
-            if (deliveryFee > 0) {
-                totalsBody.push(['Delivery Fee:', formatCurrency(deliveryFee, currency)]);
-            }
-            totalsBody.push(['TOTAL:', formatCurrency(total, currency)]);
+            // Totals Section
+            let finalY = (doc as any).lastAutoTable.finalY + 10;
+            doc.setFontSize(12);
+            doc.setFont('helvetica', 'bold');
 
-            autoTable(doc, {
-                startY: finalY + 8,
-                body: totalsBody,
-                theme: 'plain',
-                tableWidth: 'wrap',
-                margin: { left: pageWidth - 90 },
-                styles: { fontSize: 11, cellPadding: {top: 1, bottom: 1} },
-                columnStyles: {
-                    0: { halign: 'right' },
-                    1: { halign: 'right' }
-                },
-                didParseCell: (data) => {
-                    if (data.row.raw[0] === 'TOTAL:') {
-                        data.cell.styles.fontStyle = 'bold';
-                        data.cell.styles.fontSize = 13;
-                        // Fix for: Property 'styles' does not exist on type 'Row'. The jspdf-autotable documentation
-                        // states a styles object can be assigned to `row.styles`. We cast to `any` to bypass the type definition issue.
-                        (data.row as any).styles = { minCellHeight: 8 };
-                        // Fix for: Property 'borders' does not exist on type 'Styles'. This is likely a typo for the
-                        // deprecated 'border' property which controlled which borders to draw.
-                        (data.cell.styles as any).border = 't';
-                        doc.setLineWidth(0.3);
-                    }
-                }
-            });
-            doc.setLineWidth(0.2); // Reset line width after totals table
+            const addTotalLine = (label, value) => {
+                 if (finalY > pageHeight - 35) {
+                    doc.addPage();
+                    finalY = 20;
+                 }
+                 doc.text(label, pageWidth - 60, finalY);
+                 doc.setFont('helvetica', 'normal');
+                 doc.text(value, pageWidth - 14, finalY, { align: 'right' });
+                 doc.setFont('helvetica', 'bold');
+                 finalY += 7;
+            };
+            
+            addTotalLine("Subtotal:", formatCurrency(subtotal, currency));
+            if(discountAmount > 0) addTotalLine("Discount:", `- ${formatCurrency(discountAmount, currency)}`);
+            if(deliveryFee > 0) addTotalLine("Delivery Fee:", formatCurrency(deliveryFee, currency));
+
+            doc.setLineWidth(0.3);
+            doc.line(pageWidth - 60, finalY - 2, pageWidth - 14, finalY - 2);
+            doc.setFontSize(14);
+            addTotalLine("TOTAL:", formatCurrency(total, currency));
 
             doc.save(`Quotation-${clientInfo.company || 'Client'}-${quoteDate.toISOString().split('T')[0]}.pdf`);
         } catch (error) {
@@ -2330,122 +2337,19 @@ function Quotation() {
         }
     };
     
-    const handlePrint = useCallback(() => {
-        if (cart.length === 0) return;
-        if (!clientInfo.name || !clientInfo.company) {
-            alert("Please fill in the Client Name and Company Name before printing.");
-            return;
-        }
-
-        const printWindow = window.open('', '_blank');
-
-        const cartItemsHtml = cart.map(item => `
-            <tr>
-                <td>${item.code}</td>
-                <td>${item.selectedColor ? `${item.name} (${item.selectedColor.name})` : item.name}</td>
-                <td style="text-align: center;">${item.quantity}</td>
-                <td style="text-align: right;">${formatCurrency(item.price, currency)}</td>
-                <td style="text-align: right;">${formatCurrency(Number(item.price) * item.quantity, currency)}</td>
-            </tr>
-        `).join('');
-
-        const printContent = `
-            <html>
-                <head>
-                    <title>Quotation - OBRA Office Furniture</title>
-                    <style>
-                        @media print {
-                            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-                        }
-                        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 1.5cm; color: #333; }
-                        .preview-header { display: flex; align-items: flex-start; justify-content: space-between; padding-bottom: 1rem; margin-bottom: 1.5rem; border-bottom: 2px solid #eee; }
-                        .preview-header img { height: 45px; }
-                        .preview-header h1 { font-size: 2.2rem; margin: 0; color: #111; }
-                        .preview-info { display: flex; justify-content: space-between; margin-bottom: 2rem; font-size: 0.9rem; }
-                        .info-block p { margin: 4px 0; }
-                        .info-block.align-right { text-align: right; }
-                        .preview-table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
-                        .preview-table th, .preview-table td { border: 1px solid #ddd; padding: 12px; text-align: left; font-size: 0.9rem; }
-                        .preview-table th { background-color: #f2f2f2; font-weight: bold; }
-                        .preview-table .align-right { text-align: right; }
-                        .preview-table .align-center { text-align: center; }
-                        .preview-totals { display: flex; justify-content: flex-end; }
-                        .totals-table { width: 100%; max-width: 350px; }
-                        .totals-table td { padding: 8px 0; }
-                        .totals-table .label { text-align: right; padding-right: 1.5rem; color: #555; }
-                        .totals-table .value { text-align: right; font-weight: bold; }
-                        .totals-table .grand-total td { border-top: 2px solid #333; padding-top: 10px; font-size: 1.2rem; }
-                        .preview-footer { text-align: center; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #eee; font-size: 0.85rem; color: #777; }
-                    </style>
-                </head>
-                <body>
-                    <div class="preview-header">
-                        <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" />
-                        <h1>QUOTATION</h1>
-                    </div>
-                    <div class="preview-info">
-                        <div class="info-block">
-                            <p><strong>Bill To:</strong></p>
-                            <p>${clientInfo.name || 'N/A'}</p>
-                            <p>${clientInfo.company || 'N/A'}</p>
-                            <p>${clientInfo.contact || 'N/A'}</p>
-                            <p>${clientInfo.email || 'N/A'}</p>
-                        </div>
-                        <div class="info-block align-right">
-                            <p><strong>Quotation #:</strong> OBRA-${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}${String(new Date().getDate()).padStart(2, '0')}</p>
-                            <p><strong>Date:</strong> ${new Date().toLocaleDateString('en-US')}</p>
-                        </div>
-                    </div>
-                    <table class="preview-table">
-                        <thead>
-                            <tr>
-                                <th>SKU</th>
-                                <th>Product Name</th>
-                                <th class="align-center">Qty</th>
-                                <th class="align-right">Unit Price</th>
-                                <th class="align-right">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${cartItemsHtml}
-                        </tbody>
-                    </table>
-                     <div class="preview-totals">
-                        <table class="totals-table">
-                            <tr><td class="label">Subtotal</td><td class="value">${formatCurrency(subtotal, currency)}</td></tr>
-                            ${discountAmount > 0 ? `<tr><td class="label">Discount</td><td class="value">- ${formatCurrency(discountAmount, currency)}</td></tr>` : ''}
-                            ${deliveryFee > 0 ? `<tr><td class="label">Delivery Fee</td><td class="value">${formatCurrency(deliveryFee, currency)}</td></tr>` : ''}
-                            <tr class="grand-total"><td class="label"><strong>TOTAL</strong></td><td class="value"><strong>${formatCurrency(total, currency)}</strong></td></tr>
-                        </table>
-                    </div>
-                    <div class="preview-footer">
-                         <p>OBRA Office Furniture | obrafurniture@gmail.com | +63 915 743 9188</p>
-                         <p>Thank you for your business!</p>
-                    </div>
-                </body>
-            </html>
-        `;
-
-        if (printWindow) {
-            printWindow.document.write(printContent);
-            printWindow.document.close();
-            printWindow.focus();
-            // Delay print to ensure images and styles are loaded
-            setTimeout(() => {
-                printWindow.print();
-                printWindow.close();
-            }, 250);
-        }
-    }, [cart, clientInfo, currency, subtotal, discountAmount, deliveryFee, total]);
-
     return html`
-        <div class="card quotation">
+        <div class="card quotation quotation-card">
             <div class="card-title-wrapper">
                 <div class="card-title-main">
                     <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" class="quotation-logo" />
                     <h2 class="card-title">Quotation</h2>
                 </div>
-                 <div class="item-count-badge">${cart.length}</div>
+                 <div class="currency-selector">
+                    <i class="fa-solid fa-coins"></i>
+                    <select value=${currency} onChange=${e => setCurrency(e.target.value)}>
+                        ${Object.keys(currencyRates).map(c => html`<option value=${c}>${c}</option>`)}
+                    </select>
+                </div>
             </div>
 
             ${cart.length === 0 ? html`
@@ -2512,7 +2416,7 @@ function Quotation() {
                             <span>- ${formatCurrency(discountAmount, currency)}</span>
                         </div>
                     `}
-                    <div class="summary-line-item grand-total">
+                    <div class="summary-line-item">
                         <span>Grand Total</span>
                         <span>${formatCurrency(total, currency)}</span>
                     </div>
@@ -2522,7 +2426,6 @@ function Quotation() {
                     <button onClick=${() => setShowPreview(true)} class="btn">
                         <i class="fa-solid fa-eye"></i> Preview
                     </button>
-                    <button class="btn" onClick=${handlePrint}><i class="fa-solid fa-print"></i> Print</button>
                     <button onClick=${generatePdf} class="btn btn-primary">
                         <i class="fa-solid fa-file-arrow-down"></i> Generate PDF
                     </button>
@@ -2541,6 +2444,63 @@ function Quotation() {
                 total=${total}
             />
         `}
+    `;
+}
+
+function ProductVisualizationModal() {
+    const { visualizedProduct, isVisualizingProduct, visualizationResult, clearVisualization, setInitialStudioImage } = useContext(AppContext);
+    
+    if (!visualizedProduct) return null;
+
+    const handleEdit = () => {
+        if (visualizationResult?.imageUrl) {
+            const imageObject = {
+                name: `${visualizedProduct.code}.png`,
+                mimeType: 'image/png',
+                data: visualizationResult.imageUrl.split(',')[1],
+                dataUrl: visualizationResult.imageUrl,
+            };
+            setInitialStudioImage(imageObject);
+        }
+        clearVisualization();
+    };
+    
+    return html`
+        <${Modal} onClose=${clearVisualization} title="Furnitech Visualization" customClass="product-visualization-modal">
+             <div class="visualization-content">
+                <h3 class="visualization-product-name">${visualizedProduct.name}</h3>
+                ${isVisualizingProduct && html`
+                    <div class="visualization-loading">
+                        <div class="loading-spinner-dark"></div>
+                        <p>Generating a visual concept...</p>
+                    </div>
+                `}
+                ${visualizationResult && html`
+                    ${visualizationResult.imageUrl && html`
+                        <div class="visualization-image-wrapper">
+                            <img src=${visualizationResult.imageUrl} alt="AI visualization of ${visualizedProduct.name}" />
+                        </div>
+                        <p class="visualization-note">This is an AI-generated concept image based on the product description.</p>
+                        <div class="visualization-actions">
+                            <button onClick=${handleEdit} class="btn btn-primary">
+                                <i class="fa-solid fa-pen-ruler"></i> Edit in Studio
+                            </button>
+                             <button onClick=${clearVisualization} class="btn">
+                                Close
+                            </button>
+                        </div>
+                    `}
+                    ${visualizationResult.error && html`
+                         <div class="visualization-error">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <h4>Visualization Failed</h4>
+                            <p>${visualizationResult.error}</p>
+                             <button onClick=${clearVisualization} class="btn">Close</button>
+                        </div>
+                    `}
+                `}
+            </div>
+        <//>
     `;
 }
 
@@ -2583,6 +2543,7 @@ function App() {
     const [editedFurnitechImageResults, setEditedFurnitechImageResults] = useState([]);
     const [isEditingFurnitechImage, setIsEditingFurnitechImage] = useState(false);
     const [furnitechImageEditingError, setFurnitechImageEditingError] = useState('');
+    const [initialStudioImage, setInitialStudioImage] = useState(null);
 
     // Wishlist State
     const [wishlist, setWishlist] = useState([]);
@@ -2592,6 +2553,11 @@ function App() {
     const [isGeneratingFurnitechVideo, setIsGeneratingFurnitechVideo] = useState(false);
     const [furnitechVideoGenerationError, setFurnitechVideoGenerationError] = useState('');
     const [furnitechVideoGenerationStatus, setFurnitechVideoGenerationStatus] = useState('');
+
+    // Product Visualization State
+    const [isVisualizingProduct, setIsVisualizingProduct] = useState(false);
+    const [visualizedProduct, setVisualizedProduct] = useState(null);
+    const [visualizationResult, setVisualizationResult] = useState(null);
 
     // Auth State
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -2620,6 +2586,45 @@ function App() {
         console.error("Failed to initialize GoogleGenAI", e);
         // Render an error message to the user
     }
+
+    const visualizeProduct = async (product) => {
+        if (!ai) return;
+        setIsVisualizingProduct(true);
+        setVisualizedProduct(product);
+        setVisualizationResult(null);
+
+        try {
+            const prompt = `Create a single, photorealistic, 4k resolution image of the following office furniture item: '${product.name}'. 
+            Description: ${product.description}. 
+            Category: ${product.category}.
+            The item should be the central focus, professionally lit, and displayed in a clean, modern, minimalist showroom with a light gray background and polished concrete floor. Do not include any other furniture, text, or logos.`;
+            
+            const imageResponse = await ai.models.generateImages({
+                model: 'imagen-4.0-generate-001',
+                prompt: prompt,
+                config: { 
+                    numberOfImages: 1, 
+                    aspectRatio: '1:1',
+                    outputMimeType: 'image/png'
+                },
+            });
+
+            const imageUrl = `data:image/png;base64,${imageResponse.generatedImages[0].image.imageBytes}`;
+            setVisualizationResult({ imageUrl, error: null });
+
+        } catch (error) {
+            console.error("Product visualization failed:", error);
+            setVisualizationResult({ imageUrl: null, error: "Sorry, I couldn't generate a visual for this product. The model may have refused the prompt." });
+        } finally {
+            setIsVisualizingProduct(false);
+        }
+    };
+    
+    const clearVisualization = () => {
+        setIsVisualizingProduct(false);
+        setVisualizedProduct(null);
+        setVisualizationResult(null);
+    };
 
     const addLayoutToCart = (layout) => {
         setCart(prevCart => {
@@ -2791,7 +2796,7 @@ function App() {
         setGenerationError(prev => ({ ...prev, [product.code]: null }));
 
         try {
-            const prompt = `Generate a concise, appealing, and professional sales description for the following office furniture product. Highlight its key features and benefits for a potential buyer. The description should be a single paragraph, maximum 3-4 sentences. Product Details: Name: ${product.name}, Category: ${product.category}, Description: ${product.description}, Dimensions: ${product.dimensions}.`;
+            const prompt = `Generate a concise, appealing, and professional sales description for the following office furniture product. Highlight its key features and benefits for a potential buyer. The description should be a single paragraph, maximum 3-4 sentences. Product Details: Name: ${product.name}, Category: ${product.category}, Description: ${product.description}.`;
 
             const response = await ai.models.generateContent({
                 model: 'gemini-2.5-flash',
@@ -2844,7 +2849,7 @@ function App() {
     const editFurnitechImage = async ({ prompt, image, mask }) => {
         if (!ai || !image) return;
         setFurnitechImageEditingError('');
-        const originalUrl = `data:${image.mimeType};base64,${image.data}`;
+        const originalUrl = image.dataUrl;
 
         try {
             const parts = [];
@@ -3059,7 +3064,6 @@ ${catalogString}`;
     }
 
     return html`
-        <div class="top-bar"></div>
         <${AppContext.Provider} value=${{
             cart, setCart,
             clientInfo, setClientInfo,
@@ -3074,67 +3078,86 @@ ${catalogString}`;
             wishlist, setWishlist,
             generatedFurnitechVideoUrl, isGeneratingFurnitechVideo, furnitechVideoGenerationError, furnitechVideoGenerationStatus, generateFurnitechVideo,
             isAuthenticated, setIsAuthenticated, showAuthModal, setShowAuthModal,
+            isVisualizingProduct, visualizedProduct, visualizationResult, visualizeProduct, clearVisualization,
+            initialStudioImage, setInitialStudioImage,
         }}>
-            <div class="container">
-                <header>
-                    <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Office Furniture Logo" class="header-logo" />
-                    <div class="header-controls">
-                        <div class="currency-selector">
-                            <i class="fa-solid fa-coins"></i>
-                            <span>Currency:</span>
-                            <select value=${currency} onChange=${e => setCurrency(e.target.value)}>
-                                ${Object.keys(currencyRates).map(c => html`<option value=${c}>${c}</option>`)}
-                            </select>
-                        </div>
+            <header>
+                <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Office Furniture Logo" class="header-logo" />
+                <div class="header-controls">
+                    <div class="currency-selector">
+                        <i class="fa-solid fa-coins"></i>
+                        <span>Currency:</span>
+                        <select value=${currency} onChange=${e => setCurrency(e.target.value)}>
+                            ${Object.keys(currencyRates).map(c => html`<option value=${c}>${c}</option>`)}
+                        </select>
                     </div>
-                </header>
-            </div>
+                     ${!isAuthenticated
+                        ? html`
+                            <button class="btn" onClick=${() => setShowAuthModal(true)}>
+                                <i class="fa-solid fa-right-to-bracket"></i> Log In / Sign Up
+                            </button>`
+                        : html`
+                            <button class="btn" onClick=${() => setIsAuthenticated(false)}>
+                                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+                            </button>`
+                    }
+                </div>
+            </header>
             <main class="container">
                 <div class="main-layout">
                     <div class="content-section">
                         <${ProductBundles} />
-                        <${CallToActionBanner} />
                         <${ProductGrid} />
-                        
-                        <h2 class="section-title">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            Unlock Advanced Furnitech Tools
-                        </h2>
-
-                        <${GatedFeature} 
-                            title="Furnitech Office Space Planner" 
-                            iconClass="fa-solid fa-drafting-compass"
-                            description="Describe your space and get three AI-generated layout concepts with furniture recommendations and visualizations."
-                        >
-                            <${FurnitechSpacePlanner} />
-                        <//>
-                        <${GatedFeature} 
-                            title="Furnitech Image Studio" 
-                            iconClass="fa-solid fa-paintbrush"
-                            description="Generate inspirational images, logos, or product mockups. You can also edit existing images with a text prompt."
-                        >
-                            <${FurnitechImageStudio} />
-                        <//>
-                        <${GatedFeature} 
-                            title="Furnitech Video Studio" 
-                            iconClass="fa-solid fa-film"
-                            description="Create short promotional videos from a text description or a starting image to bring your concepts to life."
-                        >
-                            <${FurnitechVideoStudio} />
-                        <//>
-                         <${GatedFeature} 
-                            title="Furnitech Assistant" 
-                            iconClass="fa-solid fa-comments-dollar"
-                            description="Ask for product recommendations, design ideas, or the latest industry trends with our intelligent chat assistant."
-                         >
-                            <${FurnitechAssistant} />
-                        <//>
                     </div>
-                    <aside>
-                        <${ClientInfoForm} />
-                        <${Wishlist} />
-                        <${Quotation} />
-                    </aside>
+
+                    <div class="quotation-builder-section">
+                        <h2 class="section-title">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                            Build Your Quotation
+                        </h2>
+                        <div class="quotation-builder-grid">
+                            <${ClientInfoForm} />
+                            <${Wishlist} />
+                            <${Quotation} />
+                        </div>
+                    </div>
+                    
+                    <div class="furnitech-tools-section">
+                         <h2 class="section-title">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            Advanced Furnitech Tools
+                        </h2>
+                        <div class="furnitech-tools-grid">
+                            <${GatedFeature} 
+                                title="Furnitech Office Space Planner" 
+                                iconClass="fa-solid fa-drafting-compass"
+                                description="Describe your space and get three AI-generated layout concepts with furniture recommendations and visualizations."
+                            >
+                                <${FurnitechSpacePlanner} />
+                            <//>
+                            <${GatedFeature} 
+                                title="Furnitech Image Studio" 
+                                iconClass="fa-solid fa-paintbrush"
+                                description="Generate inspirational images, logos, or product mockups. You can also edit existing images with a text prompt."
+                            >
+                                <${FurnitechImageStudio} />
+                            <//>
+                            <${GatedFeature} 
+                                title="Furnitech Video Studio" 
+                                iconClass="fa-solid fa-film"
+                                description="Create short promotional videos from a text description or a starting image to bring your concepts to life."
+                            >
+                                <${FurnitechVideoStudio} />
+                            <//>
+                             <${GatedFeature} 
+                                title="Furnitech Assistant" 
+                                iconClass="fa-solid fa-comments-dollar"
+                                description="Ask for product recommendations, design ideas, or the latest industry trends with our intelligent chat assistant."
+                             >
+                                <${FurnitechAssistant} />
+                            <//>
+                        </div>
+                    </div>
                 </div>
             </main>
             <footer>
@@ -3149,6 +3172,7 @@ ${catalogString}`;
             </footer>
             
             ${modalUrl && html`<${WebsitePreviewModal} url=${modalUrl} onClose=${() => setModalUrl(null)} />`}
+            <${ProductVisualizationModal} />
             <${OnboardingModal} />
             <${AuthModal} />
         <//>
