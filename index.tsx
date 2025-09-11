@@ -55,18 +55,18 @@ const convertSvgToPng = (svgDataUrl: string): Promise<string> => {
 // --- Data from OBRA Catalog ---
 const initialProducts = [
     {"code":"OBSC-RS4","name":"4 Layer Vertical Steel Filing Cabinet","category":"Storage","price":"7900.00","description":"Maximize your office organization with our Superior Gang Drawer, designed for efficiency and security. This robust storage solution comes with a locking system and two keys, ensuring your documents are safe and private.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/Vertical-Recessed.jpg"},
-    {"code":"OBET-528fJ","name":"Executive Office Chair","category":"Office Chairs","price":"5699.00","description":"Step into the realm of comfort and elegance with our High-back Leatherette Executive Chair. Designed for the discerning professional, this chair features a 360° swivel mechanism and a chrome-plated star-base for a sleek, modern look.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/7-2.png"},
+    {"code":"OBET-528fJ","name":"Executive Office Chair","category":"Office Chairs","price":"5699.00","description":"Step into the realm of comfort and elegance with our High-back Leatherette Executive Chair. Designed for the discerning professional, this chair features a 360° swivel mechanism and a chrome-plated star-base for a sleek, modern look.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/7-2.png", "colors": [{ "name": "Black", "hex": "#212529" }, { "name": "Brown", "hex": "#8B4513" }]},
     {"code":"OBET-SQ-1801","name":"Executive Table","category":"Executive Tables","price":"21499.00","description":"Elevate your professional space with our Executive Table, a symbol of sophistication and functionality. Finished with a high-quality melamine surface, this table is not only stylish but also exceptionally durable. It features a close-in cabinet and a mobile pedestal.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/5-1.jpg"},
     {"code":"OBRA-WLS15","name":"15-Door Steel Locker","category":"Storage","price":"13299.00","description":"Optimize your storage with our Powder Coated Metal Locker Cabinet, crafted from high-quality cold-rolled steel for unmatched durability. This locker cabinet features recessed handles, a card holder, and air ventilation.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/3LB5.png"},
-    {"code":"OBOT-614","name":"Melamine Wood Office Table","category":"Office Tables","price":"8299.00","description":"Elevate Your Workspace: Discover the perfect blend of style and functionality with our Melamine Wood Office Table. Designed with a soft-close cabinet door and a convenient grommet for cable management, this table is a must-have for any modern professional.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/9-3.jpg"},
+    {"code":"OBOT-614","name":"Melamine Wood Office Table","category":"Office Tables","price":"8299.00","description":"Elevate Your Workspace: Discover the perfect blend of style and functionality with our Melamine Wood Office Table. Designed with a soft-close cabinet door and a convenient grommet for cable management, this table is a must-have for any modern professional.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/9-3.jpg", "colors": [{ "name": "Oak Gray", "hex": "#BDB7AB" }, { "name": "Walnut", "hex": "#5C4033" }]},
     {"code":"OBTT-FT12","name":"Foldable Training Table","category":"Conference Tables","price":"5499.00","description":"Maximize Your Training Space: Introducing our White MDF Training Table, the epitome of modern functionality. Crafted with a high-quality laminated finish, this table is not only aesthetically pleasing but also incredibly durable.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/Training-Table-3.webp"},
     {"code":"OBCT-CFT24","name":"12-Seater Conference Table","category":"Conference Tables","price":"13899.00","description":"Our 12 Seater Conference Table is the cornerstone of any large meeting room, offering ample space for teams to gather and strategize. The boat-shaped design and quality construction provide a professional setting for productive meetings.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/26-1.png"},
-    {"code":"OBEC-04AJNSX","name":"High Back Mesh Executive Chair","category":"Office Chairs","price":"4499.00","description":"Discover the epitome of comfort and style with our High Back Mesh Executive Chair. Designed for the discerning professional, this chair features a breathable mesh back that contours to your body, providing exceptional support throughout the workday.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/1000043584.jpg"},
+    {"code":"OBEC-04AJNSX","name":"High Back Mesh Executive Chair","category":"Office Chairs","price":"4499.00","description":"Discover the epitome of comfort and style with our High Back Mesh Executive Chair. Designed for the discerning professional, this chair features a breathable mesh back that contours to your body, providing exceptional support throughout the workday.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/1000043584.jpg", "colors": [{ "name": "Black", "hex": "#212529" }, { "name": "Grey", "hex": "#6c757d" }, { "name": "Blue", "hex": "#0d6efd" }] },
     {"code":"OBOT-171618","name":"L-Shape Executive Office Table","category":"Executive Tables","price":"23499.00","description":"Transform your office into a haven of sophistication with our meticulously designed Wooden L-type Executive Table. This premium table is thoughtfully equipped with a system unit bin, allowing you to keep your computer or other devices neatly tucked away.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/8-3.png"},
-    {"code":"OBOC-MNKC1","name":"Fabric Office Chair","category":"Office Chairs","price":"2699.00","description":"Upgrade your office space with our premium Fabric Office Chair. Designed for both comfort and style, this chair is a perfect choice for long hours of work. With a 360-degree swivel function, you can easily move around your workspace without any hassle.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/600x600-39-1.jpg"},
+    {"code":"OBOC-MNKC1","name":"Fabric Office Chair","category":"Office Chairs","price":"2699.00","description":"Upgrade your office space with our premium Fabric Office Chair. Designed for both comfort and style, this chair is a perfect choice for long hours of work. With a 360-degree swivel function, you can easily move around your workspace without any hassle.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/600x600-39-1.jpg", "colors": [{ "name": "Charcoal", "hex": "#343a40" }, { "name": "Ruby Red", "hex": "#ca1e48" }, { "name": "Forest Green", "hex": "#228B22" }]},
     {"code":"OBET-GT16","name":"Glass Top Executive Office Table","category":"Executive Tables","price":"19499.00","description":"Transform your workspace with our exquisite office furniture set. The centerpiece, a stunning tempered glass counter-top, sits atop robust melamine legs, ensuring stability and longevity.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/6-3.webp"},
     {"code":"OBOT-T01","name":"Metal Office Table","category":"Office Tables","price":"5499.00","description":"Introducing our eco-conscious office desk, meticulously crafted with an acid-washed phosphatized treatment and finished with an electrostatic powder coating to ensure durability while being kind to the planet.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/25-2.png"},
-    {"code":"OBWT-4S","name":"4-Seater Workstation Table","category":"Workstations","price":"16899.00","description":"Transform your workspace with our stylish and functional 4-seater workstation, designed to foster collaboration and maximize efficiency. Each workstation boasts a chic oak gray wood top and a vibrant choice of red or blue dividers.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/1000035614.jpg"},
+    {"code":"OBWT-4S","name":"4-Seater Workstation Table","category":"Workstations","price":"16899.00","description":"Transform your workspace with our stylish and functional 4-seater workstation, designed to foster collaboration and maximize efficiency. Each workstation boasts a chic oak gray wood top and a vibrant choice of red or blue dividers.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/1000035614.jpg", "colors": [{ "name": "Red Divider", "hex": "#dc3545" }, { "name": "Blue Divider", "hex": "#0d6efd" }] },
     {"code":"OBGC-S4","name":"4-Seater Gang Chair","category":"Office Chairs","price":"8199.00","description":"Introducing the ultimate seating solution – our Gang Chair, engineered for durability and comfort in busy environments. With its sleek profile and robust construction, this chair is an ideal choice for offices, conference rooms, and classrooms.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/4-Gang-Chair.jpg"},
     {"code":"OBST-WLS28","name":"Glass Door Steel Cabinet","category":"Storage","price":"9999.00","description":"Present your collectibles, books, or awards in our elegant Metal Display Cabinet, a perfect blend of functionality and design. The robust powder-coated metal structure ensures durability, while the two swing glass doors offer a clear view.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/22-2-1.jpg"}
 ];
@@ -101,6 +101,7 @@ const currencyRates = {
 };
 
 const AppContext = createContext({
+    products: initialProducts,
     cart: [],
     setCart: (value: any) => {},
     clientInfo: { name: '', company: '', contact: '', email: '' },
@@ -149,14 +150,22 @@ const AppContext = createContext({
     isAuthenticated: false,
     setIsAuthenticated: (value: boolean) => {},
     showAuthModal: false,
-    setShowAuthModal: (value: boolean) => {},
+    setShowAuthModal: (value: any) => {},
     isVisualizingProduct: false,
     visualizedProduct: null,
     visualizationResult: null,
-    visualizeProduct: async (product: any) => {},
+    visualizeProduct: async (product: any, sceneDescription: string) => {},
+    startVisualization: (product: any) => {},
     clearVisualization: () => {},
     initialStudioImage: null,
     setInitialStudioImage: (value: any) => {},
+    discount: 0,
+    setDiscount: (value: any) => {},
+    discountType: 'PHP',
+    setDiscountType: (value: any) => {},
+    deliveryFee: 0,
+    setDeliveryFee: (value: any) => {},
+    logoPng: null,
 });
 
 const formatCurrency = (amount, currency) => {
@@ -165,1541 +174,699 @@ const formatCurrency = (amount, currency) => {
     return `${symbol} ${value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 };
 
-function OnboardingModal() {
-    const [show, setShow] = useState(false);
-    const [currentStep, setCurrentStep] = useState(0);
+const downloadImage = (dataUrl: string, name: string) => {
+    const link = document.createElement('a');
+    link.href = dataUrl;
+    link.download = `obra-image-${name}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
 
-    const FEATURES = [
-      {
-        icon: 'fa-solid fa-store',
-        title: "Browse the Catalog",
-        desc: "Explore desks, chairs, workstations, storage, and more."
-      },
-      {
-        icon: 'fa-solid fa-file-invoice-dollar',
-        title: "Build Your Quote",
-        desc: "Add products and see your professional proposal update in real time."
-      },
-      {
-        icon: 'fa-solid fa-user-tie',
-        title: "Add Client Details",
-        desc: "Keep all client info in one place for easy follow‑up."
-      },
-      {
-        icon: 'fa-solid fa-comments-dollar',
-        title: "Furnitech Assistant",
-        desc: "Get instant product suggestions and design ideas."
-      },
-      {
-        icon: 'fa-solid fa-drafting-compass',
-        title: "Furnitech Space Planner",
-        desc: "Describe your space and get Furnitech‑generated layouts tailored to your needs."
-      }
-    ];
+// --- MODAL & AUTHENTICATION ---
 
-    useEffect(() => {
-        const seen = localStorage.getItem("hasSeenOnboarding");
-        if (!seen) {
-            setShow(true);
-        }
-    }, []);
-
-    const closeModal = useCallback(() => {
-        localStorage.setItem("hasSeenOnboarding", "true");
-        setShow(false);
-    }, []);
-
-    const nextStep = useCallback(() => {
-        if (currentStep < FEATURES.length - 1) {
-            setCurrentStep(prev => prev + 1);
-        } else {
-            closeModal();
-        }
-    }, [currentStep, closeModal]);
-
-    if (!show) return null;
+function Modal({ children, onClose, size = 'default' }) {
+    const modalClass = size === 'preview' ? 'modal-content-preview' :
+                       size === 'website' ? 'modal-content-website' : '';
 
     return html`
-        <div class="onboarding-overlay" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
-            <div class="onboarding-modal">
-                <button onClick=${closeModal} class="modal-close-btn" aria-label="Close onboarding modal">×</button>
-                
-                <div class="onboarding-header">
-                    <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" class="onboarding-logo" />
-                    <h1 id="onboarding-title">WELCOME TO OBRA</h1>
-                    <p>Your space. Your style. Your quote — in minutes.</p>
-                </div>
-
-                <div class="onboarding-progress">
-                    ${FEATURES.map((_, index) => html`
-                        <div class="progress-dot ${index === currentStep ? 'active' : ''}"></div>
-                    `)}
-                </div>
-
-                <div class="onboarding-feature">
-                    <div class="feature-icon-wrapper">
-                        <i class="${FEATURES[currentStep].icon}"></i>
-                    </div>
-                    <div class="feature-text">
-                        <h2>${FEATURES[currentStep].title}</h2>
-                        <p>${FEATURES[currentStep].desc}</p>
-                    </div>
-                </div>
-
-                <div class="onboarding-actions">
-                    <button onClick=${nextStep} class="btn btn-primary">
-                        ${currentStep === FEATURES.length - 1 ? 'Get Started' : 'Next'}
-                    </button>
-                    <button onClick=${closeModal} class="btn-link">
-                        Skip Intro
-                    </button>
-                </div>
+        <div class="modal-overlay" onClick=${onClose}>
+            <div class="modal-content ${modalClass}" onClick=${e => e.stopPropagation()}>
+                ${children}
             </div>
         </div>
     `;
 }
 
-function AuthModal() {
-    const { showAuthModal, setShowAuthModal, setIsAuthenticated } = useContext(AppContext);
-
-    if (!showAuthModal) return null;
-
-    const handleAuth = () => {
-        setIsAuthenticated(true);
-        setShowAuthModal(false);
-    };
-
+function AuthModal({ onAuthSuccess }) {
+    const { setShowAuthModal } = useContext(AppContext);
     return html`
-        <div class="modal-overlay" onClick=${() => setShowAuthModal(false)}>
+         <div class="modal-overlay">
             <div class="auth-modal" onClick=${e => e.stopPropagation()}>
-                <button onClick=${() => setShowAuthModal(false)} class="modal-close-btn" aria-label="Close modal">×</button>
                 <div class="auth-content">
-                    <i class="fa-solid fa-lock-open auth-icon"></i>
-                    <h2>Create Your Free Account</h2>
-                    <p>Sign up to unlock powerful Furnitech features like the Space Planner, Image Studio, and Assistant.</p>
+                    <div class="auth-icon"><i class="fa-solid fa-lock"></i></div>
+                    <h2>Exclusive Feature</h2>
+                    <p>This advanced AI tool is available for registered users. Please sign in to continue.</p>
                     <div class="auth-actions">
-                        <button onClick=${handleAuth} class="btn btn-primary">
-                            <i class="fa-solid fa-user-plus"></i> Sign Up Now
-                        </button>
-                         <button onClick=${handleAuth} class="btn">
-                            Log In
+                         <button class="btn btn-primary" onClick=${onAuthSuccess}>
+                            <i class="fa-solid fa-user-check"></i> Sign In to Unlock
                         </button>
                     </div>
-                    <p class="auth-note">For this demo, clicking either button will grant you access.</p>
+                    <p class="auth-note">This is a simulated sign-in for demonstration purposes.</p>
                 </div>
+                 <button class="modal-close-btn" onClick=${() => setShowAuthModal(false)}>×</button>
             </div>
         </div>
     `;
 }
 
-function GatedFeature({ children, title, iconClass, description }) {
-    const { isAuthenticated, setShowAuthModal } = useContext(AppContext);
+function GatedFeature({ children, featureName, featureIcon, featureDescription }) {
+    const { isAuthenticated, setShowAuthModal, setIsAuthenticated } = useContext(AppContext);
 
     if (isAuthenticated) {
         return children;
     }
 
+    const handleAuthSuccess = () => {
+        setIsAuthenticated(true);
+        setShowAuthModal(false);
+    };
+
     return html`
-        <div class="card">
-            <div class="gated-feature-placeholder">
-                <div class="gated-content">
-                    <div class="gated-icon-feature">
-                        <i class="${iconClass}"></i>
-                    </div>
-                    <h3 class="gated-title">${title}</h3>
-                    <p class="gated-description">${description}</p>
-                    <button class="btn btn-primary" onClick=${() => setShowAuthModal(true)}>
-                        <i class="fa-solid fa-unlock"></i> Unlock Feature
-                    </button>
-                </div>
+        <div class="gated-feature-placeholder">
+            <div class="gated-content">
+                <div class="gated-icon-feature"><i class=${featureIcon}></i></div>
+                <h3 class="gated-title">${featureName}</h3>
+                <p class="gated-description">${featureDescription}</p>
+                <button class="btn btn-primary" onClick=${() => setShowAuthModal(true)}>
+                    <i class="fa-solid fa-lock"></i> Unlock with Sign-In
+                </button>
             </div>
         </div>
     `;
 }
 
+// --- QUOTATION PREVIEW ---
+
+function QuotationPreviewModal({ onClose }) {
+    const { cart, clientInfo, currency, discount, discountType, deliveryFee, logoPng } = useContext(AppContext);
+
+    const subtotal = cart.reduce((acc, item) => acc + (Number(item.product.price) * item.quantity), 0);
+    const discountAmount = discountType === '%' ? subtotal * (discount / 100) : discount;
+    const total = subtotal - discountAmount + Number(deliveryFee);
+
+    const handleDownloadPdf = () => {
+        const doc = new jsPDF();
+        const pageWidth = doc.internal.pageSize.getWidth();
+
+        // Add Header
+        if (logoPng) {
+             doc.addImage(logoPng, 'PNG', 15, 10, 60, 20);
+        }
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(22);
+        doc.text('QUOTATION', pageWidth - 15, 25, { align: 'right' });
+
+        // Add Client and Company Info
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        doc.text(`Date: ${today}`, pageWidth - 15, 40, { align: 'right' });
+        doc.text(`Quotation No: Q-${String(Date.now()).slice(-6)}`, pageWidth - 15, 45, { align: 'right' });
+
+        doc.text('Bill To:', 15, 40);
+        doc.setFont('helvetica', 'bold');
+        doc.text(clientInfo.name || 'N/A', 15, 45);
+        doc.setFont('helvetica', 'normal');
+        doc.text(clientInfo.company || 'N/A', 15, 50);
+        doc.text(clientInfo.contact || 'N/A', 15, 55);
+        doc.text(clientInfo.email || 'N/A', 15, 60);
+
+        // Add Table using autoTable
+        autoTable(doc, {
+            startY: 70,
+            head: [['Code', 'Product Name', 'Unit Price', 'Quantity', 'Total']],
+            body: cart.map(item => [
+                item.product.code,
+                item.product.name + (item.selectedColor ? ` (${item.selectedColor.name})` : ''),
+                formatCurrency(item.product.price, currency),
+                item.quantity,
+                formatCurrency(Number(item.product.price) * item.quantity, currency)
+            ]),
+            theme: 'striped',
+            headStyles: { fillColor: [22, 22, 22] },
+            styles: { fontSize: 9 },
+            columnStyles: {
+                2: { halign: 'right' },
+                3: { halign: 'center' },
+                4: { halign: 'right' },
+            }
+        });
+
+        // Add Totals
+        const finalY = (doc as any).lastAutoTable.finalY + 10;
+        doc.setFontSize(10);
+        const totalsX = pageWidth - 60;
+        const totalsXValue = pageWidth - 15;
+
+        doc.text('Subtotal:', totalsX, finalY);
+        doc.text(formatCurrency(subtotal, currency), totalsXValue, finalY, { align: 'right' });
+        
+        doc.text('Discount:', totalsX, finalY + 5);
+        const discountText = discountType === '%' ? `${discount}%` : formatCurrency(discount, currency);
+        doc.text(`-${discountText}`, totalsXValue, finalY + 5, { align: 'right' });
+
+        doc.text('Delivery Fee:', totalsX, finalY + 10);
+        doc.text(formatCurrency(deliveryFee, currency), totalsXValue, finalY + 10, { align: 'right' });
+
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(12);
+        doc.text('Total:', totalsX, finalY + 18);
+        doc.text(formatCurrency(total, currency), totalsXValue, finalY + 18, { align: 'right' });
+        
+        doc.save(`OBRA-Quotation-${clientInfo.company || 'general'}.pdf`);
+    };
+
+    return html`
+        <${Modal} onClose=${onClose} size="preview">
+            <div class="modal-header">
+                <h2>Quotation Preview</h2>
+                <button class="modal-close-btn" onClick=${onClose}>×</button>
+            </div>
+            <div class="modal-body">
+                <div class="preview-header">
+                    ${logoPng && html`<img src=${logoPng} alt="OBRA Logo" />`}
+                    <h1>QUOTATION</h1>
+                </div>
+                <div class="preview-info">
+                    <div class="info-block">
+                        <p><strong>Bill To:</strong></p>
+                        <p>${clientInfo.name || 'N/A'}</p>
+                        <p>${clientInfo.company || 'N/A'}</p>
+                        <p>${clientInfo.contact || 'N/A'}</p>
+                        <p>${clientInfo.email || 'N/A'}</p>
+                    </div>
+                    <div class="info-block align-right">
+                        <p><strong>OBRA Office Furniture</strong></p>
+                        <p>123 Furniture Ave, Business City</p>
+                        <p>contact@obrafurniture.com</p>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <table class="preview-table">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Product Name</th>
+                            <th class="align-right">Unit Price</th>
+                            <th class="align-right">Quantity</th>
+                            <th class="align-right">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${cart.map(item => html`
+                            <tr>
+                                <td>${item.product.code}</td>
+                                <td>${item.product.name} ${item.selectedColor ? `(${item.selectedColor.name})` : ''}</td>
+                                <td class="align-right">${formatCurrency(item.product.price, currency)}</td>
+                                <td class="align-right">${item.quantity}</td>
+                                <td class="align-right">${formatCurrency(Number(item.product.price) * item.quantity, currency)}</td>
+                            </tr>
+                        `)}
+                    </tbody>
+                </table>
+                <div class="preview-totals">
+                    <div class="total-line">
+                        <span>Subtotal</span>
+                        <span>${formatCurrency(subtotal, currency)}</span>
+                    </div>
+                    ${discount > 0 && html`
+                        <div class="total-line">
+                            <span>Discount ${discountType === '%' ? `(${discount}%)` : ''}</span>
+                            <span>-${formatCurrency(discountAmount, currency)}</span>
+                        </div>
+                    `}
+                    ${deliveryFee > 0 && html`
+                         <div class="total-line">
+                            <span>Delivery Fee</span>
+                            <span>${formatCurrency(deliveryFee, currency)}</span>
+                        </div>
+                    `}
+                    <div class="total-line grand-total">
+                        <span>Total</span>
+                        <span>${formatCurrency(total, currency)}</span>
+                    </div>
+                </div>
+                 <div class="preview-footer">
+                    <p>Thank you for your business!</p>
+                    <p>Prices are valid for 30 days. Terms and conditions apply.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onClick=${onClose}>Close</button>
+                <button class="btn btn-primary" onClick=${handleDownloadPdf}><i class="fa-solid fa-file-pdf"></i> Download PDF</button>
+            </div>
+        </${Modal}>
+    `;
+}
+
+function WebsiteModal({ url, onClose }) {
+    if (!url) return null;
+    return html`
+        <${Modal} onClose=${onClose} size="website">
+            <div class="modal-header">
+                <h2>Browsing: ${url}</h2>
+                <button class="modal-close-btn" onClick=${onClose}>×</button>
+            </div>
+            <div class="modal-body">
+                <iframe src=${url} title="Website Viewer"></iframe>
+            </div>
+        </${Modal}>
+    `;
+}
+
+// --- MAIN UI COMPONENTS ---
+
+function CtaBanner() {
+    return html`
+        <div class="cta-banner">
+            <div class="cta-content">
+                <h2>Welcome to OBRA Furnitech!</h2>
+                <p>Your one-stop solution for modern office furniture. Start building your quote or use our AI tools to design your perfect workspace.</p>
+            </div>
+        </div>
+    `;
+}
+
+function ClientInfoCard() {
+    const { clientInfo, setClientInfo } = useContext(AppContext);
+
+    const handleChange = (e) => {
+        setClientInfo(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    };
+
+    return html`
+        <div class="card">
+            <div class="card-title-wrapper">
+                <div class="card-title-main">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h2 class="card-title">Client Information</h2>
+                </div>
+            </div>
+            <form class="client-info-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="e.g., Juan dela Cruz" value=${clientInfo.name} onInput=${handleChange} />
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company" placeholder="e.g., OBRA Inc." value=${clientInfo.company} onInput=${handleChange} />
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact No.</label>
+                    <input type="tel" id="contact" name="contact" placeholder="e.g., 09171234567" value=${clientInfo.contact} onInput=${handleChange} />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="e.g., juan.delacruz@obra.com" value=${clientInfo.email} onInput=${handleChange} />
+                </div>
+            </form>
+        </div>
+    `;
+}
+
+function WishlistCard() {
+    const { wishlist, setWishlist, cart, setCart, currency } = useContext(AppContext);
+
+    const handleRemoveFromWishlist = (productCode) => {
+        setWishlist(prev => prev.filter(p => p.code !== productCode));
+    };
+    
+    const handleAddToCart = (product) => {
+        const existingItem = cart.find(item => item.product.code === product.code);
+        if (existingItem) {
+            setCart(prev => prev.map(item =>
+                item.product.code === product.code ? { ...item, quantity: item.quantity + 1 } : item
+            ));
+        } else {
+            setCart(prev => [...prev, { product, quantity: 1, id: Date.now() }]);
+        }
+        handleRemoveFromWishlist(product.code);
+    };
+
+    return html`
+        <div class="card">
+            <div class="card-title-wrapper">
+                 <div class="card-title-main">
+                    <i class="fa-solid fa-heart"></i>
+                    <h2 class="card-title">Wishlist</h2>
+                </div>
+                <div class="wishlist-count">${wishlist.length}</div>
+            </div>
+            ${wishlist.length === 0 ? html`
+                <div class="empty-wishlist">
+                    <i class="fa-regular fa-heart"></i>
+                    <p>Your wishlist is empty.<br/>Click the heart icon on products to save them for later.</p>
+                </div>
+            ` : html`
+                <div class="wishlist-items">
+                    ${wishlist.map(product => html`
+                        <div class="wishlist-item" key=${product.code}>
+                            <div class="wishlist-item-details">
+                                <p class="item-name">${product.name}</p>
+                                <p class="item-price">${formatCurrency(product.price, currency)}</p>
+                            </div>
+                            <div class="wishlist-item-controls">
+                                 <button class="btn-icon btn-delete" onClick=${() => handleRemoveFromWishlist(product.code)} aria-label="Remove from wishlist" data-tooltip="Remove">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                <button class="btn-icon" onClick=${() => handleAddToCart(product)} aria-label="Add to cart" data-tooltip="Add to Cart">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `)}
+                </div>
+            `}
+        </div>
+    `;
+}
+
+function CartItem({ item }) {
+    const { cart, setCart, currency } = useContext(AppContext);
+
+    const handleQuantityChange = (amount) => {
+        const newQuantity = item.quantity + amount;
+        if (newQuantity > 0) {
+            setCart(cart.map(i => i.id === item.id ? { ...i, quantity: newQuantity } : i));
+        }
+    };
+
+    const handleRemove = () => {
+        setCart(cart.filter(i => i.id !== item.id));
+    };
+
+    return html`
+        <div class="cart-item">
+            <div class="item-details">
+                <p class="item-name">
+                    ${item.product.name}
+                    ${item.selectedColor && html`<span class="item-color">(${item.selectedColor.name})</span>`}
+                </p>
+                <p class="item-price">${formatCurrency(item.product.price, currency)} / unit</p>
+            </div>
+            <div class="item-controls">
+                <button class="btn-quantity" onClick=${() => handleQuantityChange(-1)} aria-label="Decrease quantity">−</button>
+                <span class="item-quantity">${item.quantity}</span>
+                <button class="btn-quantity" onClick=${() => handleQuantityChange(1)} aria-label="Increase quantity">+</button>
+                <button class="btn-delete" onClick=${handleRemove} aria-label="Remove item">
+                    <i class="fa-solid fa-trash-can"></i>
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+function QuotationSummary() {
+    const { cart, currency, discount, setDiscount, discountType, setDiscountType, deliveryFee, setDeliveryFee } = useContext(AppContext);
+
+    const subtotal = useMemo(() =>
+        cart.reduce((acc, item) => acc + (Number(item.product.price) * item.quantity), 0),
+        [cart]
+    );
+
+    const discountAmount = useMemo(() =>
+        discountType === '%' ? subtotal * (Number(discount) / 100) : Number(discount),
+        [subtotal, discount, discountType]
+    );
+
+    const total = useMemo(() =>
+        subtotal - discountAmount + Number(deliveryFee),
+        [subtotal, discountAmount, deliveryFee]
+    );
+
+    return html`
+        <div class="summary-divider"></div>
+        <div class="summary-extras">
+            <div class="summary-line-item-input">
+                <span>Discount</span>
+                <div class="input-group">
+                    <input type="number" value=${discount} onInput=${e => setDiscount(e.target.value)} placeholder="0.00" />
+                     <div class="discount-toggle">
+                        <button class="toggle-btn ${discountType === 'PHP' ? 'active' : ''}" onClick=${() => setDiscountType('PHP')}>${currencyRates[currency].symbol}</button>
+                        <button class="toggle-btn ${discountType === '%' ? 'active' : ''}" onClick=${() => setDiscountType('%')}>%</button>
+                    </div>
+                </div>
+            </div>
+            <div class="summary-line-item-input">
+                <span>Delivery Fee</span>
+                <div class="delivery-fee-group">
+                    <span>${currencyRates[currency].symbol}</span>
+                    <input type="number" value=${deliveryFee} onInput=${e => setDeliveryFee(e.target.value)} placeholder="0.00" />
+                </div>
+            </div>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-total">
+            <div class="summary-line-item">
+                <span>Subtotal</span>
+                <span>${formatCurrency(subtotal, currency)}</span>
+            </div>
+            ${discount > 0 && html`
+                <div class="summary-line-item">
+                    <span>Discount</span>
+                    <span>-${formatCurrency(discountAmount, currency)}</span>
+                </div>
+            `}
+            <div class="summary-line-item">
+                <span>Total</span>
+                <span>${formatCurrency(total, currency)}</span>
+            </div>
+        </div>
+    `;
+}
+
+function QuotationCard() {
+    const { cart } = useContext(AppContext);
+    const [showPreview, setShowPreview] = useState(false);
+
+    const handleClear = () => {
+        if (confirm('Are you sure you want to clear all items from the quotation?')) {
+            // This would normally be handled via context, but for a direct approach:
+            const { setCart } = useContext(AppContext);
+            setCart([]);
+        }
+    };
+    
+    return html`
+        <div class="card quotation">
+            <div class="card-title-wrapper">
+                <div class="card-title-main">
+                    <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" class="quotation-logo" />
+                    <h2 class="card-title">Quotation</h2>
+                </div>
+                <${HeaderControls} />
+            </div>
+            
+            <div class="cart-items">
+                ${cart.length > 0 ? cart.map(item => html`<${CartItem} key=${item.id} item=${item} />`) : html`
+                    <div class="empty-cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <p>Your quotation is empty.<br/>Add products from the catalog to get started.</p>
+                    </div>
+                `}
+            </div>
+            
+            ${cart.length > 0 && html`
+                <${QuotationSummary} />
+                <div class="actions">
+                    <button class="btn" onClick=${handleClear}><i class="fa-solid fa-trash-can"></i> Clear All</button>
+                    <button class="btn btn-primary" onClick=${() => setShowPreview(true)}><i class="fa-solid fa-file-invoice"></i> Generate Quote</button>
+                </div>
+            `}
+        </div>
+        ${showPreview && html`<${QuotationPreviewModal} onClose=${() => setShowPreview(false)} />`}
+    `;
+}
+
 function ProductCard({ product }) {
-    const { cart, setCart, currency, generatedDescriptions, generating, generationError, generateDescription, wishlist, setWishlist, visualizeProduct, isVisualizingProduct, visualizedProduct } = useContext(AppContext);
+    const { cart, setCart, generating, generatedDescriptions, generationError, generateDescription, wishlist, setWishlist } = useContext(AppContext);
     const [selectedColor, setSelectedColor] = useState(product.colors ? product.colors[0] : null);
 
     const isGeneratingDesc = generating[product.code];
     const description = generatedDescriptions[product.code];
     const error = generationError[product.code];
 
-    const isVisualizingThis = isVisualizingProduct && visualizedProduct?.code === product.code;
-
-    const addToCart = () => {
-        setCart(prevCart => {
-            const cartId = product.code + (selectedColor ? `-${selectedColor.name}` : '');
-            const existingItem = prevCart.find(item => item.cartId === cartId);
-            if (existingItem) {
-                return prevCart.map(item =>
-                    item.cartId === cartId ? { ...item, quantity: item.quantity + 1 } : item
-                );
-            }
-            return [...prevCart, { ...product, quantity: 1, selectedColor, cartId }];
-        });
-    };
-
-    const handleGenerateDesc = () => {
-        if (!isGeneratingDesc) {
-            generateDescription(product);
+    const handleAddToCart = () => {
+        const existingItem = cart.find(item => item.product.code === product.code && item.selectedColor?.hex === selectedColor?.hex);
+        if (existingItem) {
+            setCart(cart.map(item => item.id === existingItem.id ? { ...item, quantity: item.quantity + 1 } : item));
+        } else {
+            setCart([...cart, { product, quantity: 1, id: Date.now(), selectedColor }]);
         }
     };
 
-    const handleVisualize = () => {
-        if (!isVisualizingProduct) {
-            visualizeProduct(product);
-        }
-    };
-    
-    const isInWishlist = wishlist.includes(product.code);
+    const isInWishlist = wishlist.some(p => p.code === product.code);
 
-    const toggleWishlist = () => {
-        setWishlist(prev => {
-            if (prev.includes(product.code)) {
-                return prev.filter(code => code !== product.code);
-            }
-            return [...prev, product.code];
-        });
+    const handleToggleWishlist = () => {
+        if (isInWishlist) {
+            setWishlist(wishlist.filter(p => p.code !== product.code));
+        } else {
+            setWishlist([...wishlist, product]);
+        }
     };
 
     return html`
-        <div class="product-card" aria-label="Product">
+        <div class="product-card">
             <div class="product-image-wrapper">
-                <img 
-                    src=${product.imageUrl} 
-                    alt=${product.name} 
-                    class="product-image" 
-                    loading="lazy" 
-                    onError=${(e) => { e.target.onerror = null; e.target.src = 'https://i.imgur.com/3g2N0aT.png'; }} 
-                />
+                <img class="product-image" src=${product.imageUrl} alt=${product.name} />
             </div>
             <div class="product-info">
                 <h3 class="product-name">${product.name}</h3>
                 <p class="product-sku">SKU: ${product.code}</p>
+                <p class="product-description">${product.description}</p>
+                 <div class="product-furnitech-actions">
+                    <button class="btn btn-secondary" onClick=${() => generateDescription(product)} disabled=${isGeneratingDesc}>
+                        ${isGeneratingDesc ? html`<div class="loading-spinner-small"></div>` : html`<i class="fa-solid fa-wand-magic-sparkles"></i>`}
+                        AI Description
+                    </button>
+                     <${GatedFeature} featureName="Product Visualizer" featureIcon="fa-solid fa-vr-cardboard" featureDescription="Virtually place products in a scene to see how they look.">
+                        <button class="btn btn-secondary" onClick=${() => useContext(AppContext).startVisualization(product)}>
+                            <i class="fa-solid fa-vr-cardboard"></i> Visualize
+                        </button>
+                     </${GatedFeature}>
+                </div>
+                 ${(isGeneratingDesc || description || error) && html`
+                    <div class="furnitech-description-container">
+                        ${isGeneratingDesc && html`<div class="typing-indicator"><span></span><span></span><span></span></div>`}
+                        ${description && html`<p class="furnitech-description-text">${description}</p>`}
+                        ${error && html`<p class="furnitech-error-inline">${error}</p>`}
+                    </div>
+                `}
                 ${product.colors && html`
                     <div class="color-options">
                         <span class="color-label">Color:</span>
                         <div class="color-swatches">
                             ${product.colors.map(color => html`
-                                <div
-                                    class="color-swatch ${selectedColor?.name === color.name ? 'selected' : ''}"
-                                    style=${{ backgroundColor: color.value }}
+                                <div 
+                                    class="color-swatch ${selectedColor.hex === color.hex ? 'selected' : ''}" 
+                                    style=${{ backgroundColor: color.hex }}
                                     onClick=${() => setSelectedColor(color)}
-                                    data-tooltip=${color.name}
-                                    aria-label=${`Select color ${color.name}`}
+                                    title=${color.name}
                                 ></div>
                             `)}
                         </div>
                     </div>
                 `}
-                <div class="product-footer">
-                    <p class="product-price">${formatCurrency(product.price, currency)}</p>
-                    <div class="product-card-actions">
-                         <button onClick=${toggleWishlist} class="btn-icon btn-wishlist ${isInWishlist ? 'active' : ''}" aria-label="${isInWishlist ? 'Remove from' : 'Add to'} wishlist" data-tooltip="Wishlist">
-                            <i class="fa-solid fa-heart"></i>
-                         </button>
-                         <button onClick=${addToCart} class="btn btn-primary" aria-label="Add ${product.name} to cart" data-tooltip="Add to Cart">
-                            <i class="fa-solid fa-cart-plus"></i>
-                        </button>
-                    </div>
-                </div>
             </div>
-            <div class="product-furnitech-actions">
-                <button onClick=${handleVisualize} disabled=${isVisualizingProduct} class="btn-furnitech-generate" aria-label="Visualize ${product.name} with Furnitech">
-                     ${isVisualizingThis ? html`<div class="loading-spinner-small"></div> Visualizing...` : html`<i class="fa-solid fa-eye"></i> Visualize`}
-                </button>
-                <button onClick=${handleGenerateDesc} disabled=${isGeneratingDesc} class="btn-furnitech-generate" aria-label="Generate Furnitech description for ${product.name}">
-                     ${isGeneratingDesc ? html`<div class="loading-spinner-small"></div> Generating...` : html`<i class="fa-solid fa-wand-magic-sparkles"></i> Description`}
-                </button>
-            </div>
-            ${ (description || error) && html`
-                <div class="furnitech-description-container">
-                    ${error && html`<p class="furnitech-error-inline">${error}</p>`}
-                    ${description && html`<p class="furnitech-description-text">${description}</p>`}
-                </div>
-            `}
-        </div>
-    `;
-}
-
-function LayoutPlanDisplay({ layout }) {
-    const { currency, addLayoutToCart } = useContext(AppContext);
-
-    if (!layout) return null;
-
-    const totalItems = layout.zones.reduce((sum, zone) => sum + zone.furniture.reduce((s, f) => s + f.quantity, 0), 0);
-    const totalCost = layout.zones.reduce((sum, zone) => {
-        return sum + zone.furniture.reduce((s, f) => {
-            const product = initialProducts.find(p => p.code === f.product_code);
-            return s + (product ? Number(product.price) * f.quantity : 0);
-        }, 0);
-    }, 0);
-
-    return html`
-        <div class="layout-plan-display">
-            <div class="layout-plan-header">
-                <h3>${layout.title}</h3>
-            </div>
-            <div class="layout-plan-visual">
-                <img src=${layout.imageUrl} alt="Visualization of ${layout.title}" />
-            </div>
-            <div class="layout-plan-summary">
-                <div class="summary-item">
-                    <span>Est. Cost</span>
-                    <strong>${formatCurrency(totalCost, currency)}</strong>
-                </div>
-                <div class="summary-item">
-                    <span>Total Items</span>
-                    <strong>${totalItems}</strong>
-                </div>
-                 <div class="summary-item">
-                    <span>Zones</span>
-                    <strong>${layout.zones.length}</strong>
-                </div>
-            </div>
-            <p class="layout-plan-notes" dangerouslySetInnerHTML=${{ __html: layout.layout_summary.replace(/\n/g, '<br />') }}></p>
-            <div class="layout-plan-zones">
-                ${layout.zones.map(zone => html`
-                    <div class="zone-card" key=${zone.zone_name}>
-                        <h4 class="zone-name"><i class="fa-solid fa-object-group"></i> ${zone.zone_name}</h4>
-                        ${zone.zone_dimensions && html`<p class="zone-dims">Approx. Dimensions: ${zone.zone_dimensions}</p>`}
-                        <ul class="furniture-list">
-                            ${zone.furniture.map(item => {
-                                const product = initialProducts.find(p => p.code === item.product_code);
-                                if (!product) return null;
-                                return html`
-                                    <li key=${item.product_code}>
-                                        <span class="furniture-qty">${item.quantity}x</span>
-                                        <div class="furniture-details">
-                                            <span class="furniture-name">${product.name}</span>
-                                            <span class="furniture-price">${formatCurrency(product.price, currency)}</span>
-                                        </div>
-                                    </li>
-                                `;
-                            })}
-                        </ul>
-                    </div>
-                `)}
-            </div>
-            <div class="layout-plan-actions">
-                 <button onClick=${() => addLayoutToCart(layout)} class="btn btn-primary">
-                    <i class="fa-solid fa-cart-plus"></i> Add All to Quote
-                 </button>
-            </div>
-        </div>
-    `;
-}
-
-function LayoutOptionCard({ option, index, isActive }) {
-    const { currency, setSelectedLayoutIndex } = useContext(AppContext);
-
-    const totalCost = useMemo(() => {
-        return option.zones.reduce((sum, zone) => {
-            return sum + zone.furniture.reduce((s, f) => {
-                const product = initialProducts.find(p => p.code === f.product_code);
-                return s + (product ? Number(product.price) * f.quantity : 0);
-            }, 0);
-        }, 0);
-    }, [option]);
-
-    return html`
-        <div class="layout-option-card ${isActive ? 'active' : ''}" onClick=${() => setSelectedLayoutIndex(isActive ? null : index)}>
-            <div class="layout-option-visual">
-                ${option.imageUrl ? html`<img src=${option.imageUrl} alt="Visualization of ${option.title}" />`
-                : option.imageError ? html`
-                    <div class="visual-error">
-                        <i class="fa-solid fa-image-slash"></i>
-                        <span>${option.imageError}</span>
-                    </div>`
-                : html`
-                    <div class="visual-loading">
-                        <div class="loading-spinner-dark"></div>
-                        <span>Generating Visual...</span>
-                    </div>`
-                }
-            </div>
-            <div class="layout-option-details">
-                <h4 class="option-title">${option.title}</h4>
-                <p class="option-description">${option.description}</p>
-            </div>
-            <div class="option-cost">
-                <span>Estimated Cost</span>
-                <strong>${formatCurrency(totalCost, currency)}</strong>
-            </div>
-        </div>
-    `;
-}
-
-function FurnitechSpacePlanner() {
-    const { isPlanning, planError, generateLayoutPlan, furnitechLayoutOptions, selectedLayoutIndex, setSelectedLayoutIndex } = useContext(AppContext);
-    
-    const [officeType, setOfficeType] = useState('Startup');
-    const [customStyle, setCustomStyle] = useState('');
-    const [length, setLength] = useState('10');
-    const [width, setWidth] = useState('12');
-    const [employees, setEmployees] = useState('8');
-    const [zones, setZones] = useState('Open workstation area for 8, 1 small meeting room for 4, pantry, small reception');
-    const [floorPlan, setFloorPlan] = useState(null);
-    const fileInputRef = useRef(null);
-    
-    const planningMessages = useMemo(() => [
-        "Analyzing your requirements...",
-        "Consulting with our virtual designers...",
-        "Selecting the perfect furniture pieces...",
-        "Sketching out initial concepts...",
-        "Generating layout visualizations...",
-        "Finalizing the proposals...",
-    ], []);
-    const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-
-    useEffect(() => {
-        let interval;
-        if (isPlanning) {
-            interval = setInterval(() => {
-                setCurrentMessageIndex(prev => (prev + 1) % planningMessages.length);
-            }, 3000);
-        }
-        return () => clearInterval(interval);
-    }, [isPlanning, planningMessages]);
-
-
-    // Fix for errors where file properties were accessed on an 'unknown' type.
-    // Added type to event and cast target to HTMLInputElement to correctly infer file type.
-    // Also added a null check for event.target inside reader.onload for robustness.
-    const handleFileChange = (e: Event) => {
-        const target = e.target as HTMLInputElement;
-        const file = target.files?.[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                if (event.target && typeof event.target.result === 'string') {
-                    setFloorPlan({
-                        name: file.name,
-                        mimeType: file.type,
-                        data: event.target.result.split(',')[1],
-                    });
-                }
-            };
-            reader.readAsDataURL(file);
-        }
-    };
-    
-    const clearFile = () => {
-        setFloorPlan(null);
-        if (fileInputRef.current) {
-            fileInputRef.current.value = "";
-        }
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const options = {
-            officeType,
-            customStyle,
-            length: Number(length),
-            width: Number(width),
-            employees: Number(employees),
-            zones,
-            floorPlan,
-        };
-        generateLayoutPlan(options);
-    };
-    
-    const selectedLayout = furnitechLayoutOptions && selectedLayoutIndex !== null ? furnitechLayoutOptions[selectedLayoutIndex] : null;
-
-    return html`
-        <div class="card">
-            <div class="card-title-wrapper">
-                <div class="card-title-main">
-                    <i class="fa-solid fa-drafting-compass"></i>
-                    <h2 class="card-title">Furnitech Office Space Planner</h2>
-                </div>
-            </div>
-             <p class="furnitech-feature-intro">
-                Describe your space, and our Furnitech engine will generate three distinct layout concepts with visualizations and furniture recommendations from our catalog.
-            </p>
-            
-            <form class="furnitech-planner-form" onSubmit=${handleSubmit}>
-                <div class="form-row">
-                    <div class="form-group-planner" style=${{flexBasis: '60%'}}>
-                        <i class="fa-solid fa-building"></i>
-                         <select value=${officeType} onChange=${e => setOfficeType(e.target.value)} style=${{paddingLeft: '3rem'}}>
-                            <option value="Startup">Startup</option>
-                            <option value="Corporate">Corporate</option>
-                            <option value="Creative Agency">Creative Agency</option>
-                            <option value="Tech Hub">Tech Hub</option>
-                            <option value="Law Firm">Law Firm</option>
-                            <option value="Co-working Space">Co-working Space</option>
-                        </select>
-                    </div>
-                    <div class="form-group-planner" style=${{flexBasis: '40%'}}>
-                        <i class="fa-solid fa-users"></i>
-                        <input type="number" value=${employees} onInput=${e => setEmployees(e.target.value)} min="1" required />
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group-planner">
-                        <i class="fa-solid fa-ruler-horizontal"></i>
-                        <input type="number" value=${length} onInput=${e => setLength(e.target.value)} min="1" placeholder="Length (m)" required />
-                    </div>
-                    <div class="form-group-planner">
-                        <i class="fa-solid fa-ruler-vertical"></i>
-                        <input type="number" value=${width} onInput=${e => setWidth(e.target.value)} min="1" placeholder="Width (m)" required />
-                    </div>
-                </div>
-                <div class="form-group-planner">
-                    <i class="fa-solid fa-palette"></i>
-                    <input type="text" value=${customStyle} onInput=${e => setCustomStyle(e.target.value)} placeholder="Optional: Specify a custom style (e.g., 'Scandinavian minimalist')" />
-                </div>
-                <div class="form-group-planner">
-                     <i class="fa-solid fa-layer-group" style=${{top: '1.2rem', transform: 'none'}}></i>
-                     <textarea
-                        value=${zones}
-                        onInput=${e => setZones(e.target.value)}
-                        placeholder="Describe required zones (e.g., 'Reception, 2 meeting rooms, pantry, open workstations')"
-                        rows="3"
-                        style=${{paddingLeft: '3rem'}}
-                    ></textarea>
-                </div>
-                <div class="file-upload-wrapper">
-                    <input type="file" id="floor-plan-upload" accept="image/*" onChange=${handleFileChange} ref=${fileInputRef} />
-                    <label for="floor-plan-upload" class="btn">
-                        <i class="fa-solid fa-upload"></i> Upload Floor Plan
-                    </label>
-                    ${floorPlan && html`
-                        <div class="file-name-display">
-                           <i class="fa-solid fa-file-image"></i>
-                           <span>${floorPlan.name}</span>
-                           <button type="button" class="btn-clear-file" onClick=${clearFile} aria-label="Remove file">×</button>
-                        </div>
-                    `}
-                </div>
-
-                <div class="furnitech-feature-actions">
-                     <button type="submit" class="btn btn-primary" disabled=${isPlanning}>
-                        ${isPlanning ? html`<div class="loading-spinner"></div> Generating...` : html`<i class="fa-solid fa-wand-magic-sparkles"></i> Generate Layouts`}
+            <div class="product-footer">
+                <span class="product-price">${formatCurrency(product.price, useContext(AppContext).currency)}</span>
+                <div class="product-card-actions">
+                     <button 
+                        class="btn-icon btn-wishlist ${isInWishlist ? 'active' : ''}" 
+                        onClick=${handleToggleWishlist} 
+                        aria-label="Toggle Wishlist"
+                        data-tooltip=${isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
+                    >
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                    <button class="btn btn-primary" onClick=${handleAddToCart}>
+                        <i class="fa-solid fa-cart-plus"></i>
                     </button>
                 </div>
-            </form>
-
-             ${isPlanning && html`
-                <div class="loading-container">
-                    <div class="loading-indicator-box" style=${{background: 'transparent', border: 'none', paddingBottom: 0, boxShadow: 'none'}}>
-                        <p>${planningMessages[currentMessageIndex]}</p>
-                    </div>
-                    <div class="layout-options-grid">
-                        ${[...Array(3)].map(() => html`
-                            <div class="skeleton-layout-card">
-                                <div class="skeleton skeleton-layout-image"></div>
-                                <div class="skeleton-layout-details">
-                                    <div class="skeleton skeleton-text" style=${{width: '50%', height: '1.2rem'}}></div>
-                                    <div class="skeleton skeleton-text" style=${{width: '90%'}}></div>
-                                    <div class="skeleton skeleton-text" style=${{width: '75%'}}></div>
-                                </div>
-                            </div>
-                        `)}
-                    </div>
-                </div>
-            `}
-            ${planError && html`<div class="furnitech-error">${planError}</div>`}
-
-            ${furnitechLayoutOptions && html`
-                <div class="generated-plan-wrapper">
-                    <h3 class="generated-plan-title">Choose a Layout Concept</h3>
-                    <div class="layout-options-grid">
-                        ${furnitechLayoutOptions.map((option, index) => html`
-                            <${LayoutOptionCard}
-                                key=${index}
-                                option=${option}
-                                index=${index}
-                                isActive=${selectedLayoutIndex === index}
-                            />
-                        `)}
-                    </div>
-                    ${selectedLayout && html`<${LayoutPlanDisplay} layout=${selectedLayout} />`}
-                </div>
-            `}
-        </div>
-    `;
-}
-
-function FurnitechImageStudio() {
-    const { 
-        generatedFurnitechImages, isGeneratingFurnitechImages, furnitechImageGenerationError, generateFurnitechImages,
-        editedFurnitechImageResults, setEditedFurnitechImageResults, isEditingFurnitechImage, setIsEditingFurnitechImage, furnitechImageEditingError, editFurnitechImage,
-        initialStudioImage, setInitialStudioImage
-    } = useContext(AppContext);
-
-    const [mode, setMode] = useState('generate'); // 'generate' or 'edit'
-    
-    // State for generate mode
-    const [prompt, setPrompt] = useState('');
-    const [negativePrompt, setNegativePrompt] = useState('');
-    const [numImages, setNumImages] = useState(4);
-    const [aspectRatio, setAspectRatio] = useState('1:1');
-    const [quality, setQuality] = useState('standard');
-    const [styles, setStyles] = useState([]);
-    const [styleInput, setStyleInput] = useState('');
-
-    // State for edit mode
-    const [editPrompt, setEditPrompt] = useState('');
-    const [editImages, setEditImages] = useState([]);
-    const editFileInputRef = useRef(null);
-    const [selection, setSelection] = useState(null);
-    const [isDrawing, setIsDrawing] = useState(false);
-    const [startPos, setStartPos] = useState({ x: 0, y: 0 });
-    const imageEditorRef = useRef(null);
-    const [batchProgress, setBatchProgress] = useState(null);
-    
-    const QUALITY_OPTIONS = {
-        'standard': '',
-        'hd': ', high detail, sharp focus, intricate details',
-        '4k': ', photorealistic, 4k resolution, ultra detailed, professional architectural rendering'
-    };
-
-    const STYLE_SUGGESTIONS = ['Cinematic Lighting', 'Vintage Poster', 'Minimalist', 'Art Deco', 'Cyberpunk', 'Watercolor', 'Sketch', 'Logo'];
-
-    useEffect(() => {
-        if (initialStudioImage) {
-            setMode('edit');
-            setEditImages([initialStudioImage]);
-            setInitialStudioImage(null); // consume it
-            const studioCard = document.querySelector('.furnitech-image-studio-card');
-            if (studioCard) {
-                studioCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-    }, [initialStudioImage]);
-    
-    const handleAddStyle = (style) => {
-        if (style && !styles.includes(style)) {
-            setStyles([...styles, style]);
-        }
-        setStyleInput('');
-    };
-    
-    const handleRemoveStyle = (styleToRemove) => {
-        setStyles(styles.filter(s => s !== styleToRemove));
-    };
-
-
-    // Proactively fixed potential type errors and race conditions in file handling.
-    // Added type to event, cast target to HTMLInputElement, and handled potential null files.
-    // Ensured promises always resolve to prevent hangs.
-    const handleFileChange = (e: Event) => {
-        const target = e.target as HTMLInputElement;
-        const files = target.files ? Array.from(target.files) : [];
-        if (files.length > 0) {
-            setSelection(null);
-            const imagePromises = files.map(file => {
-                return new Promise((resolve) => {
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        if (event.target && typeof event.target.result === 'string') {
-                            resolve({
-                                name: file.name,
-                                mimeType: file.type,
-                                data: event.target.result.split(',')[1],
-                                dataUrl: event.target.result,
-                            });
-                        } else {
-                            resolve(null);
-                        }
-                    };
-                    reader.onerror = () => resolve(null);
-                    reader.readAsDataURL(file);
-                });
-            });
-            Promise.all(imagePromises).then(newImages => {
-                setEditImages(prev => [...prev, ...newImages.filter(Boolean)]);
-            });
-        }
-    };
-
-    const removeEditImage = (index) => {
-        setEditImages(prev => prev.filter((_, i) => i !== index));
-        if (editImages.length - 1 <= 1) {
-            setSelection(null); // Clear selection if we go back to single image view
-        }
-    };
-    
-    const clearFiles = () => {
-        setEditImages([]);
-        setSelection(null);
-        if (editFileInputRef.current) {
-            editFileInputRef.current.value = "";
-        }
-    };
-
-    const handleGenerateSubmit = (e) => {
-        e.preventDefault();
-        if (prompt.trim()) {
-            const finalPrompt = `${prompt}${QUALITY_OPTIONS[quality]}${styles.length > 0 ? ', ' + styles.join(', ') : ''}`;
-            generateFurnitechImages({ prompt: finalPrompt, negativePrompt, numImages: Number(numImages), aspectRatio });
-        }
-    };
-
-    const handleEditSubmit = async (e) => {
-        e.preventDefault();
-        if (editPrompt.trim() && editImages.length > 0 && !isEditingFurnitechImage) {
-            setIsEditingFurnitechImage(true);
-            setBatchProgress({ current: 1, total: editImages.length });
-            setEditedFurnitechImageResults([]);
-
-            for (let i = 0; i < editImages.length; i++) {
-                setBatchProgress({ current: i + 1, total: editImages.length });
-                const image = editImages[i];
-                let mask = null;
-                
-                // Only create a mask if it's a single image and a selection exists
-                if (editImages.length === 1 && selection && selection.width > 5 && selection.height > 5) {
-                    const imageEl = imageEditorRef.current.querySelector('img');
-                    const canvas = document.createElement('canvas');
-                    canvas.width = imageEl.naturalWidth;
-                    canvas.height = imageEl.naturalHeight;
-                    const ctx = canvas.getContext('2d');
-                    
-                    const scaleX = imageEl.naturalWidth / imageEl.clientWidth;
-                    const scaleY = imageEl.naturalHeight / imageEl.clientHeight;
-                    
-                    const scaledSelection = {
-                        x: selection.x * scaleX,
-                        y: selection.y * scaleY,
-                        width: selection.width * scaleX,
-                        height: selection.height * scaleY,
-                    };
-
-                    ctx.fillStyle = 'black';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.fillStyle = 'white';
-                    ctx.fillRect(scaledSelection.x, scaledSelection.y, scaledSelection.width, scaledSelection.height);
-                    
-                    const maskDataUrl = canvas.toDataURL('image/png');
-                    mask = {
-                        data: maskDataUrl.split(',')[1],
-                        mimeType: 'image/png'
-                    };
-                }
-                
-                await editFurnitechImage({ prompt: editPrompt, image, mask });
-            }
-
-            setIsEditingFurnitechImage(false);
-            setBatchProgress(null);
-        }
-    };
-
-    const downloadImage = (dataUrl, name) => {
-        const link = document.createElement('a');
-        link.href = dataUrl;
-        link.download = `obra-image-${name}.png`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
-    
-    const imageStudioMessages = useMemo(() => [
-        "Warming up the digital canvas...",
-        "Mixing the perfect colors...",
-        "Our Furnitech engine is sketching the concept...",
-        "Adding the finishing touches...",
-        "Revealing the masterpiece...",
-    ], []);
-    
-    const editingMessages = useMemo(() => [
-        "Applying your creative direction...",
-        "Our digital artist is making the changes...",
-        "Blending the pixels perfectly...",
-        "Adding the final touches to your edit...",
-        "Revealing the updated image...",
-    ], []);
-
-    const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
-
-    useEffect(() => {
-        let interval;
-        if (isGeneratingFurnitechImages || isEditingFurnitechImage) {
-            const messages = isGeneratingFurnitechImages ? imageStudioMessages : editingMessages;
-            interval = setInterval(() => {
-                setCurrentMessageIndex(prev => (prev + 1) % messages.length);
-            }, 2500);
-        }
-        return () => clearInterval(interval);
-    }, [isGeneratingFurnitechImages, isEditingFurnitechImage, imageStudioMessages, editingMessages]);
-
-    const isLoading = isGeneratingFurnitechImages || isEditingFurnitechImage;
-    const loadingMessage = isLoading 
-        ? (isGeneratingFurnitechImages ? imageStudioMessages[currentMessageIndex] : editingMessages[currentMessageIndex])
-        : '';
-    
-    const getCoords = (e) => {
-        if (!imageEditorRef.current) return { x: 0, y: 0 };
-        const rect = imageEditorRef.current.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        return {
-            x: clientX - rect.left,
-            y: clientY - rect.top
-        };
-    };
-
-    const handleMouseDown = (e) => {
-        if (editImages.length > 1) return;
-        e.preventDefault();
-        setIsDrawing(true);
-        const coords = getCoords(e);
-        setStartPos(coords);
-        setSelection({ x: coords.x, y: coords.y, width: 0, height: 0 });
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDrawing || editImages.length > 1) return;
-        const coords = getCoords(e);
-        const newSelection = {
-            x: Math.min(startPos.x, coords.x),
-            y: Math.min(startPos.y, coords.y),
-            width: Math.abs(coords.x - startPos.x),
-            height: Math.abs(coords.y - startPos.y)
-        };
-        setSelection(newSelection);
-    };
-
-    const handleMouseUp = () => {
-        setIsDrawing(false);
-    };
-    
-    const clearSelection = () => {
-        setSelection(null);
-    };
-
-    return html`
-        <div class="card furnitech-image-studio-card">
-            <div class="card-title-wrapper">
-                <div class="card-title-main">
-                    <i class="fa-solid fa-paintbrush"></i>
-                    <h2 class="card-title">Furnitech Image Studio</h2>
-                </div>
-            </div>
-            
-             <div class="studio-mode-toggle">
-                <button class="mode-btn ${mode === 'generate' ? 'active' : ''}" onClick=${() => setMode('generate')}>
-                    <i class="fa-solid fa-lightbulb"></i> Generate
-                </button>
-                <button class="mode-btn ${mode === 'edit' ? 'active' : ''}" onClick=${() => setMode('edit')}>
-                    <i class="fa-solid fa-pen-ruler"></i> Edit
-                </button>
-            </div>
-
-            ${mode === 'generate' && html`
-                <div class="studio-form-container">
-                    <p class="furnitech-feature-intro">
-                        Generate logos, product mockups, or inspirational images. Describe what you want to see, and our Furnitech engine will bring it to life.
-                    </p>
-                    <form class="furnitech-image-studio-form" onSubmit=${handleGenerateSubmit}>
-                        <div class="form-group-planner">
-                            <i class="fa-solid fa-lightbulb" style=${{top: '1.2rem', transform: 'none'}}></i>
-                            <textarea
-                                value=${prompt}
-                                onInput=${e => setPrompt(e.target.value)}
-                                placeholder="e.g., 'A modern logo for OBRA Furniture, minimalist, using blue and gray'"
-                                rows="3"
-                                style=${{paddingLeft: '3rem'}}
-                                required
-                            ></textarea>
-                        </div>
-                        <div class="form-group-planner">
-                            <i class="fa-solid fa-palette" style=${{top: '1.2rem', transform: 'none'}}></i>
-                            <div class="style-tags-input">
-                                <div class="tags-container">
-                                    ${styles.map(s => html`
-                                        <div class="tag-item" key=${s}>
-                                            ${s}
-                                            <button onClick=${() => handleRemoveStyle(s)}>×</button>
-                                        </div>
-                                    `)}
-                                </div>
-                                <input
-                                    type="text"
-                                    value=${styleInput}
-                                    onInput=${e => setStyleInput(e.target.value)}
-                                    onKeyDown=${(e) => { if(e.key === 'Enter') { e.preventDefault(); handleAddStyle(e.target.value); }}}
-                                    placeholder="Add artistic styles..."
-                                />
-                            </div>
-                        </div>
-                        <div class="tag-suggestions">
-                             ${STYLE_SUGGESTIONS.filter(s => !styles.includes(s)).map(s => html`
-                                <button type="button" class="tag-suggestion-btn" onClick=${() => handleAddStyle(s)}>${s}</button>
-                             `)}
-                        </div>
-                         <div class="form-group-planner">
-                            <i class="fa-solid fa-ban" style=${{top: '1.2rem', transform: 'none'}}></i>
-                            <textarea
-                                value=${negativePrompt}
-                                onInput=${e => setNegativePrompt(e.target.value)}
-                                placeholder="Negative prompt: elements to exclude (e.g., 'text, watermarks, blurry')"
-                                rows="2"
-                                style=${{paddingLeft: '3rem'}}
-                            ></textarea>
-                        </div>
-                        <div class="form-row">
-                             <div class="form-group-planner">
-                                 <i class="fa-solid fa-images"></i>
-                                 <select value=${numImages} onChange=${e => setNumImages(Number(e.target.value))} style=${{paddingLeft: '3rem'}}>
-                                    <option value="1">1 Variation</option>
-                                    <option value="2">2 Variations</option>
-                                    <option value="3">3 Variations</option>
-                                    <option value="4">4 Variations</option>
-                                </select>
-                            </div>
-                             <div class="form-group-planner">
-                                 <i class="fa-solid fa-high-definition"></i>
-                                 <select value=${quality} onChange=${e => setQuality(e.target.value)} style=${{paddingLeft: '3rem'}}>
-                                    <option value="standard">Standard Quality</option>
-                                    <option value="hd">High Detail</option>
-                                    <option value="4k">4K Render</option>
-                                </select>
-                            </div>
-                             <div class="form-group-planner">
-                                 <i class="fa-solid fa-crop-simple"></i>
-                                 <select value=${aspectRatio} onChange=${e => setAspectRatio(e.target.value)} style=${{paddingLeft: '3rem'}}>
-                                    <option value="1:1">Square (1:1)</option>
-                                    <option value="16:9">Landscape (16:9)</option>
-                                    <option value="9:16">Portrait (9:16)</option>
-                                     <option value="4:3">Standard (4:3)</option>
-                                      <option value="3:4">Vertical (3:4)</option>
-                                </select>
-                            </div>
-                        </div>
-                         <div class="furnitech-feature-actions">
-                             <button type="submit" class="btn btn-primary" disabled=${isGeneratingFurnitechImages}>
-                                ${isGeneratingFurnitechImages ? html`<div class="loading-spinner"></div> Generating...` : html`<i class="fa-solid fa-wand-magic-sparkles"></i> Generate Images`}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            `}
-            
-            ${mode === 'edit' && html`
-                <div class="studio-form-container">
-                    <p class="furnitech-feature-intro">
-                        Upload one or more images, then tell our Furnitech engine how to change them.
-                    </p>
-                    <form class="furnitech-image-studio-form" onSubmit=${handleEditSubmit}>
-                         <div class="file-upload-wrapper">
-                            <input type="file" id="edit-image-upload" accept="image/*" onChange=${handleFileChange} ref=${editFileInputRef} required multiple />
-                            <label for="edit-image-upload" class="btn">
-                                <i class="fa-solid fa-upload"></i> Upload Image(s)
-                            </label>
-                            ${editImages.length > 0 && html`
-                                <span class="file-count-chip">${editImages.length} image(s) selected</span>
-                                <button type="button" class="btn-link" onClick=${clearFiles}>Clear</button>
-                            `}
-                        </div>
-                        ${editImages.length > 0 && html`
-                            <div class="image-batch-preview">
-                                ${editImages.map((image, index) => html`
-                                    <div class="preview-thumb-card" key=${index}>
-                                        <img src=${image.dataUrl} alt="Preview ${image.name}" />
-                                        <button type="button" class="btn-remove-thumb" onClick=${() => removeEditImage(index)}>×</button>
-                                    </div>
-                                `)}
-                            </div>
-                        `}
-                        ${editImages.length === 1 && html`
-                             <div class="image-editor-container">
-                                 <p class="editor-instruction">
-                                     <i class="fa-solid fa-mouse-pointer"></i>
-                                     ${selection ? 'Click and drag to adjust, or' : 'Optional: Click and drag on the image to select an area to edit.'}
-                                     ${selection && html` <button type="button" class="btn-link" onClick=${clearSelection}>clear selection</button>`}
-                                 </p>
-                                 <div 
-                                     class="image-editor" 
-                                     ref=${imageEditorRef}
-                                     onMouseDown=${handleMouseDown}
-                                     onMouseMove=${handleMouseMove}
-                                     onMouseUp=${handleMouseUp}
-                                     onTouchStart=${handleMouseDown}
-                                     onTouchMove=${handleMouseMove}
-                                     onTouchEnd=${handleMouseUp}
-                                 >
-                                    <img src=${editImages[0].dataUrl} alt="Image to edit" />
-                                    ${selection && html`
-                                        <div 
-                                            class="selection-marquee"
-                                            style=${{
-                                                left: `${selection.x}px`,
-                                                top: `${selection.y}px`,
-                                                width: `${selection.width}px`,
-                                                height: `${selection.height}px`,
-                                            }}
-                                        ></div>
-                                    `}
-                                 </div>
-                             </div>
-                         `}
-                        <div class="form-group-planner">
-                            <i class="fa-solid fa-wand-magic-sparkles" style=${{top: '1.2rem', transform: 'none'}}></i>
-                            <textarea
-                                value=${editPrompt}
-                                onInput=${e => setEditPrompt(e.target.value)}
-                                placeholder="e.g., 'Add a small, modern floor lamp next to the sofa'"
-                                rows="3"
-                                style=${{paddingLeft: '3rem'}}
-                                required
-                            ></textarea>
-                        </div>
-                         <div class="furnitech-feature-actions">
-                             <button type="submit" class="btn btn-primary" disabled=${isEditingFurnitechImage || editImages.length === 0}>
-                                ${isEditingFurnitechImage ? html`<div class="loading-spinner"></div> Editing...` : html`<i class="fa-solid fa-wand-magic-sparkles"></i> Edit ${editImages.length > 0 ? `${editImages.length} Image(s)` : 'Image'}`}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            `}
-
-            ${isLoading && html`
-                <div class="loading-container">
-                    <div class="loading-indicator-box" style=${{background: 'transparent', border: 'none', paddingBottom: 0, boxShadow: 'none'}}>
-                         <p>
-                           ${isEditingFurnitechImage && batchProgress ? `Processing image ${batchProgress.current} of ${batchProgress.total}... ` : ''}
-                           ${loadingMessage}
-                        </p>
-                    </div>
-                    ${isGeneratingFurnitechImages && html`
-                        <div class="generated-images-grid">
-                            ${[...Array(numImages)].map(() => html`
-                                <div class="skeleton skeleton-image-card"></div>
-                            `)}
-                        </div>
-                    `}
-                    ${isEditingFurnitechImage && html`
-                        <div class="batch-results-grid">
-                            ${[...Array(batchProgress?.total || 1)].map((_, i) => {
-                                const result = editedFurnitechImageResults[i];
-                                return result ? html`
-                                    <div class="batch-result-card">
-                                        <div class="result-pair">
-                                            <div class="result-image-wrapper original">
-                                                <img src=${result.originalUrl} alt="Original image" />
-                                                <span class="image-label">Original</span>
-                                            </div>
-                                            <div class="result-image-wrapper edited">
-                                                ${result.imageUrl && html`<img src=${result.imageUrl} alt="Edited image" />`}
-                                                <span class="image-label">Edited</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ` : html`
-                                    <div class="skeleton-result-card">
-                                        <div class="skeleton-result-pair">
-                                            <div class="skeleton skeleton-edit-image"></div>
-                                            <div class="skeleton skeleton-edit-image"></div>
-                                        </div>
-                                    </div>
-                                `;
-                            })}
-                        </div>
-                    `}
-                </div>
-            `}
-            
-            ${furnitechImageGenerationError && mode === 'generate' && html`<div class="furnitech-error">${furnitechImageGenerationError}</div>`}
-            ${generatedFurnitechImages.length > 0 && mode === 'generate' && !isGeneratingFurnitechImages && html`
-                 <div class="results-wrapper">
-                    <h4 class="result-title">Generated Images</h4>
-                    <div class="generated-images-grid">
-                        ${generatedFurnitechImages.map((imgSrc, index) => html`
-                            <div class="generated-image-card" key=${index}>
-                                <img src=${imgSrc} alt="Furnitech generated image ${index + 1}" />
-                                <div class="image-overlay">
-                                    <button onClick=${() => downloadImage(imgSrc, `generated-${index + 1}`)} class="btn-download" aria-label="Download image" data-tooltip="Download">
-                                        <i class="fa-solid fa-download"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        `)}
-                    </div>
-                </div>
-            `}
-
-            ${furnitechImageEditingError && mode === 'edit' && html`<div class="furnitech-error">${furnitechImageEditingError}</div>`}
-            ${editedFurnitechImageResults.length > 0 && mode === 'edit' && !isEditingFurnitechImage && html`
-                <div class="results-wrapper">
-                    <h4 class="result-title">Edit Results</h4>
-                    <div class="batch-results-grid">
-                         ${editedFurnitechImageResults.map((result, index) => html`
-                            <div class="batch-result-card" key=${index}>
-                                <div class="result-pair">
-                                    <div class="result-image-wrapper original">
-                                        <img src=${result.originalUrl} alt="Original image ${index + 1}" />
-                                        <span class="image-label">Original</span>
-                                    </div>
-                                    <div class="result-image-wrapper edited">
-                                        ${result.imageUrl ? html`
-                                            <img src=${result.imageUrl} alt="Edited image ${index + 1}" />
-                                            <span class="image-label">Edited</span>
-                                            <div class="image-overlay">
-                                                <button onClick=${() => downloadImage(result.imageUrl, `edited-${index + 1}`)} class="btn-download" aria-label="Download image" data-tooltip="Download">
-                                                    <i class="fa-solid fa-download"></i>
-                                                </button>
-                                            </div>
-                                        ` : result.error ? html`
-                                            <div class="result-error">
-                                                <i class="fa-solid fa-circle-exclamation"></i>
-                                                <span>${result.error}</span>
-                                            </div>
-                                        ` : null}
-                                    </div>
-                                </div>
-                                ${result.text && html`
-                                    <div class="edited-image-text">
-                                        <p>${result.text}</p>
-                                    </div>
-                                `}
-                            </div>
-                         `)}
-                    </div>
-                </div>
-            `}
-        </div>
-    `;
-}
-
-function FurnitechVideoStudio() {
-    const { 
-        generatedFurnitechVideoUrl, 
-        isGeneratingFurnitechVideo, 
-        furnitechVideoGenerationError, 
-        furnitechVideoGenerationStatus, 
-        generateFurnitechVideo 
-    } = useContext(AppContext);
-
-    const [prompt, setPrompt] = useState('');
-    const [image, setImage] = useState(null);
-    const fileInputRef = useRef(null);
-
-    // Proactively fixed potential type errors similar to the ones reported.
-    // Added type to event and cast target to HTMLInputElement to correctly infer file type.
-    // Also added a null check for event.target inside reader.onload for robustness.
-    const handleFileChange = (e: Event) => {
-        const target = e.target as HTMLInputElement;
-        const file = target.files?.[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-                if (event.target && typeof event.target.result === 'string') {
-                    setImage({
-                        name: file.name,
-                        mimeType: file.type,
-                        data: event.target.result.split(',')[1],
-                    });
-                }
-            };
-            reader.readAsDataURL(file);
-        }
-    };
-
-    const clearFile = () => {
-        setImage(null);
-        if (fileInputRef.current) {
-            fileInputRef.current.value = "";
-        }
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (prompt.trim() && !isGeneratingFurnitechVideo) {
-            generateFurnitechVideo({ prompt, image });
-        }
-    };
-
-    return html`
-        <div class="card">
-            <div class="card-title-wrapper">
-                <div class="card-title-main">
-                    <i class="fa-solid fa-film"></i>
-                    <h2 class="card-title">Furnitech Video Studio</h2>
-                </div>
-            </div>
-            <p class="furnitech-feature-intro">
-                Bring your ideas to life with Furnitech-powered video. Describe a scene, or provide an image as a starting point, and watch it animate.
-            </p>
-            <form class="furnitech-video-studio-form" onSubmit=${handleSubmit}>
-                <div class="form-group-planner">
-                    <i class="fa-solid fa-lightbulb" style=${{top: '1.2rem', transform: 'none'}}></i>
-                    <textarea
-                        value=${prompt}
-                        onInput=${e => setPrompt(e.target.value)}
-                        placeholder="e.g., 'A neon hologram of a cat driving at top speed'"
-                        rows="3"
-                        style=${{paddingLeft: '3rem'}}
-                        required
-                    ></textarea>
-                </div>
-                <div class="file-upload-wrapper">
-                    <input type="file" id="video-image-upload" accept="image/*" onChange=${handleFileChange} ref=${fileInputRef} />
-                    <label for="video-image-upload" class="btn">
-                        <i class="fa-solid fa-image"></i> Add Image (Optional)
-                    </label>
-                    ${image && html`
-                        <div class="file-name-display">
-                           <i class="fa-solid fa-file-image"></i>
-                           <span class="file-name-text">${image.name}</span>
-                           <button type="button" class="btn-clear-file" onClick=${clearFile} aria-label="Remove file">×</button>
-                        </div>
-                    `}
-                </div>
-                 <div class="furnitech-feature-actions">
-                     <button type="submit" class="btn btn-primary" disabled=${isGeneratingFurnitechVideo || !prompt.trim()}>
-                        ${isGeneratingFurnitechVideo ? html`<div class="loading-spinner"></div> Generating...` : html`<i class="fa-solid fa-wand-magic-sparkles"></i> Generate Video`}
-                    </button>
-                </div>
-            </form>
-            
-            ${isGeneratingFurnitechVideo && html`
-                <div class="loading-indicator-box">
-                    <div class="loading-spinner-dark"></div>
-                    <p>${furnitechVideoGenerationStatus}</p>
-                </div>
-            `}
-            ${furnitechVideoGenerationError && html`<div class="furnitech-error">${furnitechVideoGenerationError}</div>`}
-
-            ${generatedFurnitechVideoUrl && html`
-                <div class="generated-video-wrapper">
-                    <video src=${generatedFurnitechVideoUrl} controls autoplay loop muted playsinline>
-                        Your browser does not support the video tag.
-                    </video>
-                    <a href=${generatedFurnitechVideoUrl} download="obra-generated-video.mp4" class="btn btn-primary btn-download-video">
-                         <i class="fa-solid fa-download"></i> Download Video
-                    </a>
-                </div>
-            `}
-        </div>
-    `;
-}
-
-
-function BundleCard({ bundle }) {
-    const { currency, setCart } = useContext(AppContext);
-
-    const totalCost = useMemo(() => {
-        return bundle.items.reduce((sum, item) => {
-            const product = initialProducts.find(p => p.code === item.code);
-            return sum + (product ? Number(product.price) * item.quantity : 0);
-        }, 0);
-    }, [bundle, initialProducts]);
-
-    const addBundleToCart = () => {
-        setCart(prevCart => {
-            const newCart = [...prevCart];
-            bundle.items.forEach(bundleItem => {
-                const product = initialProducts.find(p => p.code === bundleItem.code);
-                if (product) {
-                    // FIX: Cast product to `any` to access the optional `colors` property.
-                    // The type inferred from `initialProducts` does not include `colors`, but other parts of the app expect it to be potentially available.
-                    const selectedColor = (product as any).colors ? (product as any).colors[0] : null;
-                    const cartId = product.code + (selectedColor ? `-${selectedColor.name}` : '');
-                    const existingItemIndex = newCart.findIndex(cartItem => cartItem.cartId === cartId);
-                    if (existingItemIndex > -1) {
-                        newCart[existingItemIndex].quantity += bundleItem.quantity;
-                    } else {
-                        newCart.push({ ...product, quantity: bundleItem.quantity, selectedColor, cartId });
-                    }
-                }
-            });
-            return newCart;
-        });
-    };
-
-    return html`
-        <div class="bundle-card">
-            <div class="bundle-info">
-                <h3 class="bundle-name">${bundle.name}</h3>
-                <p class="bundle-description">${bundle.description}</p>
-                <ul class="bundle-item-list">
-                    ${bundle.items.map(item => {
-                        const product = initialProducts.find(p => p.code === item.code);
-                        return product ? html`<li key=${item.code}><span>${item.quantity}x</span> ${product.name}</li>` : null;
-                    })}
-                </ul>
-            </div>
-            <div class="bundle-footer">
-                <div class="bundle-price">
-                    <span>Bundle Price</span>
-                    <strong>${formatCurrency(totalCost, currency)}</strong>
-                </div>
-                <button onClick=${addBundleToCart} class="btn btn-primary">
-                    <i class="fa-solid fa-box-open"></i> Add Bundle to Quote
-                </button>
             </div>
         </div>
     `;
 }
 
-
-function ProductBundles() {
-    return html`
-        <div class="card">
-            <div class="card-title-wrapper">
-                <div class="card-title-main">
-                    <i class="fa-solid fa-boxes-packing"></i>
-                    <h2 class="card-title">Product Bundles</h2>
-                </div>
-            </div>
-            <p class="furnitech-feature-intro">
-                Get started quickly with our curated furniture packages. Add a complete setup to your quote with just one click.
-            </p>
-            <div class="product-bundles-grid">
-                ${productBundles.map(bundle => html`
-                    <${BundleCard} key=${bundle.id} bundle=${bundle} />
-                `)}
-            </div>
-        </div>
-    `;
-}
-
-function CallToActionBanner() {
-    return html`
-        <div class="cta-banner">
-            <div class="cta-content">
-                <h2>Ready to Build Your Perfect Office?</h2>
-                <p>Get a comprehensive, no-obligation quotation in minutes.</p>
-                <button class="btn btn-cta" onClick=${() => {
-                    const quoteSection = document.querySelector('.quotation-builder-section');
-                    if (quoteSection) {
-                        quoteSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                 }}>
-                    Start Your Free Quote Now <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </div>
-        </div>
-    `;
-}
-
-function ProductGrid() {
-    const [searchQuery, setSearchQuery] = useState('');
-    const [selectedCategories, setSelectedCategories] = useState([]);
-    const [sortOrder, setSortOrder] = useState('default');
-    const [selectedPriceRanges, setSelectedPriceRanges] = useState([]);
+function ProductGridCard() {
+    const { products } = useContext(AppContext);
+    const [searchTerm, setSearchTerm] = useState('');
     const [suggestions, setSuggestions] = useState([]);
-    const [isSearchFocused, setIsSearchFocused] = useState(false);
-    const [isGeneratingCatalog, setIsGeneratingCatalog] = useState(false);
-    const [isFilterPanelOpen, setIsFilterPanelOpen] = useState(false);
-    const [showAll, setShowAll] = useState(false);
-    const { currency } = useContext(AppContext);
+    const [category, setCategory] = useState('All');
+    const [priceRange, setPriceRange] = useState([0, 30000]);
+    const [sort, setSort] = useState('default');
+    const [displayedCount, setDisplayedCount] = useState(12);
+    const [showFilters, setShowFilters] = useState(false);
 
-    const categories = useMemo(() => [...new Set(initialProducts.map(p => p.category))], []);
-
-    const priceRanges = {
-        'Under ₱10,000': [0, 9999.99],
-        '₱10,000 - ₱20,000': [10000, 20000],
-        'Over ₱20,000': [20000.01, Infinity],
-    };
-
-    const fuse = useMemo(() => new Fuse(initialProducts, {
+    const fuse = useMemo(() => new Fuse(products, {
         keys: ['name', 'code', 'category', 'description'],
-        threshold: 0.3,
-        minMatchCharLength: 2,
-        ignoreLocation: true,
-    }), [initialProducts]);
+        threshold: 0.4,
+    }), [products]);
 
-    const filteredAndSortedProducts = useMemo(() => {
-        let products = initialProducts;
+    const categories = useMemo(() => ['All', ...new Set(products.map(p => p.category))], [products]);
 
-        if (searchQuery) {
-            products = fuse.search(searchQuery).map(result => result.item);
-        }
-
-        if (selectedCategories.length > 0) {
-            products = products.filter(p => selectedCategories.includes(p.category));
+    const filteredProducts = useMemo(() => {
+        let results = searchTerm ? fuse.search(searchTerm).map(r => r.item) : products;
+        
+        if (category !== 'All') {
+            results = results.filter(p => p.category === category);
         }
         
-        if (selectedPriceRanges.length > 0) {
-            products = products.filter(p => {
-                const price = Number(p.price);
-                return selectedPriceRanges.some(range => {
-                    const [min, max] = priceRanges[range];
-                    return price >= min && price <= max;
-                });
-            });
-        }
-
-        const sorted = [...products];
-        switch (sortOrder) {
+        // FIX: Cast product price to number for comparison
+        results = results.filter(p => Number(p.price) >= priceRange[0] && Number(p.price) <= priceRange[1]);
+        
+        switch (sort) {
             case 'price-asc':
-                sorted.sort((a, b) => Number(a.price) - Number(b.price));
+                // FIX: Cast product prices to numbers for sorting
+                results.sort((a, b) => Number(a.price) - Number(b.price));
                 break;
             case 'price-desc':
-                sorted.sort((a, b) => Number(b.price) - Number(a.price));
+                // FIX: Cast product prices to numbers for sorting
+                results.sort((a, b) => Number(b.price) - Number(a.price));
                 break;
             case 'name-asc':
-                sorted.sort((a, b) => a.name.localeCompare(b.name));
+                results.sort((a, b) => a.name.localeCompare(b.name));
                 break;
         }
+        
+        return results;
+    }, [searchTerm, products, category, priceRange, sort, fuse]);
 
-        return sorted;
-    }, [searchQuery, selectedCategories, sortOrder, selectedPriceRanges, fuse]);
-    
-    const productLimit = 6;
-    const productsToShow = showAll ? filteredAndSortedProducts : filteredAndSortedProducts.slice(0, productLimit);
+    const paginatedProducts = useMemo(() => filteredProducts.slice(0, displayedCount), [filteredProducts, displayedCount]);
 
     const handleSearchChange = (e) => {
-        const query = e.target.value;
-        setSearchQuery(query);
-        if (query) {
-            setSuggestions(fuse.search(query).slice(0, 5).map(result => result.item));
+        const value = e.target.value;
+        setSearchTerm(value);
+        if (value.length > 2) {
+            setSuggestions(fuse.search(value, { limit: 5 }).map(r => r.item));
         } else {
             setSuggestions([]);
         }
     };
     
-    const handleSuggestionClick = (productName) => {
-        setSearchQuery(productName);
+    const selectSuggestion = (name) => {
+        setSearchTerm(name);
         setSuggestions([]);
     };
+
+    const loadMore = () => {
+        setDisplayedCount(prev => prev + 12);
+    };
+
+    const resetFilters = () => {
+        setSearchTerm('');
+        setCategory('All');
+        setPriceRange([0, 30000]);
+        setSort('default');
+        setShowFilters(false);
+    };
     
-    const clearFilters = () => {
-        setSearchQuery('');
-        setSelectedCategories([]);
-        setSelectedPriceRanges([]);
-        setSortOrder('default');
-    };
-
-    const handleCategoryToggle = (category) => {
-        setSelectedCategories(prev => 
-            prev.includes(category) 
-            ? prev.filter(c => c !== category)
-            : [...prev, category]
-        );
-    };
-
-    const handlePriceRangeToggle = (range) => {
-        setSelectedPriceRanges(prev => 
-            prev.includes(range)
-            ? prev.filter(r => r !== range)
-            : [...prev, range]
-        );
-    };
-
-    const generateCatalogPdf = async () => {
-        setIsGeneratingCatalog(true);
-        try {
-            const pngLogo = await convertSvgToPng(`data:image/svg+xml;base64,${obraLogo}`);
-            const doc = new jsPDF();
-
-            // Header
-            doc.addImage(pngLogo, 'PNG', 14, 12, 60, 20);
-            doc.setFontSize(16);
-            doc.setFont('helvetica', 'bold');
-            doc.text("Product Catalog", 196, 20, { align: 'right' });
-
-            // Table
-            const head = [['SKU', 'Product Name', 'Category', 'Price']];
-            const body = initialProducts.map(item => ([
-                item.code,
-                item.name,
-                item.category,
-                formatCurrency(item.price, currency)
-            ]));
-
-            autoTable(doc, {
-                head,
-                body,
-                startY: 40,
-                theme: 'striped',
-                headStyles: { fillColor: [22, 22, 22] },
-            });
-
-            // Footer
-            const pageHeight = doc.internal.pageSize.getHeight();
-            const footerY = pageHeight - 20;
-            doc.setLineWidth(0.2);
-            doc.line(14, footerY, 196, footerY);
-            doc.setFontSize(8);
-            doc.text("OBRA Office Furniture | obrafurniture@gmail.com | +63 915 743 9188 | facebook.com/obraofficefurniture", 105, footerY + 8, { align: 'center' });
-            doc.text(`Catalog generated on: ${new Date().toLocaleDateString('en-US')}`, 105, footerY + 12, { align: 'center' });
-
-            doc.save(`OBRA-Product-Catalog-${new Date().toISOString().split('T')[0]}.pdf`);
-        } catch (error) {
-            console.error("Failed to generate catalog PDF", error);
-        } finally {
-            setIsGeneratingCatalog(false);
-        }
-    };
-
     return html`
         <div class="card product-grid-card">
-            <${CallToActionBanner} />
             <div class="product-grid-header">
                 <div class="card-title-wrapper">
                     <div class="card-title-main">
                         <i class="fa-solid fa-store"></i>
                         <h2 class="card-title">Product Catalog</h2>
                     </div>
-                    <button onClick=${generateCatalogPdf} disabled=${isGeneratingCatalog} class="btn">
-                        ${isGeneratingCatalog ? html`<div class="loading-spinner-dark"></div>` : html`<i class="fa-solid fa-file-pdf"></i>`} Download Catalog
-                    </button>
                 </div>
                 <div class="search-and-filter-wrapper">
-                    <div class="search-bar" onFocus=${() => setIsSearchFocused(true)} onBlur=${() => setTimeout(() => setIsSearchFocused(false), 100)}>
-                         <i class="fa-solid fa-search"></i>
-                         <input
-                            type="text"
-                            placeholder="Search for products..."
-                            value=${searchQuery}
-                            onInput=${handleSearchChange}
-                            aria-label="Search products"
-                          />
-                          ${isSearchFocused && suggestions.length > 0 && html`
+                    <div class="search-bar">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" placeholder="Search products..." value=${searchTerm} onInput=${handleSearchChange} />
+                         ${suggestions.length > 0 && html`
                             <div class="autocomplete-suggestions">
-                                ${suggestions.map(item => html`
-                                    <div class="suggestion-item" onClick=${() => handleSuggestionClick(item.name)}>
-                                        ${item.name}
+                                ${suggestions.map(s => html`
+                                    <div class="suggestion-item" onClick=${() => selectSuggestion(s.name)}>
+                                        ${s.name}
                                     </div>
                                 `)}
                             </div>
-                          `}
+                        `}
                     </div>
-                    <button class="btn btn-secondary btn-filter" onClick=${() => setIsFilterPanelOpen(prev => !prev)}>
-                        <i class="fa-solid fa-filter"></i>
-                        <span>Filters</span>
+                    <button class="btn btn-filter" onClick=${() => setShowFilters(!showFilters)}>
+                        <i class="fa-solid fa-filter"></i> Filters ${showFilters ? html`<i class="fa-solid fa-chevron-up"></i>` : html`<i class="fa-solid fa-chevron-down"></i>`}
                     </button>
                 </div>
             </div>
-            ${isFilterPanelOpen && html`
+             ${showFilters && html`
                 <div class="filter-panel">
                     <div class="filter-section">
                         <h4 class="filter-title">Category</h4>
                         <div class="filter-options">
-                             <button
-                                class="filter-option-btn ${selectedCategories.length === 0 ? 'active' : ''}"
-                                onClick=${() => setSelectedCategories([])}
-                            >All</button>
                             ${categories.map(cat => html`
-                                <button
-                                    key=${cat}
-                                    class="filter-option-btn ${selectedCategories.includes(cat) ? 'active' : ''}"
-                                    onClick=${() => handleCategoryToggle(cat)}
-                                >${cat}</button>
-                            `)}
-                        </div>
-                    </div>
-                    <div class="filter-section">
-                        <h4 class="filter-title">Price Range</h4>
-                        <div class="filter-options">
-                            <button
-                                class="filter-option-btn ${selectedPriceRanges.length === 0 ? 'active' : ''}"
-                                onClick=${() => setSelectedPriceRanges([])}
-                            >All</button>
-                            ${Object.keys(priceRanges).map(range => html`
-                                <button
-                                    key=${range}
-                                    class="filter-option-btn ${selectedPriceRanges.includes(range) ? 'active' : ''}"
-                                    onClick=${() => handlePriceRangeToggle(range)}
-                                >${range}</button>
+                                <button class="filter-option-btn ${category === cat ? 'active' : ''}" onClick=${() => setCategory(cat)}>${cat}</button>
                             `)}
                         </div>
                     </div>
@@ -1707,237 +874,129 @@ function ProductGrid() {
                         <h4 class="filter-title">Sort By</h4>
                         <div class="filter-group">
                              <i class="fa-solid fa-arrow-down-wide-short"></i>
-                             <select value=${sortOrder} onChange=${e => setSortOrder(e.target.value)} aria-label="Sort products">
+                             <select value=${sort} onChange=${e => setSort(e.target.value)}>
                                 <option value="default">Default</option>
                                 <option value="price-asc">Price: Low to High</option>
                                 <option value="price-desc">Price: High to Low</option>
                                 <option value="name-asc">Name: A-Z</option>
-                             </select>
+                            </select>
                         </div>
                     </div>
-                     <div class="filter-panel-footer">
-                        <button class="btn-link" onClick=${clearFilters}>Clear All Filters</button>
+                    <div class="filter-panel-footer">
+                        <button class="btn-link" onClick=${resetFilters}>Reset Filters</button>
                     </div>
                 </div>
             `}
-            ${productsToShow.length > 0 ? html`
-                <div class="product-grid">
-                    ${productsToShow.map(product => html`<${ProductCard} key=${product.code} product=${product} />`)}
-                </div>
-            ` : html`
-                <div class="no-results">
-                    <p>No products found matching your criteria.</p>
-                </div>
-            `}
-            ${filteredAndSortedProducts.length > productLimit && html`
-                <div class="product-grid-footer">
-                    <button onClick=${() => setShowAll(prev => !prev)} class="btn">
-                        ${showAll ? 'Show Less' : `Show All ${filteredAndSortedProducts.length} Products`}
-                    </button>
-                </div>
-            `}
-        </div>
-    `;
-}
-
-function ClientInfoForm() {
-    const { clientInfo, setClientInfo } = useContext(AppContext);
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setClientInfo(prev => ({ ...prev, [name]: value }));
-    };
-    return html`
-        <div class="card client-info-card">
-            <div class="card-title-wrapper">
-                <i class="fa-solid fa-user-tie"></i>
-                <h2 class="card-title">Client Information</h2>
-            </div>
-            <div class="client-info-form">
-                <div class="form-group">
-                    <label for="name">Client Name</label>
-                    <input type="text" name="name" id="name" value=${clientInfo.name} onInput=${handleChange} placeholder="e.g., Juan Dela Cruz" />
-                </div>
-                <div class="form-group">
-                    <label for="company">Company Name</label>
-                    <input type="text" name="company" id="company" value=${clientInfo.company} onInput=${handleChange} placeholder="e.g., OBRA Inc." />
-                </div>
-                <div class="form-group">
-                    <label for="contact">Contact Number</label>
-                    <input type="tel" name="contact" id="contact" value=${clientInfo.contact} onInput=${handleChange} placeholder="e.g., +63 917 123 4567" />
-                </div>
-                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" name="email" id="email" value=${clientInfo.email} onInput=${handleChange} placeholder="e.g., juan.delacruz@obra.com" />
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-// A generic Modal component
-function Modal({ children, onClose, title, customClass = '' }) {
-    useEffect(() => {
-        const handleKeyDown = (e) => {
-            if (e.key === 'Escape') {
-                onClose();
-            }
-        };
-        document.addEventListener('keydown', handleKeyDown);
-        return () => document.removeEventListener('keydown', handleKeyDown);
-    }, [onClose]);
-
-    return html`
-        <div class="modal-overlay" onClick=${onClose}>
-            <div class="modal-content ${customClass}" onClick=${e => e.stopPropagation()}>
-                <div class="modal-header">
-                    <h2 class="modal-title">${title}</h2>
-                    <button class="modal-close-btn" onClick=${onClose} aria-label="Close modal">×</button>
-                </div>
-                <div class="modal-body">
-                    ${children}
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-// Specific modal for website previews
-function WebsitePreviewModal({ url, onClose }) {
-    if (!url) return null;
-    
-    let displayTitle = 'Website Preview';
-    try {
-        const urlObject = new URL(url);
-        displayTitle = urlObject.hostname;
-    } catch (e) {
-        console.error("Invalid URL for preview modal:", url);
-    }
-
-    return html`
-        <${Modal} onClose=${onClose} title=${displayTitle} customClass="modal-content-website">
-            <iframe
-                src=${url}
-                title="Website Preview"
-                sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                referrerpolicy="no-referrer"
-            ></iframe>
-        <//>
-    `;
-}
-
-
-function ProductMention({ productCode }) {
-    const { setCart, currency } = useContext(AppContext);
-    const product = initialProducts.find(p => p.code === productCode);
-
-    if (!product) {
-        return html`<span class="product-mention-invalid">Invalid SKU: ${productCode}</span>`;
-    }
-
-    const addToCart = () => {
-        setCart(prevCart => {
-            // FIX: Cast product to `any` to access the optional `colors` property.
-            // The type inferred from `initialProducts` does not include `colors`, but other parts of the app expect it to be potentially available.
-            const selectedColor = (product as any).colors ? (product as any).colors[0] : null;
-            const cartId = product.code + (selectedColor ? `-${selectedColor.name}` : '');
-            const existingItem = prevCart.find(item => item.cartId === cartId);
-            if (existingItem) {
-                return prevCart.map(item =>
-                    item.cartId === cartId ? { ...item, quantity: item.quantity + 1 } : item
-                );
-            }
-            return [...prevCart, { ...product, quantity: 1, selectedColor, cartId }];
-        });
-    };
-
-    return html`
-        <div class="product-mention">
-            <div class="mention-info">
-                <p class="mention-name">${product.name}</p>
-                <p class="mention-price">${formatCurrency(product.price, currency)}</p>
-            </div>
-            <button onClick=${addToCart} class="btn-mention-add" aria-label=${`Add ${product.name} to cart`}>
-                <i class="fa-solid fa-plus"></i> Add to Quote
-            </button>
-        </div>
-    `;
-}
-
-function FormattedFurnitechResponse({ text, groundingChunks }) {
-    const { setModalUrl } = useContext(AppContext);
-    
-    const content = useMemo(() => {
-        const skuRegex = /(\[SKU:[^\]]+\])/g;
-        const parts = text.split(skuRegex);
-
-        return parts.map(part => {
-            if (!part) return null;
-
-            const skuMatch = part.match(/\[SKU:([^\]]+)\]/);
-            if (skuMatch) {
-                const productCode = skuMatch[1];
-                return html`<${ProductMention} productCode=${productCode} />`;
-            }
-
-            const formatted = part
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\*(.*?)\*/g, '<em>$1</em>');
             
-            const blocks = formatted.split(/\n\s*\n/);
+            <div class="product-grid">
+                ${paginatedProducts.map((product, index) => html`
+                    <${ProductCard} key=${product.code} product=${product} />
+                    ${index === 5 && html`
+                        <div class="quotation-wrapper-inline">
+                            <${QuotationCard} />
+                        </div>
+                    `}
+                `)}
+            </div>
 
-            return blocks.map(block => {
-                if (block.match(/^(\s*[\-\*]\s.*)+$/s)) {
-                    const items = block.split('\n').map(item => {
-                        const content = item.replace(/^\s*[\-\*]\s/, '');
-                        if (!content) return null;
-                        return html`<li dangerouslySetInnerHTML=${{__html: content}}></li>`;
-                    }).filter(Boolean);
-                    return html`<ul>${items}</ul>`;
-                }
-                if (block.trim()) {
-                    return html`<p dangerouslySetInnerHTML=${{__html: block.replace(/\n/g, '<br />')}}></p>`;
-                }
-                return null;
-            }).filter(Boolean);
-        });
-    }, [text]);
-
-    return html`
-        <div class="formatted-furnitech-content">
-            ${content}
-            ${groundingChunks && groundingChunks.length > 0 && html`
-                <div class="grounding-sources">
-                    <h4 class="sources-title">
-                        <i class="fa-solid fa-globe"></i>
-                        Sources from the web
-                    </h4>
-                    <ul class="sources-list">
-                        ${groundingChunks.map(chunk => chunk.web && html`
-                            <li key=${chunk.web.uri}>
-                                <a href=${chunk.web.uri} onClick=${(e) => { e.preventDefault(); setModalUrl(chunk.web.uri); }} rel="noopener noreferrer" data-tooltip="Open Preview">
-                                    ${chunk.web.title || chunk.web.uri}
-                                </a>
-                            </li>
-                        `)}
-                    </ul>
+            ${filteredProducts.length === 0 && html`
+                <div class="no-results">
+                    <h3>No Products Found</h3>
+                    <p>Try adjusting your search or filter criteria.</p>
+                </div>
+            `}
+            
+            ${displayedCount < filteredProducts.length && html`
+                <div class="product-grid-footer">
+                    <button class="btn" onClick=${loadMore}>Load More</button>
                 </div>
             `}
         </div>
     `;
 }
 
-function FurnitechAssistant() {
-    const {
-        furnitechAssistantHistory,
+function ProductBundles() {
+    const { products, setCart, currency } = useContext(AppContext);
+    
+    const calculateBundle = (bundle) => {
+        let total = 0;
+        const resolvedItems = [];
+        bundle.items.forEach(item => {
+            const product = products.find(p => p.code === item.code);
+            if (product) {
+                // FIX: Cast product price to number for calculation
+                total += Number(product.price) * item.quantity;
+                resolvedItems.push({ product, quantity: item.quantity });
+            }
+        });
+        return { total, resolvedItems };
+    };
+
+    const handleAddBundleToCart = (bundle) => {
+        const { resolvedItems } = calculateBundle(bundle);
+        const cartItems = resolvedItems.map(item => ({
+            ...item,
+            id: Date.now() + Math.random(),
+            selectedColor: item.product.colors ? item.product.colors[0] : null
+        }));
+
+        setCart(prev => [...prev, ...cartItems]);
+    };
+    
+    return html`
+        <div class="card">
+            <div class="card-title-wrapper">
+                <div class="card-title-main">
+                    <i class="fa-solid fa-box-open"></i>
+                    <h2 class="card-title">Product Bundles</h2>
+                </div>
+            </div>
+            <div class="product-bundles-grid">
+                ${productBundles.map(bundle => {
+                    const { total, resolvedItems } = calculateBundle(bundle);
+                    return html`
+                        <div class="bundle-card" key=${bundle.id}>
+                            <div class="bundle-info">
+                                <h3 class="bundle-name">${bundle.name}</h3>
+                                <p class="bundle-description">${bundle.description}</p>
+                                <ul class="bundle-item-list">
+                                    ${resolvedItems.map(item => html`
+                                        <li><span>${item.quantity}x</span> ${item.product.name}</li>
+                                    `)}
+                                </ul>
+                            </div>
+                            <div class="bundle-footer">
+                                <div class="bundle-price">
+                                    <span>Package Price</span>
+                                    <strong>${formatCurrency(total, currency)}</strong>
+                                </div>
+                                <button class="btn btn-primary" onClick=${() => handleAddBundleToCart(bundle)}>Add to Quote</button>
+                            </div>
+                        </div>
+                    `;
+                })}
+            </div>
+        </div>
+    `;
+}
+
+// --- FURNITECH AI TOOLS ---
+
+function FurnitechAssistantCard() {
+    const { 
+        furnitechAssistantHistory, 
         isFurnitechAssistantGenerating,
-        furnitechAssistantError,
+        furnitechAssistantError, 
         generateFurnitechResponse,
         chatSummary,
         setChatSummary,
         isSummarizing,
         summarizeChat,
+        setModalUrl,
+        products,
+        currency,
+        setCart
     } = useContext(AppContext);
-
     const [prompt, setPrompt] = useState('');
     const [useWebSearch, setUseWebSearch] = useState(false);
     const historyRef = useRef(null);
@@ -1946,102 +1005,133 @@ function FurnitechAssistant() {
         if (historyRef.current) {
             historyRef.current.scrollTop = historyRef.current.scrollHeight;
         }
-    }, [furnitechAssistantHistory]);
+    }, [furnitechAssistantHistory, isFurnitechAssistantGenerating]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (prompt.trim() && !isFurnitechAssistantGenerating) {
             generateFurnitechResponse(prompt, useWebSearch);
             setPrompt('');
-            setUseWebSearch(false);
         }
     };
+    
+    const formatResponse = (text) => {
+        const addProductToCart = (productCode) => {
+            const product = products.find(p => p.code === productCode);
+            if (product) {
+                const selectedColor = product.colors ? product.colors[0] : null;
+                const existingItem = useContext(AppContext).cart.find(item => item.product.code === product.code && item.selectedColor?.hex === selectedColor?.hex);
+                if (existingItem) {
+                    setCart(prev => prev.map(item => item.id === existingItem.id ? { ...item, quantity: item.quantity + 1 } : item));
+                } else {
+                    setCart(prev => [...prev, { product, quantity: 1, id: Date.now(), selectedColor }]);
+                }
+            }
+        };
 
-    const handleKeyDown = (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            handleSubmit(e);
-        }
+        const parts = text.split(/(\[\[PRODUCT:.*?\]\])/g);
+        
+        return parts.map(part => {
+            const match = part.match(/\[\[PRODUCT:(.*?)\]\]/);
+            if (match) {
+                const productCode = match[1];
+                const product = products.find(p => p.code === productCode);
+                if (product) {
+                    return html`
+                        <div class="product-mention">
+                            <div class="mention-info">
+                                <p class="mention-name">${product.name}</p>
+                                <p class="mention-price">${formatCurrency(product.price, currency)}</p>
+                            </div>
+                            <button class="btn-mention-add" onClick=${() => addProductToCart(product.code)}>
+                                <i class="fa-solid fa-plus"></i> Add
+                            </button>
+                        </div>
+                    `;
+                }
+                return html`<span class="product-mention-invalid">Invalid Product Code: ${productCode}</span>`;
+            }
+            
+            return part
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .split('\n').map(line => html`<p>${line}</p>`);
+        });
     };
-
+    
     return html`
         <div class="card">
             <div class="card-title-wrapper">
-                 <div class="card-title-main">
-                    <i class="fa-solid fa-comments-dollar"></i>
+                <div class="card-title-main">
+                    <i class="fa-solid fa-comments"></i>
                     <h2 class="card-title">Furnitech Assistant</h2>
                 </div>
-                <button
-                    onClick=${summarizeChat}
-                    disabled=${isSummarizing || furnitechAssistantHistory.length === 0}
-                    class="btn btn-secondary"
-                    data-tooltip="Summarize Conversation"
-                >
-                   ${isSummarizing ? html`<div class="loading-spinner-small"></div>` : html`<i class="fa-solid fa-file-lines"></i>`}
-                </button>
+                 ${furnitechAssistantHistory.length > 2 && !chatSummary && html`
+                    <button class="btn btn-secondary" onClick=${summarizeChat} disabled=${isSummarizing}>
+                        ${isSummarizing ? html`<div class="loading-spinner-small"></div>` : html`<i class="fa-solid fa-wand-magic-sparkles"></i>`}
+                        Summarize
+                    </button>
+                 `}
             </div>
             ${chatSummary && html`
                 <div class="chat-summary-container">
                     <div class="summary-header">
-                        <h4><i class="fa-solid fa-list-check"></i> Chat Summary</h4>
-                        <button class="btn-clear-summary" onClick=${() => setChatSummary(null)} aria-label="Close summary">×</button>
+                        <h4><i class="fa-solid fa-circle-info"></i> Conversation Summary</h4>
+                        <button class="btn-clear-summary" onClick=${() => setChatSummary(null)}>&times;</button>
                     </div>
-                    <div class="summary-content">
-                         <${FormattedFurnitechResponse} text=${chatSummary} />
-                    </div>
+                    <p class="summary-content">${chatSummary}</p>
                 </div>
             `}
-            <p class="furnitech-feature-intro">
-                Ask for product recommendations or design ideas. For current trends, enable "Search Web" for the latest insights.
-            </p>
             <div class="furnitech-assistant-history" ref=${historyRef}>
-                ${furnitechAssistantHistory.length === 0 && html`
+                 ${furnitechAssistantHistory.length === 0 && !isFurnitechAssistantGenerating && html`
                     <div class="empty-chat">
-                        <i class="fa-solid fa-robot"></i>
-                        <p>Ready to help you build the perfect office!</p>
+                        <i class="fa-regular fa-comments"></i>
+                        <h4>Ask me anything!</h4>
+                        <p>e.g., "Recommend an ergonomic chair under ₱5000" or "Compare executive tables for a modern office."</p>
                     </div>
-                `}
-                ${furnitechAssistantHistory.map((msg, index) => html`
-                    <div key=${index} class="chat-message ${msg.role}">
+                 `}
+                ${furnitechAssistantHistory.map((entry, index) => html`
+                    <div class="chat-message ${entry.role}" key=${index}>
                         <div class="message-bubble">
-                            ${msg.role === 'model' ? html`<${FormattedFurnitechResponse} text=${msg.content} groundingChunks=${msg.groundingChunks} />` : msg.content}
+                             <div class="formatted-furnitech-content">
+                                ${entry.role === 'model' ? formatResponse(entry.text) : entry.text}
+                            </div>
+                            ${entry.role === 'model' && entry.sources && html`
+                                <div class="grounding-sources">
+                                    <h5 class="sources-title"><i class="fa-solid fa-globe"></i> Sources:</h5>
+                                    <ul class="sources-list">
+                                        ${entry.sources.map(source => html`
+                                            <li><a href="#" onClick=${(e) => { e.preventDefault(); setModalUrl(source.web.uri); }}>${source.web.title}</a></li>
+                                        `)}
+                                    </ul>
+                                </div>
+                            `}
                         </div>
                     </div>
                 `)}
-                ${isFurnitechAssistantGenerating && html`
+                 ${isFurnitechAssistantGenerating && html`
                     <div class="chat-message model">
-                        <div class="message-bubble">
-                            <div class="typing-indicator">
-                                <span></span><span></span><span></span>
-                            </div>
-                        </div>
+                         <div class="message-bubble">
+                            <div class="typing-indicator"><span></span><span></span><span></span></div>
+                         </div>
                     </div>
-                `}
+                 `}
             </div>
-            ${furnitechAssistantError && html`<p class="furnitech-error-inline">${furnitechAssistantError}</p>`}
+            ${furnitechAssistantError && html`<p class="furnitech-error">${furnitechAssistantError}</p>`}
             <form class="furnitech-assistant-form" onSubmit=${handleSubmit}>
-                 <div class="textarea-wrapper">
-                    <textarea
-                        value=${prompt}
+                <div class="textarea-wrapper">
+                    <textarea 
+                        value=${prompt} 
                         onInput=${e => setPrompt(e.target.value)}
-                        placeholder="e.g., 'What are the latest trends in office design?'"
-                        rows="2"
-                        aria-label="Ask the Furnitech assistant"
-                        onKeyDown=${handleKeyDown}
+                        placeholder="Ask for recommendations, comparisons, etc."
+                        rows="1"
                     ></textarea>
-                    <div class="web-search-toggle">
-                        <input 
-                            type="checkbox" 
-                            id="web-search-checkbox" 
-                            checked=${useWebSearch} 
-                            onChange=${() => setUseWebSearch(!useWebSearch)} 
-                        />
-                        <label for="web-search-checkbox">
-                            <i class="fa-solid fa-globe"></i> Search Web
-                        </label>
+                     <div class="web-search-toggle">
+                        <input type="checkbox" id="web-search" checked=${useWebSearch} onChange=${() => setUseWebSearch(!useWebSearch)} />
+                        <label for="web-search"><i class="fa-solid fa-globe"></i> Web Search</label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary" disabled=${isFurnitechAssistantGenerating || !prompt.trim()}>
+                <button class="btn btn-primary" type="submit" disabled=${isFurnitechAssistantGenerating || !prompt.trim()}>
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
             </form>
@@ -2049,1133 +1139,1086 @@ function FurnitechAssistant() {
     `;
 }
 
-function Wishlist() {
-    const { wishlist, setWishlist, setCart, currency } = useContext(AppContext);
+function FurnitechSpacePlannerCard() {
+    const { 
+        isPlanning, planError, generateLayoutPlan,
+        furnitechLayoutOptions, setFurnitechLayoutOptions,
+        selectedLayoutIndex, setSelectedLayoutIndex,
+        addLayoutToCart,
+        currency
+    } = useContext(AppContext);
 
-    const removeItem = (code) => {
-        setWishlist(prev => prev.filter(itemCode => itemCode !== code));
+    const [floorPlan, setFloorPlan] = useState(null);
+    const [officeType, setOfficeType] = useState('Startup');
+    const [numEmployees, setNumEmployees] = useState(10);
+    const [style, setStyle] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        generateLayoutPlan({ floorPlan, officeType, numEmployees, style });
     };
 
-    const moveToCart = (code) => {
-        const product = initialProducts.find(p => p.code === code);
-        if (product) {
-            setCart(prevCart => {
-                // FIX: Cast product to `any` to access the optional `colors` property.
-                // The type inferred from `initialProducts` does not include `colors`, but other parts of the app expect it to be potentially available.
-                const selectedColor = (product as any).colors ? (product as any).colors[0] : null;
-                const cartId = product.code + (selectedColor ? `-${selectedColor.name}` : '');
-                const existingItem = prevCart.find(item => item.cartId === cartId);
-                if (existingItem) {
-                    return prevCart.map(item =>
-                        item.cartId === cartId ? { ...item, quantity: item.quantity + 1 } : item
-                    );
-                }
-                return [...prevCart, { ...product, quantity: 1, selectedColor, cartId }];
-            });
-            removeItem(code); // remove from wishlist after adding to cart
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setFloorPlan(file);
         }
     };
 
+    const clearSelection = () => {
+        setFurnitechLayoutOptions(null);
+        setSelectedLayoutIndex(null);
+    };
+
+    const selectedLayout = selectedLayoutIndex !== null ? furnitechLayoutOptions?.[selectedLayoutIndex] : null;
+
     return html`
-        <div class="card wishlist-card">
+        <div class="card">
             <div class="card-title-wrapper">
                 <div class="card-title-main">
-                    <i class="fa-solid fa-heart"></i>
-                    <h2 class="card-title">Wishlist</h2>
+                    <i class="fa-solid fa-ruler-combined"></i>
+                    <h2 class="card-title">Furnitech Space Planner</h2>
                 </div>
-                ${wishlist.length > 0 && html`<span class="wishlist-count">${wishlist.length}</span>`}
+                ${(furnitechLayoutOptions || isPlanning) && html`
+                    <button class="btn btn-secondary" onClick=${clearSelection}>
+                        <i class="fa-solid fa-arrow-left"></i> Start Over
+                    </button>
+                `}
             </div>
 
-            ${wishlist.length === 0 ? html`
-                <div class="empty-wishlist">
-                    <i class="fa-solid fa-heart-crack"></i>
-                    <p>Your wishlist is empty.<br/>Add items you love from the catalog.</p>
-                </div>
-            ` : html`
-                <div class="wishlist-items">
-                    ${wishlist.map(code => {
-                        const product = initialProducts.find(p => p.code === code);
-                        if (!product) return null;
-                        return html`
-                            <div class="wishlist-item" key=${code}>
-                                <div class="wishlist-item-details">
-                                    <p class="item-name">${product.name}</p>
-                                    <p class="item-price">${formatCurrency(product.price, currency)}</p>
-                                </div>
-                                <div class="wishlist-item-controls">
-                                    <button class="btn-icon" onClick=${() => moveToCart(code)} aria-label="Move to Quote" data-tooltip="Move to Quote">
-                                        <i class="fa-solid fa-cart-arrow-down"></i>
-                                    </button>
-                                    <button class="btn-icon btn-delete" onClick=${() => removeItem(code)} aria-label="Remove from Wishlist" data-tooltip="Remove">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </div>
+            ${!furnitechLayoutOptions && !isPlanning && !selectedLayout && html`
+                <p class="furnitech-feature-intro">Get AI-powered office layout suggestions. Provide your office details and optionally upload a floor plan image.</p>
+                <form class="furnitech-planner-form" onSubmit=${handleSubmit}>
+                    <div class="form-row">
+                        <div class="form-group-planner">
+                             <i class="fa-solid fa-building"></i>
+                            <select id="officeType" value=${officeType} onChange=${e => setOfficeType(e.target.value)}>
+                                <option>Startup</option>
+                                <option>Corporate</option>
+                                <option>Creative Agency</option>
+                                <option>Tech Hub</option>
+                                <option>Law Firm</option>
+                                <option>Co-working Space</option>
+                            </select>
+                        </div>
+                        <div class="form-group-planner">
+                            <i class="fa-solid fa-users"></i>
+                            <input type="number" id="numEmployees" value=${numEmployees} onInput=${e => setNumEmployees(e.target.value)} placeholder="Number of Employees" min="1" />
+                        </div>
+                    </div>
+                     <div class="form-group-planner">
+                        <i class="fa-solid fa-palette"></i>
+                        <input type="text" id="style" value=${style} onInput=${e => setStyle(e.target.value)} placeholder="Optional: Specific style (e.g., minimalist, industrial)" />
+                    </div>
+                    <div class="file-upload-wrapper">
+                        <label for="floorPlan" class="btn"><i class="fa-solid fa-upload"></i> Upload Floor Plan</label>
+                        <input type="file" id="floorPlan" onChange=${handleFileChange} accept="image/*" />
+                        ${floorPlan && html`
+                            <div class="file-name-display">
+                                <i class="fa-solid fa-file-image"></i>
+                                <span class="file-name-text">${floorPlan.name}</span>
+                                <button class="btn-clear-file" onClick=${() => setFloorPlan(null)}>&times;</button>
                             </div>
-                        `;
-                    })}
-                </div>
+                        `}
+                    </div>
+                    <div class="furnitech-feature-actions">
+                        <button class="btn btn-primary" type="submit" disabled=${isPlanning}>
+                            ${isPlanning ? html`<div class="loading-spinner"></div>` : html`<i class="fa-solid fa-lightbulb"></i>`}
+                            Generate Plan
+                        </button>
+                    </div>
+                </form>
             `}
-        </div>
-    `;
-}
-
-function QuotationPreviewModal({ onClose, cart, clientInfo, currency, subtotal, discountAmount, deliveryFee, total }) {
-    const quoteDate = new Date();
-    const expiryDate = new Date();
-    expiryDate.setDate(quoteDate.getDate() + 30);
-    
-    return html`
-        <${Modal} onClose=${onClose} title="Quotation Preview" customClass="modal-content-preview">
-            <div class="quotation-preview-content">
-                <div class="preview-header">
-                    <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" />
-                    <h1>QUOTATION</h1>
-                </div>
-                <div class="preview-info">
-                    <div class="info-block">
-                        <strong>Bill To:</strong>
-                        <p>${clientInfo.name || 'N/A'}</p>
-                        <p>${clientInfo.company || 'N/A'}</p>
-                        <p>${clientInfo.contact || 'N/A'}</p>
-                        <p>${clientInfo.email || 'N/A'}</p>
-                    </div>
-                    <div class="info-block align-right">
-                        <p><strong>Quotation #:</strong> OBRA-${quoteDate.getFullYear()}-${(quoteDate.getMonth() + 1).toString().padStart(2, '0')}${quoteDate.getDate().toString().padStart(2, '0')}</p>
-                        <p><strong>Date:</strong> ${quoteDate.toLocaleDateString('en-US')}</p>
-                        <p><strong>Valid Until:</strong> ${expiryDate.toLocaleDateString('en-US')}</p>
-                    </div>
-                </div>
-                <table class="preview-table">
-                    <thead>
-                        <tr>
-                            <th>SKU</th>
-                            <th>Product Name</th>
-                            <th class="align-right">Qty</th>
-                            <th class="align-right">Unit Price</th>
-                            <th class="align-right">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        ${cart.map(item => html`
-                            <tr key=${item.cartId}>
-                                <td>${item.code}</td>
-                                <td>${item.selectedColor ? `${item.name} (${item.selectedColor.name})` : item.name}</td>
-                                <td class="align-right">${item.quantity}</td>
-                                <td class="align-right">${formatCurrency(item.price, currency)}</td>
-                                <td class="align-right">${formatCurrency(Number(item.price) * item.quantity, currency)}</td>
-                            </tr>
-                        `)}
-                    </tbody>
-                </table>
-                 <div class="preview-totals">
-                    <div class="total-line">
-                        <span>Subtotal</span>
-                        <span>${formatCurrency(subtotal, currency)}</span>
-                    </div>
-                    ${discountAmount > 0 && html`
-                        <div class="total-line">
-                            <span>Discount</span>
-                            <span>- ${formatCurrency(discountAmount, currency)}</span>
-                        </div>
-                    `}
-                    ${deliveryFee > 0 && html`
-                        <div class="total-line">
-                            <span>Delivery Fee</span>
-                            <span>${formatCurrency(deliveryFee, currency)}</span>
-                        </div>
-                    `}
-                    <div class="total-line grand-total">
-                        <span>TOTAL</span>
-                        <span>${formatCurrency(total, currency)}</span>
-                    </div>
-                </div>
-                <div class="preview-footer">
-                     <p>OBRA Office Furniture | obrafurniture@gmail.com | +63 915 743 9188</p>
-                     <p>Thank you for your business!</p>
-                </div>
-            </div>
-        <//>
-    `;
-}
-
-function Quotation() {
-    const { cart, setCart, clientInfo, currency, setCurrency } = useContext(AppContext);
-    
-    const [deliveryFee, setDeliveryFee] = useState(0);
-    const [discount, setDiscount] =useState(0);
-    const [discountType, setDiscountType] = useState('percent'); // 'percent' or 'fixed'
-    const [showPreview, setShowPreview] = useState(false);
-
-    const updateQuantity = (cartId, delta) => {
-        setCart(prevCart => {
-            const updatedCart = prevCart.map(item =>
-                item.cartId === cartId ? { ...item, quantity: Math.max(0, item.quantity + delta) } : item
-            );
-            return updatedCart.filter(item => item.quantity > 0);
-        });
-    };
-
-    const removeItem = (cartId) => {
-        setCart(prevCart => prevCart.filter(item => item.cartId !== cartId));
-    };
-
-    const subtotal = useMemo(() => {
-        return cart.reduce((sum, item) => sum + (Number(item.price) * item.quantity), 0);
-    }, [cart]);
-
-    const discountAmount = useMemo(() => {
-        if (discountType === 'percent') {
-            return subtotal * (discount / 100);
-        }
-        return Math.min(subtotal, discount); // Cannot discount more than subtotal
-    }, [subtotal, discount, discountType]);
-
-    const total = useMemo(() => {
-        return subtotal - discountAmount + Number(deliveryFee);
-    }, [subtotal, discountAmount, deliveryFee]);
-
-    const generatePdf = async () => {
-        if (!clientInfo.name || !clientInfo.company) {
-            alert("Please fill in the Client Name and Company Name before generating a quotation.");
-            return;
-        }
-
-        try {
-            const pngLogo = await convertSvgToPng(`data:image/svg+xml;base64,${obraLogo}`);
-            const doc = new jsPDF();
-            const pageHeight = doc.internal.pageSize.getHeight();
-            const pageWidth = doc.internal.pageSize.getWidth();
-
-            // Header
-            doc.addImage(pngLogo, 'PNG', 14, 12, 60, 20);
-            doc.setFontSize(22);
-            doc.setFont( 'helvetica', 'bold');
-            doc.text("QUOTATION", pageWidth - 14, 20, { align: 'right' });
-
-            // Client Info and Dates
-            doc.setLineWidth(0.5);
-            doc.line(14, 40, pageWidth - 14, 40);
-            const quoteDate = new Date();
-            const expiryDate = new Date();
-            expiryDate.setDate(quoteDate.getDate() + 30);
-
-            doc.setFontSize(10);
-            doc.setFont('helvetica', 'bold');
-            doc.text("Bill To:", 14, 48);
-            doc.setFont('helvetica', 'normal');
-            doc.text(clientInfo.name, 14, 53);
-            doc.text(clientInfo.company, 14, 58);
-            doc.text(clientInfo.contact, 14, 63);
-            doc.text(clientInfo.email, 14, 68);
-
-            doc.setFont('helvetica', 'bold');
-            doc.text("Quotation #:", pageWidth - 55, 48);
-            doc.text("Date:", pageWidth - 55, 53);
-            doc.text("Valid Until:", pageWidth - 55, 58);
-            doc.setFont('helvetica', 'normal');
-            doc.text(`OBRA-${quoteDate.getFullYear()}-${(quoteDate.getMonth() + 1).toString().padStart(2, '0')}${quoteDate.getDate().toString().padStart(2, '0')}`, pageWidth - 14, 48, { align: 'right' });
-            doc.text(quoteDate.toLocaleDateString('en-US'), pageWidth - 14, 53, { align: 'right' });
-            doc.text(expiryDate.toLocaleDateString('en-US'), pageWidth - 14, 58, { align: 'right' });
-
-            // Items Table
-            const head = [['SKU', 'Product Name', 'Qty', 'Unit Price', 'Total']];
-            const body = cart.map(item => ([
-                item.code,
-                item.selectedColor ? `${item.name} (${item.selectedColor.name})` : item.name,
-                item.quantity,
-                formatCurrency(item.price, currency),
-                formatCurrency(Number(item.price) * item.quantity, currency)
-            ]));
-
-            autoTable(doc, {
-                head,
-                body,
-                startY: 80,
-                theme: 'striped',
-                headStyles: { fillColor: [22, 22, 22] },
-                didDrawPage: (data) => {
-                    // Footer
-                    const footerY = pageHeight - 25;
-                    doc.setLineWidth(0.2);
-                    doc.line(14, footerY, pageWidth - 14, footerY);
-                    doc.setFontSize(8);
-                    doc.text("OBRA Office Furniture | obrafurniture@gmail.com | +63 915 743 9188", pageWidth / 2, footerY + 8, { align: 'center' });
-                    doc.text("Thank you for your business!", pageWidth / 2, footerY + 12, { align: 'center' });
-                }
-            });
-
-            // Totals Section
-            let finalY = (doc as any).lastAutoTable.finalY + 10;
-            doc.setFontSize(12);
-            doc.setFont('helvetica', 'bold');
-
-            const addTotalLine = (label, value) => {
-                 if (finalY > pageHeight - 35) {
-                    doc.addPage();
-                    finalY = 20;
-                 }
-                 doc.text(label, pageWidth - 60, finalY);
-                 doc.setFont('helvetica', 'normal');
-                 doc.text(value, pageWidth - 14, finalY, { align: 'right' });
-                 doc.setFont('helvetica', 'bold');
-                 finalY += 7;
-            };
             
-            addTotalLine("Subtotal:", formatCurrency(subtotal, currency));
-            if(discountAmount > 0) addTotalLine("Discount:", `- ${formatCurrency(discountAmount, currency)}`);
-            if(deliveryFee > 0) addTotalLine("Delivery Fee:", formatCurrency(deliveryFee, currency));
-
-            doc.setLineWidth(0.3);
-            doc.line(pageWidth - 60, finalY - 2, pageWidth - 14, finalY - 2);
-            doc.setFontSize(14);
-            addTotalLine("TOTAL:", formatCurrency(total, currency));
-
-            doc.save(`Quotation-${clientInfo.company || 'Client'}-${quoteDate.toISOString().split('T')[0]}.pdf`);
-        } catch (error) {
-            console.error("Failed to generate PDF", error);
-            alert("An error occurred while generating the PDF. Please check the console for details.");
-        }
-    };
-    
-    return html`
-        <div class="card quotation quotation-card">
-            <div class="card-title-wrapper">
-                <div class="card-title-main">
-                    <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" class="quotation-logo" />
-                    <h2 class="card-title">Quotation</h2>
+            ${isPlanning && !furnitechLayoutOptions && html`
+                <div class="loading-indicator-box">
+                    <div class="loading-spinner-dark"></div>
+                    <p>Generating layout options... This may take a moment.</p>
                 </div>
-                 <div class="currency-selector">
-                    <i class="fa-solid fa-coins"></i>
-                    <select value=${currency} onChange=${e => setCurrency(e.target.value)}>
-                        ${Object.keys(currencyRates).map(c => html`<option value=${c}>${c}</option>`)}
-                    </select>
-                </div>
-            </div>
+            `}
 
-            ${cart.length === 0 ? html`
-                <div class="empty-cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <p>Your quotation is empty.<br/>Add products from the catalog to get started.</p>
-                </div>
-            ` : html`
-                <div class="cart-items">
-                    ${cart.map(item => html`
-                        <div class="cart-item" key=${item.cartId}>
-                            <div class="item-details">
-                                <p class="item-name">${item.name} ${item.selectedColor && html`<span class="item-color">(${item.selectedColor.name})</span>`}</p>
-                                <p class="item-price">${formatCurrency(item.price, currency)}</p>
+            ${planError && html`<p class="furnitech-error">${planError}</p>`}
+            
+            ${furnitechLayoutOptions && !selectedLayout && html`
+                <div class="generated-plan-wrapper">
+                    <h3 class="generated-plan-title">Choose a Layout Option</h3>
+                    <div class="layout-options-grid">
+                        ${furnitechLayoutOptions.map((layout, index) => html`
+                            <div class="layout-option-card ${selectedLayoutIndex === index ? 'active' : ''}" onClick=${() => setSelectedLayoutIndex(index)}>
+                                <div class="layout-option-details">
+                                    <h4 class="option-title">${layout.name}</h4>
+                                    <p class="option-description">${layout.description}</p>
+                                </div>
+                                <div class="option-cost">
+                                    <span>Estimated Cost</span>
+                                    <strong>${formatCurrency(layout.totalCost, currency)}</strong>
+                                </div>
                             </div>
-                            <div class="item-controls">
-                                <button class="btn-quantity" onClick=${() => updateQuantity(item.cartId, -1)} aria-label="Decrease quantity">-</button>
-                                <span class="item-quantity">${item.quantity}</span>
-                                <button class="btn-quantity" onClick=${() => updateQuantity(item.cartId, 1)} aria-label="Increase quantity">+</button>
-                                <button class="btn-delete" onClick=${() => removeItem(item.cartId)} aria-label="Remove item" data-tooltip="Remove">
-                                    <i class="fa-solid fa-trash-can"></i>
-                                </button>
-                            </div>
-                        </div>
-                    `)}
-                </div>
-
-                <div class="summary-divider"></div>
-
-                <div class="summary-extras">
-                    <div class="summary-line-item-input">
-                        <span>Discount</span>
-                        <div class="input-group">
-                            <input type="number" value=${discount} onInput=${e => setDiscount(Math.max(0, e.target.value))} />
-                             <div class="discount-toggle">
-                                <button 
-                                    class="toggle-btn ${discountType === 'percent' ? 'active' : ''}" 
-                                    onClick=${() => setDiscountType('percent')}>%</button>
-                                <button 
-                                    class="toggle-btn ${discountType === 'fixed' ? 'active' : ''}" 
-                                    onClick=${() => setDiscountType('fixed')}>${currencyRates[currency].symbol}</button>
+                        `)}
+                         ${Array.from({ length: 3 - furnitechLayoutOptions.length }).map(() => html`
+                             <div class="skeleton-layout-card">
+                                <div class="skeleton-layout-details">
+                                     <div class="skeleton skeleton-text" style=${{width: '60%'}}></div>
+                                     <div class="skeleton skeleton-text" style=${{width: '90%'}}></div>
+                                     <div class="skeleton skeleton-text" style=${{width: '80%'}}></div>
+                                </div>
                              </div>
-                        </div>
-                    </div>
-                     <div class="summary-line-item-input">
-                        <span>Delivery Fee</span>
-                        <div class="delivery-fee-group">
-                            <span>${currencyRates[currency].symbol}</span>
-                            <input type="number" value=${deliveryFee} onInput=${e => setDeliveryFee(Math.max(0, e.target.value))} />
-                        </div>
+                         `)}
                     </div>
                 </div>
+            `}
 
-                <div class="summary-divider"></div>
-
-                <div class="summary-total">
-                    <div class="summary-line-item">
-                        <span>Subtotal</span>
-                        <span>${formatCurrency(subtotal, currency)}</span>
+            ${selectedLayout && html`
+                <div class="layout-plan-display">
+                    <div class="layout-plan-header">
+                        <h3>${selectedLayout.name}</h3>
                     </div>
-                     ${discountAmount > 0 && html`
-                        <div class="summary-line-item">
-                            <span>Discount</span>
-                            <span>- ${formatCurrency(discountAmount, currency)}</span>
+                     <div class="layout-plan-summary">
+                        <div class="summary-item">
+                            <span>Total Items</span>
+                            <strong>${selectedLayout.totalItems}</strong>
                         </div>
-                    `}
-                    <div class="summary-line-item">
-                        <span>Grand Total</span>
-                        <span>${formatCurrency(total, currency)}</span>
+                        <div class="summary-item">
+                            <span>Estimated Cost</span>
+                            <strong>${formatCurrency(selectedLayout.totalCost, currency)}</strong>
+                        </div>
                     </div>
-                </div>
-
-                <div class="actions">
-                    <button onClick=${() => setShowPreview(true)} class="btn">
-                        <i class="fa-solid fa-eye"></i> Preview
-                    </button>
-                    <button onClick=${generatePdf} class="btn btn-primary">
-                        <i class="fa-solid fa-file-arrow-down"></i> Generate PDF
-                    </button>
+                    <div class="layout-plan-notes">
+                        <strong>Rationale:</strong> ${selectedLayout.description}
+                    </div>
+                    <div class="layout-plan-zones">
+                        ${selectedLayout.zones.map(zone => html`
+                            <div class="zone-card">
+                                <h4 class="zone-name"><i class="fa-solid fa-vector-square"></i> ${zone.name}</h4>
+                                <ul class="furniture-list">
+                                    ${zone.furniture.map(item => html`
+                                        <li>
+                                            <span class="furniture-qty">${item.quantity}x</span>
+                                            <div class="furniture-details">
+                                                <span class="furniture-name">${item.productName}</span>
+                                                <span class="furniture-price">${item.productCode}</span>
+                                            </div>
+                                        </li>
+                                    `)}
+                                </ul>
+                            </div>
+                        `)}
+                    </div>
+                    <div class="layout-plan-actions">
+                         <button class="btn btn-primary" onClick=${() => addLayoutToCart(selectedLayout)}>
+                            <i class="fa-solid fa-cart-plus"></i> Add All Items to Quote
+                        </button>
+                    </div>
                 </div>
             `}
         </div>
-        ${showPreview && html`
-            <${QuotationPreviewModal}
-                onClose=${() => setShowPreview(false)}
-                cart=${cart}
-                clientInfo=${clientInfo}
-                currency=${currency}
-                subtotal=${subtotal}
-                discountAmount=${discountAmount}
-                deliveryFee=${deliveryFee}
-                total=${total}
-            />
-        `}
     `;
 }
 
-function ProductVisualizationModal() {
-    const { visualizedProduct, isVisualizingProduct, visualizationResult, clearVisualization, setInitialStudioImage } = useContext(AppContext);
+function FurnitechImageStudioCard() {
+    const { 
+        isGeneratingFurnitechImages, furnitechImageGenerationError, generateFurnitechImages, generatedFurnitechImages,
+        isEditingFurnitechImage, furnitechImageEditingError, editFurnitechImage, editedFurnitechImageResults, setEditedFurnitechImageResults,
+        initialStudioImage, setInitialStudioImage,
+    } = useContext(AppContext);
     
-    if (!visualizedProduct) return null;
+    const [mode, setMode] = useState('generate'); // 'generate' or 'edit'
+    const [prompt, setPrompt] = useState('A modern startup office with a mix of collaborative and quiet spaces.');
+    const [officeType, setOfficeType] = useState('Startup');
+    const [customStyle, setCustomStyle] = useState('');
+    const [editPrompt, setEditPrompt] = useState('Add a coffee machine on the counter.');
+    
+    const handleSubmitGeneration = (e) => {
+        e.preventDefault();
+        const styleDesc = getStyleDescriptionForOfficeType(officeType, customStyle);
+        const fullPrompt = `${prompt}, in the style of ${styleDesc}.`;
+        generateFurnitechImages({ prompt: fullPrompt });
+    };
 
-    const handleEdit = () => {
-        if (visualizationResult?.imageUrl) {
-            const imageObject = {
-                name: `${visualizedProduct.code}.png`,
-                mimeType: 'image/png',
-                data: visualizationResult.imageUrl.split(',')[1],
-                dataUrl: visualizationResult.imageUrl,
-            };
-            setInitialStudioImage(imageObject);
+    const handleStartEdit = (imageData) => {
+        setInitialStudioImage(imageData);
+        setMode('edit');
+        setEditedFurnitechImageResults([]); // Clear previous edit results
+    };
+
+    const handleSubmitEdit = (e) => {
+        e.preventDefault();
+        if (initialStudioImage && editPrompt) {
+            editFurnitechImage({ image: initialStudioImage, prompt: editPrompt });
         }
-        clearVisualization();
+    };
+
+    const clearAll = () => {
+        setInitialStudioImage(null);
+        setEditedFurnitechImageResults([]);
+        setMode('generate');
+    };
+
+    return html`
+         <div class="card">
+            <div class="card-title-wrapper">
+                <div class="card-title-main">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <h2 class="card-title">Furnitech Image Studio</h2>
+                </div>
+                ${(generatedFurnitechImages.length > 0 || initialStudioImage) && html`
+                    <button class="btn btn-secondary" onClick=${clearAll}>
+                        <i class="fa-solid fa-arrow-left"></i> Start Over
+                    </button>
+                `}
+            </div>
+            
+            ${!initialStudioImage && html`
+                 <div class="studio-mode-toggle">
+                    <button class="mode-btn ${mode === 'generate' ? 'active' : ''}" onClick=${() => setMode('generate')}>
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Generate
+                    </button>
+                    <button class="mode-btn" disabled>
+                        <i class="fa-solid fa-pen-ruler"></i> Edit (Select an Image)
+                    </button>
+                </div>
+            `}
+           
+            <div class="studio-form-container">
+                 ${!initialStudioImage && mode === 'generate' && html`
+                    <form class="furnitech-image-studio-form" onSubmit=${handleSubmitGeneration}>
+                        <p class="furnitech-feature-intro">Create inspirational office design images from a text description.</p>
+                         <div class="form-group-planner">
+                             <i class="fa-solid fa-align-left"></i>
+                            <textarea id="prompt" value=${prompt} onInput=${e => setPrompt(e.target.value)} placeholder="Describe the office scene..." rows="3"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group-planner">
+                                <i class="fa-solid fa-building"></i>
+                                <select id="officeType" value=${officeType} onChange=${e => setOfficeType(e.target.value)}>
+                                    <option>Startup</option><option>Corporate</option><option>Creative Agency</option>
+                                    <option>Tech Hub</option><option>Law Firm</option><option>Co-working Space</option>
+                                </select>
+                            </div>
+                            <div class="form-group-planner">
+                                <i class="fa-solid fa-palette"></i>
+                                <input type="text" value=${customStyle} onInput=${e => setCustomStyle(e.target.value)} placeholder="Optional: custom style"/>
+                            </div>
+                        </div>
+                        <div class="furnitech-feature-actions">
+                             <button class="btn btn-primary" type="submit" disabled=${isGeneratingFurnitechImages}>
+                                ${isGeneratingFurnitechImages ? html`<div class="loading-spinner"></div>` : html`<i class="fa-solid fa-image"></i>`}
+                                Generate Image
+                            </button>
+                        </div>
+                    </form>
+                 `}
+                 
+                 ${initialStudioImage && mode === 'edit' && html`
+                    <form class="furnitech-image-studio-form" onSubmit=${handleSubmitEdit}>
+                        <p class="furnitech-feature-intro">Describe the changes you want to make to the selected image.</p>
+                         <div class="result-image-wrapper">
+                            <img src=${initialStudioImage.imageData} alt="Image to be edited" />
+                            <span class="image-label">Original</span>
+                        </div>
+                        <div class="form-group-planner">
+                             <i class="fa-solid fa-pen"></i>
+                            <input type="text" value=${editPrompt} onInput=${e => setEditPrompt(e.target.value)} placeholder="e.g., Change the chairs to blue"/>
+                        </div>
+                        <div class="furnitech-feature-actions">
+                             <button class="btn btn-primary" type="submit" disabled=${isEditingFurnitechImage}>
+                                ${isEditingFurnitechImage ? html`<div class="loading-spinner"></div>` : html`<i class="fa-solid fa-wand-magic"></i>`}
+                                Apply Edit
+                            </button>
+                        </div>
+                    </form>
+                 `}
+            </div>
+
+            ${isGeneratingFurnitechImages && html`
+                <div class="results-wrapper">
+                    <h3 class="result-title">Generating Your Vision...</h3>
+                    <div class="generated-images-grid">
+                        <div class="skeleton skeleton-image-card"></div>
+                    </div>
+                </div>
+            `}
+
+            ${furnitechImageGenerationError && html`<p class="furnitech-error">${furnitechImageGenerationError}</p>`}
+            
+            ${generatedFurnitechImages.length > 0 && !initialStudioImage && html`
+                <div class="results-wrapper">
+                    <h3 class="result-title">Generated Images</h3>
+                    <div class="generated-images-grid">
+                        ${generatedFurnitechImages.map((img, index) => html`
+                            <div class="generated-image-card" key=${index}>
+                                <img src=${img.imageData} alt="Generated office design" />
+                                <div class="image-overlay">
+                                    <button class="btn-download" onClick=${() => handleStartEdit(img)} data-tooltip="Edit Image">
+                                        <i class="fa-solid fa-pen-ruler"></i>
+                                    </button>
+                                     <button class="btn-download" onClick=${() => downloadImage(img.imageData, `generated-${index}`)} data-tooltip="Download">
+                                        <i class="fa-solid fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        `)}
+                    </div>
+                </div>
+            `}
+            
+            ${isEditingFurnitechImage && html`
+                 <div class="results-wrapper">
+                    <h3 class="result-title">Applying Your Edits...</h3>
+                    <div class="batch-results-grid">
+                        <div class="skeleton-result-card">
+                            <div class="skeleton-result-pair">
+                                <div class="skeleton skeleton-edit-image"></div>
+                                <div class="skeleton skeleton-edit-image"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `}
+
+            ${furnitechImageEditingError && html`<p class="furnitech-error">${furnitechImageEditingError}</p>`}
+
+            ${editedFurnitechImageResults.length > 0 && html`
+                 <div class="results-wrapper">
+                    <h3 class="result-title">Edited Image Result</h3>
+                    <div class="batch-results-grid">
+                        ${editedFurnitechImageResults.map((result, index) => html`
+                            <div class="batch-result-card" key=${index}>
+                                <div class="result-pair">
+                                    <div class="result-image-wrapper">
+                                        <img src=${result.original} alt="Original" />
+                                        <span class="image-label">Original</span>
+                                    </div>
+                                    <div class="result-image-wrapper">
+                                         ${result.edited ? html`
+                                            <img src=${result.edited} alt="Edited" />
+                                            <div class="image-overlay">
+                                                <button class="btn-download" onClick=${() => downloadImage(result.edited, `edited-${index}`)} data-tooltip="Download">
+                                                    <i class="fa-solid fa-download"></i>
+                                                </button>
+                                            </div>
+                                         ` : html`
+                                            <div class="result-error">
+                                                <i class="fa-solid fa-triangle-exclamation"></i>
+                                                <span>Could not generate an edit for this image.</span>
+                                            </div>
+                                         `}
+                                        <span class="image-label">Edited</span>
+                                    </div>
+                                </div>
+                                ${result.textResponse && html`<p class="edited-image-text">${result.textResponse}</p>`}
+                            </div>
+                        `)}
+                    </div>
+                </div>
+            `}
+        </div>
+    `;
+}
+
+function FurnitechVideoStudioCard() {
+    const { 
+        isGeneratingFurnitechVideo, furnitechVideoGenerationError, furnitechVideoGenerationStatus,
+        generateFurnitechVideo, generatedFurnitechVideoUrl 
+    } = useContext(AppContext);
+    
+    const [prompt, setPrompt] = useState('A drone shot flying through a modern, spacious office with employees collaborating.');
+    const [image, setImage] = useState(null);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        generateFurnitechVideo({ prompt, image });
+    };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setImage(file);
+        }
     };
     
     return html`
-        <${Modal} onClose=${clearVisualization} title="Furnitech Visualization" customClass="product-visualization-modal">
-             <div class="visualization-content">
-                <h3 class="visualization-product-name">${visualizedProduct.name}</h3>
-                ${isVisualizingProduct && html`
-                    <div class="visualization-loading">
-                        <div class="loading-spinner-dark"></div>
-                        <p>Generating a visual concept...</p>
+        <div class="card">
+            <div class="card-title-wrapper">
+                <div class="card-title-main">
+                    <i class="fa-solid fa-film"></i>
+                    <h2 class="card-title">Furnitech Video Studio</h2>
+                </div>
+            </div>
+             <p class="furnitech-feature-intro">Create short video clips of office environments. Optionally provide an image to influence the starting frame.</p>
+
+            ${!generatedFurnitechVideoUrl && !isGeneratingFurnitechVideo && html`
+                <form class="furnitech-video-studio-form" onSubmit=${handleSubmit}>
+                    <div class="form-group-planner">
+                        <i class="fa-solid fa-align-left"></i>
+                        <textarea value=${prompt} onInput=${e => setPrompt(e.target.value)} placeholder="Describe the video scene..." rows="3"></textarea>
                     </div>
-                `}
-                ${visualizationResult && html`
-                    ${visualizationResult.imageUrl && html`
-                        <div class="visualization-image-wrapper">
-                            <img src=${visualizationResult.imageUrl} alt="AI visualization of ${visualizedProduct.name}" />
-                        </div>
-                        <p class="visualization-note">This is an AI-generated concept image based on the product description.</p>
-                        <div class="visualization-actions">
-                            <button onClick=${handleEdit} class="btn btn-primary">
-                                <i class="fa-solid fa-pen-ruler"></i> Edit in Studio
-                            </button>
-                             <button onClick=${clearVisualization} class="btn">
-                                Close
-                            </button>
-                        </div>
-                    `}
-                    ${visualizationResult.error && html`
-                         <div class="visualization-error">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            <h4>Visualization Failed</h4>
-                            <p>${visualizationResult.error}</p>
-                             <button onClick=${clearVisualization} class="btn">Close</button>
-                        </div>
-                    `}
+                     <div class="file-upload-wrapper">
+                        <label for="videoImage" class="btn"><i class="fa-solid fa-image"></i> Add Image (Optional)</label>
+                        <input type="file" id="videoImage" onChange=${handleFileChange} accept="image/*" />
+                        ${image && html`
+                            <div class="file-name-display">
+                                <i class="fa-solid fa-file-image"></i>
+                                <span class="file-name-text">${image.name}</span>
+                                <button class="btn-clear-file" onClick=${() => setImage(null)}>&times;</button>
+                            </div>
+                        `}
+                    </div>
+                    <div class="furnitech-feature-actions">
+                        <button class="btn btn-primary" type="submit" disabled=${isGeneratingFurnitechVideo || !prompt.trim()}>
+                             ${isGeneratingFurnitechVideo ? html`<div class="loading-spinner"></div>` : html`<i class="fa-solid fa-video"></i>`}
+                            Generate Video
+                        </button>
+                    </div>
+                </form>
+            `}
+            
+            ${isGeneratingFurnitechVideo && html`
+                <div class="loading-indicator-box">
+                    <div class="loading-spinner-dark"></div>
+                    <p>Generating video... This can take several minutes.</p>
+                    ${furnitechVideoGenerationStatus && html`<p><strong>Status: ${furnitechVideoGenerationStatus}</strong></p>`}
+                </div>
+            `}
+
+            ${furnitechVideoGenerationError && html`<p class="furnitech-error">${furnitechVideoGenerationError}</p>`}
+            
+            ${generatedFurnitechVideoUrl && html`
+                <div class="generated-video-wrapper">
+                     <h3 class="result-title">Generated Video</h3>
+                    <video controls autoplay loop src=${generatedFurnitechVideoUrl}></video>
+                    <a href=${generatedFurnitechVideoUrl} download="obra-furnitech-video.mp4" class="btn btn-primary btn-download-video">
+                        <i class="fa-solid fa-download"></i> Download Video
+                    </a>
+                </div>
+            `}
+        </div>
+    `;
+}
+
+function ProductVisualizerCard() {
+    const { 
+        isVisualizingProduct, visualizedProduct, visualizationResult,
+        visualizeProduct, startVisualization, clearVisualization
+    } = useContext(AppContext);
+    const [scene, setScene] = useState('a modern home office with a large window');
+
+    const handleVisualize = (e) => {
+        e.preventDefault();
+        if (visualizedProduct && scene) {
+            visualizeProduct(visualizedProduct, scene);
+        }
+    };
+    
+    return html`
+        <div class="card">
+            <div class="card-title-wrapper">
+                 <div class="card-title-main">
+                    <i class="fa-solid fa-vr-cardboard"></i>
+                    <h2 class="card-title">Product Visualizer</h2>
+                </div>
+                ${visualizedProduct && html`
+                    <button class="btn btn-secondary" onClick=${clearVisualization}>
+                        <i class="fa-solid fa-xmark"></i> Clear
+                    </button>
                 `}
             </div>
-        <//>
+
+            ${!visualizedProduct ? html`
+                 <div class="visualizer-placeholder">
+                    <i class="fa-regular fa-square"></i>
+                    <h3>Visualize a Product in a Scene</h3>
+                    <p>Select the "Visualize" option on any product in the catalog to get started.</p>
+                </div>
+            ` : html`
+                <div class="visualizer-active-view">
+                    <div class="visualizer-product-info">
+                        <img src=${visualizedProduct.imageUrl} alt=${visualizedProduct.name} />
+                        <div class="product-details">
+                            <h4>${visualizedProduct.name}</h4>
+                            <p>${visualizedProduct.code}</p>
+                        </div>
+                    </div>
+                    <form onSubmit=${handleVisualize}>
+                        <div class="form-group-planner">
+                            <i class="fa-solid fa-mountain-sun"></i>
+                            <input type="text" value=${scene} onInput=${e => setScene(e.target.value)} placeholder="Describe the background scene" />
+                        </div>
+                         <div class="visualizer-actions">
+                            <button class="btn btn-primary" type="submit" disabled=${isVisualizingProduct}>
+                                ${isVisualizingProduct ? html`<div class="loading-spinner"></div>` : html`<i class="fa-solid fa-eye"></i>`}
+                                Place in Scene
+                            </button>
+                        </div>
+                    </form>
+
+                    ${isVisualizingProduct && html`
+                         <div class="loading-indicator-box">
+                            <div class="loading-spinner-dark"></div>
+                            <p>Placing product in your scene...</p>
+                        </div>
+                    `}
+                    
+                    ${visualizationResult && html`
+                        <div class="results-wrapper">
+                            <h3 class="result-title">Visualization Result</h3>
+                            <img src=${visualizationResult} class="visualizer-result-image" alt="Product visualized in scene" />
+                        </div>
+                    `}
+                </div>
+            `}
+        </div>
+    `;
+}
+
+function OnboardingModal({ onComplete }) {
+    const features = [
+        { icon: 'fa-solid fa-comments', title: 'Furnitech Assistant', description: 'Your AI-powered office design consultant. Get recommendations, ideas, and product comparisons instantly.' },
+        { icon: 'fa-solid fa-ruler-combined', title: 'Space Planner', description: 'Receive intelligent layout suggestions tailored to your office type, size, and specific needs.' },
+        { icon: 'fa-solid fa-camera-retro', title: 'Image Studio', description: 'Generate and edit photorealistic images of your ideal office space to bring your vision to life.' },
+    ];
+    const [step, setStep] = useState(0);
+
+    return html`
+        <div class="onboarding-overlay">
+            <div class="onboarding-modal">
+                <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" class="onboarding-logo" />
+                <div class="onboarding-header">
+                    <h1>Welcome to Furnitech</h1>
+                    <p>The smartest way to design your office space.</p>
+                </div>
+                <div class="onboarding-progress">
+                    ${features.map((_, index) => html`<div class="progress-dot ${index === step ? 'active' : ''}"></div>`)}
+                </div>
+                 <div class="onboarding-feature">
+                    <div class="feature-icon-wrapper"><i class=${features[step].icon}></i></div>
+                    <div class="feature-text">
+                        <h2>${features[step].title}</h2>
+                        <p>${features[step].description}</p>
+                    </div>
+                </div>
+                <div class="onboarding-actions">
+                     ${step < features.length - 1 ? html`
+                        <button class="btn btn-primary" onClick=${() => setStep(step + 1)}>Next</button>
+                        <button class="btn-link" onClick=${onComplete}>Skip for now</button>
+                     ` : html`
+                         <button class="btn btn-primary" onClick=${onComplete}>Get Started</button>
+                     `}
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function Header() {
+    return html`
+        <header class="app-header">
+            <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" class="header-logo" />
+            <${HeaderControls} />
+        </header>
+    `;
+}
+
+function HeaderControls() {
+    const { currency, setCurrency } = useContext(AppContext);
+    return html`
+        <div class="header-controls">
+            <div class="currency-selector">
+                <i class="fa-solid fa-coins"></i>
+                <select value=${currency} onChange=${e => setCurrency(e.target.value)}>
+                    ${Object.keys(currencyRates).map(c => html`<option value=${c}>${c}</option>`)}
+                </select>
+            </div>
+        </div>
+    `;
+}
+
+const MainContent = () => {
+    return html`
+        <main class="main-content">
+            <div class="main-layout">
+                <${CtaBanner} />
+                <div class="content-section">
+                    <div class="intro-cards">
+                        <${ClientInfoCard} />
+                        <${WishlistCard} />
+                    </div>
+                </div>
+                <div class="content-section">
+                    <${ProductGridCard} />
+                </div>
+                <div class="content-section">
+                    <${ProductBundles} />
+                </div>
+                <div class="content-section">
+                     <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Furnitech AI Tools</h2>
+                     <div class="furnitech-tools-grid">
+                        <${FurnitechAssistantCard} />
+                        <${FurnitechSpacePlannerCard} />
+                        <${FurnitechImageStudioCard} />
+                        <${FurnitechVideoStudioCard} />
+                        <${ProductVisualizerCard} />
+                     </div>
+                </div>
+            </div>
+        </main>
+    `;
+};
+
+
+function Footer() {
+    return html`
+        <footer>
+            <div class="footer-content">
+                 <p>&copy; ${new Date().getFullYear()} OBRA Office Furniture. All rights reserved.</p>
+                 <div class="footer-contact">
+                    <a href="mailto:contact@obrafurniture.com"><i class="fa-solid fa-envelope"></i> contact@obrafurniture.com</a>
+                    <span><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</span>
+                    <span><i class="fa-solid fa-map-marker-alt"></i> 123 Furniture Ave, Business City</span>
+                </div>
+            </div>
+        </footer>
     `;
 }
 
 function App() {
-    const [cart, setCart] = useState(() => {
-        try {
-            const localData = localStorage.getItem('obra-cart');
-            return localData ? JSON.parse(localData) : [];
-        } catch (error) {
-            console.error("Could not parse cart from localStorage", error);
-            return [];
-        }
-    });
+    const [cart, setCart] = useState([]);
     const [clientInfo, setClientInfo] = useState({ name: '', company: '', contact: '', email: '' });
     const [currency, setCurrency] = useState('PHP');
+    const [wishlist, setWishlist] = useState([]);
+    const [logoPng, setLogoPng] = useState(null);
+
+    // AI Feature State
     const [generatedDescriptions, setGeneratedDescriptions] = useState({});
     const [generating, setGenerating] = useState({});
     const [generationError, setGenerationError] = useState({});
-    
-    // Furnitech Space Planner State
     const [furnitechLayoutOptions, setFurnitechLayoutOptions] = useState(null);
     const [selectedLayoutIndex, setSelectedLayoutIndex] = useState(null);
     const [isPlanning, setIsPlanning] = useState(false);
     const [planError, setPlanError] = useState('');
-
-    // Furnitech Assistant State
     const [furnitechAssistantHistory, setFurnitechAssistantHistory] = useState([]);
     const [isFurnitechAssistantGenerating, setIsFurnitechAssistantGenerating] = useState(false);
     const [furnitechAssistantError, setFurnitechAssistantError] = useState('');
     const [chatSummary, setChatSummary] = useState(null);
     const [isSummarizing, setIsSummarizing] = useState(false);
-    
-    // Modal State
     const [modalUrl, setModalUrl] = useState(null);
-
-    // Furnitech Image Studio State
     const [generatedFurnitechImages, setGeneratedFurnitechImages] = useState([]);
     const [isGeneratingFurnitechImages, setIsGeneratingFurnitechImages] = useState(false);
     const [furnitechImageGenerationError, setFurnitechImageGenerationError] = useState('');
     const [editedFurnitechImageResults, setEditedFurnitechImageResults] = useState([]);
     const [isEditingFurnitechImage, setIsEditingFurnitechImage] = useState(false);
     const [furnitechImageEditingError, setFurnitechImageEditingError] = useState('');
-    const [initialStudioImage, setInitialStudioImage] = useState(null);
-
-    // Wishlist State
-    const [wishlist, setWishlist] = useState([]);
-
-    // Furnitech Video Studio State
     const [generatedFurnitechVideoUrl, setGeneratedFurnitechVideoUrl] = useState(null);
     const [isGeneratingFurnitechVideo, setIsGeneratingFurnitechVideo] = useState(false);
     const [furnitechVideoGenerationError, setFurnitechVideoGenerationError] = useState('');
     const [furnitechVideoGenerationStatus, setFurnitechVideoGenerationStatus] = useState('');
-
-    // Product Visualization State
-    const [isVisualizingProduct, setIsVisualizingProduct] = useState(false);
     const [visualizedProduct, setVisualizedProduct] = useState(null);
+    const [isVisualizingProduct, setIsVisualizingProduct] = useState(false);
     const [visualizationResult, setVisualizationResult] = useState(null);
+    const [initialStudioImage, setInitialStudioImage] = useState(null);
 
-    // Auth State
+    // Auth and onboarding
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showAuthModal, setShowAuthModal] = useState(false);
-    
+    const [showOnboarding, setShowOnboarding] = useState(true);
+
+    // Quotation extras
+    const [discount, setDiscount] = useState(0);
+    const [discountType, setDiscountType] = useState('PHP');
+    const [deliveryFee, setDeliveryFee] = useState(0);
+
+    const ai = useMemo(() => new GoogleGenAI({ apiKey: process.env.API_KEY }), []);
+
     useEffect(() => {
-        localStorage.setItem('obra-cart', JSON.stringify(cart));
-    }, [cart]);
-    
-    useEffect(() => {
-        const logVisitorData = () => {
-            const visitorData = {
-                userAgent: navigator.userAgent,
-                page: window.location.href,
-                timestamp: new Date().toISOString()
-            };
-            console.log("Security Log - Visitor Data:", visitorData);
-        };
-        logVisitorData();
+        convertSvgToPng(`data:image/svg+xml;base64,${obraLogo}`).then(setLogoPng);
     }, []);
 
-    let ai;
-    try {
-        ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-    } catch (e) {
-        console.error("Failed to initialize GoogleGenAI", e);
-        // Render an error message to the user
-    }
-
-    const visualizeProduct = async (product) => {
-        if (!ai) return;
-        setIsVisualizingProduct(true);
-        setVisualizedProduct(product);
-        setVisualizationResult(null);
-
-        try {
-            const prompt = `Create a single, photorealistic, 4k resolution image of the following office furniture item: '${product.name}'. 
-            Description: ${product.description}. 
-            Category: ${product.category}.
-            The item should be the central focus, professionally lit, and displayed in a clean, modern, minimalist showroom with a light gray background and polished concrete floor. Do not include any other furniture, text, or logos.`;
-            
-            const imageResponse = await ai.models.generateImages({
-                model: 'imagen-4.0-generate-001',
-                prompt: prompt,
-                config: { 
-                    numberOfImages: 1, 
-                    aspectRatio: '1:1',
-                    outputMimeType: 'image/png'
-                },
-            });
-
-            const imageUrl = `data:image/png;base64,${imageResponse.generatedImages[0].image.imageBytes}`;
-            setVisualizationResult({ imageUrl, error: null });
-
-        } catch (error) {
-            console.error("Product visualization failed:", error);
-            setVisualizationResult({ imageUrl: null, error: "Sorry, I couldn't generate a visual for this product. The model may have refused the prompt." });
-        } finally {
-            setIsVisualizingProduct(false);
-        }
-    };
-    
-    const clearVisualization = () => {
-        setIsVisualizingProduct(false);
-        setVisualizedProduct(null);
-        setVisualizationResult(null);
-    };
-
-    const addLayoutToCart = (layout) => {
-        setCart(prevCart => {
-            const newCart = [...prevCart];
-            const itemsToAdd: { [code: string]: any } = {};
-
-            layout.zones.forEach(zone => {
-                zone.furniture.forEach(item => {
-                    if (itemsToAdd[item.product_code]) {
-                        itemsToAdd[item.product_code].quantity += item.quantity;
-                    } else {
-                        const product = initialProducts.find(p => p.code === item.product_code);
-                        if (product) {
-                            itemsToAdd[item.product_code] = { ...product, quantity: item.quantity };
-                        }
-                    }
-                });
-            });
-
-            Object.values(itemsToAdd).forEach(itemToAdd => {
-                const selectedColor = itemToAdd.colors ? itemToAdd.colors[0] : null;
-                const cartId = itemToAdd.code + (selectedColor ? `-${selectedColor.name}` : '');
-                const existingItemIndex = newCart.findIndex(cartItem => cartItem.cartId === cartId);
-                if (existingItemIndex > -1) {
-                    newCart[existingItemIndex].quantity += itemToAdd.quantity;
-                } else {
-                    newCart.push({ ...itemToAdd, selectedColor, cartId });
-                }
-            });
-
-            return newCart;
-        });
-    };
-    
-    const generateLayoutPlan = async (options) => {
-        if (!ai) return;
-        setIsPlanning(true);
-        setPlanError('');
-        setFurnitechLayoutOptions(null);
-        setSelectedLayoutIndex(null);
-
-        try {
-            const catalogString = initialProducts.map(p => `SKU: ${p.code}, Name: ${p.name}, Category: ${p.category}, Price: ${p.price}`).join('\n');
-            const styleDesc = getStyleDescriptionForOfficeType(options.officeType, options.customStyle);
-            
-            const prompt = `
-                You are an expert office interior designer for OBRA Office Furniture. Your task is to create three distinct and creative office layout proposals based on the user's requirements and our available furniture catalog.
-
-                **User Requirements:**
-                - Office Dimensions: ${options.length}m x ${options.width}m (Total: ${options.length * options.width} sqm)
-                - Number of Employees: ${options.employees}
-                - Office Type: ${options.officeType} (This implies a preference for ${styleDesc})
-                - Required Zones: ${options.zones}
-                ${options.floorPlan ? '- A floor plan image has been provided for context.' : ''}
-
-                **Instructions:**
-                1.  Analyze all requirements. If a floor plan is provided, use it as a strong reference for the layout.
-                2.  Develop THREE distinct layout concepts. Each concept should have a different theme or focus (e.g., budget-focused, collaboration-focused, executive-focused).
-                3.  For each concept, select appropriate furniture ONLY from the provided catalog. You MUST use the exact 'product_code' for each item. Distribute the furniture across the required zones.
-                4.  Ensure the total number of workstations or seats is appropriate for the number of employees.
-                5.  For each concept, create an extremely detailed, professional visualization prompt for the image generation model. The prompt MUST be crafted to generate a photorealistic, 4K resolution architectural rendering. It should describe the layout from a top-down or isometric perspective, specifying materials (e.g., 'light oak wood floors', 'polished concrete'), textures, specific furniture models from the catalog, decor elements (like plants, art, rugs), ambient and task lighting (e.g., 'warm recessed LEDs', 'natural light from large windows'), and the overall mood. The prompt should also include a request to subtly display a minimalist 'OBRA' company logo on a wall or reception desk to enhance the branding of the concept.
-                6.  Provide a short, catchy title and a brief description for each concept.
-                7.  Provide a longer 'layout_summary' explaining the design choices and how the space is utilized.
-
-                **Available Furniture Catalog:**
-                ${catalogString}
-
-                Respond ONLY with a valid JSON object that matches the provided schema. Do not include any other text or markdown.
-            `;
-            
-            const schema = {
-                type: Type.ARRAY,
-                items: {
-                    type: Type.OBJECT,
-                    properties: {
-                        title: { type: Type.STRING, description: "A creative, catchy title for the layout concept." },
-                        description: { type: Type.STRING, description: "A brief, one-sentence description of the layout's theme." },
-                        layout_summary: { type: Type.STRING, description: "A detailed paragraph explaining the design choices and space utilization." },
-                        visualization_prompt: { type: Type.STRING, description: "A detailed prompt for generating a top-down or isometric visualization of the office layout." },
-                        zones: {
-                            type: Type.ARRAY,
-                            items: {
-                                type: Type.OBJECT,
-                                properties: {
-                                    zone_name: { type: Type.STRING },
-                                    zone_dimensions: { type: Type.STRING, description: "An estimated dimension for this zone, e.g., '3m x 4m'." },
-                                    furniture: {
-                                        type: Type.ARRAY,
-                                        items: {
-                                            type: Type.OBJECT,
-                                            properties: {
-                                                product_code: { type: Type.STRING, description: "The exact SKU from the catalog." },
-                                                quantity: { type: Type.INTEGER }
-                                            },
-                                            required: ['product_code', 'quantity']
-                                        }
-                                    }
-                                },
-                                required: ['zone_name', 'furniture']
-                            }
-                        }
-                    },
-                    required: ['title', 'description', 'layout_summary', 'visualization_prompt', 'zones']
-                }
-            };
-
-            const parts: any[] = [{ text: prompt }];
-            if (options.floorPlan) {
-                parts.unshift({
-                    inlineData: {
-                        mimeType: options.floorPlan.mimeType,
-                        data: options.floorPlan.data,
-                    },
-                });
-            }
-            const contents = { parts };
-
-            const response = await ai.models.generateContent({
-                model: 'gemini-2.5-flash',
-                contents,
-                config: {
-                    responseMimeType: 'application/json',
-                    responseSchema: schema,
-                },
-            });
-
-            const layoutPlans = JSON.parse(response.text);
-
-            const plansWithPlaceholders = layoutPlans.map(plan => ({ ...plan, imageUrl: null, imageError: null }));
-            setFurnitechLayoutOptions(plansWithPlaceholders);
-
-            layoutPlans.forEach(async (plan, index) => {
-                try {
-                    const imageResponse = await ai.models.generateImages({
-                        model: 'imagen-4.0-generate-001',
-                        prompt: plan.visualization_prompt,
-                        config: { 
-                            numberOfImages: 1, 
-                            aspectRatio: '1:1'
-                        },
-                    });
-                    const imageUrl = `data:image/png;base64,${imageResponse.generatedImages[0].image.imageBytes}`;
-                    setFurnitechLayoutOptions(prevOptions => {
-                        const newOptions = [...prevOptions];
-                        newOptions[index] = { ...newOptions[index], imageUrl: imageUrl };
-                        return newOptions;
-                    });
-                } catch (imgError) {
-                    console.error(`Image generation failed for layout ${index}:`, imgError);
-                     setFurnitechLayoutOptions(prevOptions => {
-                        const newOptions = [...prevOptions];
-                        newOptions[index] = { ...newOptions[index], imageError: 'Failed to generate visual.' };
-                        return newOptions;
-                    });
-                }
-            });
-
-        } catch (error) {
-            console.error("Failed to generate layout plan:", error);
-            setPlanError("Sorry, I couldn't generate the layout plan. The model might be unable to fulfill the request with the given constraints. Please try again or adjust your inputs.");
-        } finally {
-            setIsPlanning(false);
-        }
-    };
-
-    const generateDescription = async (product) => {
-        if (!ai) return;
+    const generateDescription = useCallback(async (product) => {
         setGenerating(prev => ({ ...prev, [product.code]: true }));
         setGenerationError(prev => ({ ...prev, [product.code]: null }));
-
         try {
-            const prompt = `Generate a concise, appealing, and professional sales description for the following office furniture product. Highlight its key features and benefits for a potential buyer. The description should be a single paragraph, maximum 3-4 sentences. Product Details: Name: ${product.name}, Category: ${product.category}, Description: ${product.description}.`;
-
+            const prompt = `Create a compelling, one-paragraph marketing description for an office furniture product. Product name: "${product.name}". Category: "${product.category}". Existing description: "${product.description}". Price point is around ${formatCurrency(product.price, "PHP")}. Focus on benefits like productivity, comfort, and style. Keep it concise and professional.`;
             const response = await ai.models.generateContent({
                 model: 'gemini-2.5-flash',
                 contents: prompt,
             });
-            
             setGeneratedDescriptions(prev => ({ ...prev, [product.code]: response.text }));
         } catch (error) {
-            console.error('Furnitech description generation failed:', error);
+            console.error('Error generating description:', error);
             setGenerationError(prev => ({ ...prev, [product.code]: 'Failed to generate description.' }));
         } finally {
             setGenerating(prev => ({ ...prev, [product.code]: false }));
         }
-    };
+    }, [ai]);
 
-    const generateFurnitechImages = async ({ prompt, negativePrompt, numImages, aspectRatio }) => {
-        if (!ai) return;
+    const generateLayoutPlan = useCallback(async ({ floorPlan, officeType, numEmployees, style }) => {
+        setIsPlanning(true);
+        setPlanError('');
+        setFurnitechLayoutOptions(null);
+        setSelectedLayoutIndex(null);
+        try {
+            const productList = initialProducts.map(p => `- ${p.code}: ${p.name} (${p.category}) - ${formatCurrency(p.price, 'PHP')}`).join('\n');
+            const styleDesc = getStyleDescriptionForOfficeType(officeType, style);
+            
+            const prompt = `
+                As an expert office layout designer, create 2-3 distinct layout plans for an office with the following requirements:
+                - Office Type: ${officeType}
+                - Number of Employees: ${numEmployees}
+                - Desired Style: ${styleDesc}
+                - Available Products (do not use products not on this list):
+                ${productList}
+
+                For each plan, provide:
+                1. A short, catchy name (e.g., "Collaborative Hub", "Executive Focus Suite").
+                2. A brief rationale explaining the design choice.
+                3. A list of zones (e.g., "Main Work Area," "Meeting Room," "Lounge").
+                4. For each zone, list the specific furniture items required using their product codes and names, along with quantities.
+            `;
+            
+            const schema = {
+                type: Type.OBJECT,
+                properties: {
+                    layouts: {
+                        type: Type.ARRAY,
+                        items: {
+                            type: Type.OBJECT,
+                            properties: {
+                                name: { type: Type.STRING },
+                                description: { type: Type.STRING },
+                                zones: {
+                                    type: Type.ARRAY,
+                                    items: {
+                                        type: Type.OBJECT,
+                                        properties: {
+                                            name: { type: Type.STRING },
+                                            furniture: {
+                                                type: Type.ARRAY,
+                                                items: {
+                                                    type: Type.OBJECT,
+                                                    properties: {
+                                                        productCode: { type: Type.STRING },
+                                                        productName: { type: Type.STRING },
+                                                        quantity: { type: Type.INTEGER }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const response = await ai.models.generateContent({
+                model: 'gemini-2.5-flash',
+                contents: prompt,
+                config: {
+                    responseMimeType: 'application/json',
+                    responseSchema: schema
+                }
+            });
+
+            const parsedResponse = JSON.parse(response.text);
+
+            const layoutsWithCosts = parsedResponse.layouts.map(layout => {
+                let totalCost = 0;
+                let totalItems = 0;
+                layout.zones.forEach(zone => {
+                    zone.furniture.forEach(item => {
+                        const product = initialProducts.find(p => p.code === item.productCode);
+                        if (product) {
+                            // FIX: Cast product price to number for calculation
+                            totalCost += Number(product.price) * item.quantity;
+                        }
+                        totalItems += item.quantity;
+                    });
+                });
+                return { ...layout, totalCost, totalItems };
+            });
+
+            setFurnitechLayoutOptions(layoutsWithCosts);
+
+        } catch (error) {
+            console.error('Error generating layout plan:', error);
+            setPlanError('Failed to generate layout options. Please try again.');
+        } finally {
+            setIsPlanning(false);
+        }
+    }, [ai]);
+    
+    const addLayoutToCart = useCallback((layout) => {
+        const itemsToAdd = [];
+        layout.zones.forEach(zone => {
+            zone.furniture.forEach(item => {
+                const product = initialProducts.find(p => p.code === item.productCode);
+                if (product) {
+                    const selectedColor = product.colors ? product.colors[0] : null;
+                    itemsToAdd.push({
+                        product,
+                        quantity: item.quantity,
+                        id: Date.now() + Math.random(),
+                        selectedColor
+                    });
+                }
+            });
+        });
+        setCart(prev => [...prev, ...itemsToAdd]);
+        setFurnitechLayoutOptions(null);
+        setSelectedLayoutIndex(null);
+    }, [setCart]);
+
+    const generateFurnitechResponse = useCallback(async (prompt, useWebSearch) => {
+        setIsFurnitechAssistantGenerating(true);
+        setFurnitechAssistantError('');
+        const currentHistory = [...furnitechAssistantHistory, { role: 'user', text: prompt }];
+        setFurnitechAssistantHistory(currentHistory);
+
+        try {
+            const productList = initialProducts.map(p => `code: ${p.code}, name: ${p.name}, category: ${p.category}, price: ${formatCurrency(p.price, 'PHP')}`).join('; ');
+            const systemInstruction = `You are OBRA Furnitech's helpful AI assistant. Your goal is to help users choose the best office furniture. You are knowledgeable about the product catalog: [${productList}]. When you recommend a product, wrap its product code in [[PRODUCT:CODE]] format, for example: [[PRODUCT:OBET-528fJ]]. Do not invent products. Be friendly and professional.`;
+            
+            const response = await ai.models.generateContent({
+                model: 'gemini-2.5-flash',
+                contents: [...currentHistory.map(m => ({ role: m.role, parts: [{ text: m.text }]})), { role: 'user', parts: [{ text: prompt }] }],
+                config: {
+                    systemInstruction,
+                    ...(useWebSearch && { tools: [{ googleSearch: {} }] })
+                }
+            });
+            
+            const groundingMetadata = response.candidates?.[0]?.groundingMetadata;
+            const sources = groundingMetadata?.groundingChunks?.filter(c => c.web).map(c => c.web);
+
+            setFurnitechAssistantHistory(prev => [...prev, { role: 'model', text: response.text, sources }]);
+        } catch (error) {
+            console.error('Error with Furnitech Assistant:', error);
+            setFurnitechAssistantError('Sorry, I encountered an error. Please try again.');
+        } finally {
+            setIsFurnitechAssistantGenerating(false);
+        }
+    }, [ai, furnitechAssistantHistory]);
+    
+    const summarizeChat = useCallback(async () => {
+        setIsSummarizing(true);
+        try {
+            const conversation = furnitechAssistantHistory.map(m => `${m.role}: ${m.text}`).join('\n');
+            const response = await ai.models.generateContent({
+                model: 'gemini-2.5-flash',
+                contents: `Summarize the key points and user preferences from this conversation in one or two sentences: \n\n${conversation}`
+            });
+            setChatSummary(response.text);
+        } catch (error) {
+            console.error('Error summarizing chat:', error);
+        } finally {
+            setIsSummarizing(false);
+        }
+    }, [ai, furnitechAssistantHistory]);
+    
+    const generateFurnitechImages = useCallback(async ({ prompt }) => {
         setIsGeneratingFurnitechImages(true);
         setFurnitechImageGenerationError('');
         setGeneratedFurnitechImages([]);
-
         try {
-            const request: any = {
+            const response = await ai.models.generateImages({
                 model: 'imagen-4.0-generate-001',
                 prompt: prompt,
-                config: {
-                    numberOfImages: numImages,
-                    aspectRatio: aspectRatio,
-                    outputMimeType: 'image/png',
-                },
-            };
-
-            if (negativePrompt && negativePrompt.trim()) {
-                request.negativePrompt = negativePrompt;
-            }
-
-            const response = await ai.models.generateImages(request);
-
-            const imageDataUrls = response.generatedImages.map(img => `data:image/png;base64,${img.image.imageBytes}`);
-            setGeneratedFurnitechImages(imageDataUrls);
-
+                config: { numberOfImages: 1, outputMimeType: 'image/png' },
+            });
+            const images = response.generatedImages.map(img => ({
+                imageData: `data:image/png;base64,${img.image.imageBytes}`,
+                mimeType: 'image/png'
+            }));
+            setGeneratedFurnitechImages(images);
         } catch (error) {
-            console.error("Failed to generate images:", error);
-            setFurnitechImageGenerationError("Sorry, I couldn't generate the images. The model may have refused the prompt. Please try a different prompt.");
+            console.error('Error generating images:', error);
+            setFurnitechImageGenerationError('Failed to generate image. Please try a different prompt.');
         } finally {
             setIsGeneratingFurnitechImages(false);
         }
-    };
-    
-    const editFurnitechImage = async ({ prompt, image, mask }) => {
-        if (!ai || !image) return;
+    }, [ai]);
+
+    const editFurnitechImage = useCallback(async ({ image, prompt }) => {
+        setIsEditingFurnitechImage(true);
         setFurnitechImageEditingError('');
-        const originalUrl = image.dataUrl;
-
+        setEditedFurnitechImageResults([]);
         try {
-            const parts = [];
-            parts.push({
-                inlineData: { data: image.data, mimeType: image.mimeType },
-            });
-
-            let finalPrompt = prompt;
-
-            if (mask) {
-                parts.push({
-                    inlineData: { data: mask.data, mimeType: mask.mimeType }
-                });
-                finalPrompt = `You are an expert image editor. You will be provided with an original image, a mask image, and a text prompt. The white area in the mask image indicates the region of the original image to be modified according to the text prompt. The black area of the mask must remain untouched. Do not change the overall style of the image unless requested. Now, perform this edit: ${prompt}`;
-            }
-            
-            parts.push({ text: finalPrompt });
-
-            const contents = { parts };
-
+            const base64Data = image.imageData.split(',')[1];
             const response = await ai.models.generateContent({
                 model: 'gemini-2.5-flash-image-preview',
-                contents,
+                contents: {
+                    parts: [
+                        { inlineData: { data: base64Data, mimeType: image.mimeType } },
+                        { text: prompt },
+                    ],
+                },
                 config: {
                     responseModalities: [Modality.IMAGE, Modality.TEXT],
                 },
             });
-
-            const result: { originalUrl: string, imageUrl?: string, text?: string, error?: string } = { originalUrl };
+            
+            let editedImage = null;
+            let textResponse = '';
             for (const part of response.candidates[0].content.parts) {
-                if (part.text) {
-                    result.text = part.text;
-                } else if (part.inlineData) {
-                    const base64ImageBytes = part.inlineData.data;
-                    result.imageUrl = `data:image/png;base64,${base64ImageBytes}`;
+                if (part.inlineData) {
+                    editedImage = `data:${part.inlineData.mimeType};base64,${part.inlineData.data}`;
+                } else if (part.text) {
+                    textResponse = part.text;
                 }
             }
             
-            if (!result.imageUrl) {
-                throw new Error("The model did not return an image. It may have refused the prompt due to safety policies.");
-            }
-
-            setEditedFurnitechImageResults(prev => [...prev, result]);
-
+            setEditedFurnitechImageResults([{ original: image.imageData, edited: editedImage, textResponse }]);
         } catch (error) {
-            console.error("Failed to edit image:", error);
-            const errorResult = { originalUrl, error: error.message || "Sorry, I couldn't edit the image." };
-            setEditedFurnitechImageResults(prev => [...prev, errorResult]);
-            setFurnitechImageEditingError(`An error occurred while processing image ${image.name}.`);
+            console.error('Error editing image:', error);
+            setFurnitechImageEditingError('Failed to edit image. The model may not be able to fulfill this request.');
+        } finally {
+            setIsEditingFurnitechImage(false);
         }
-    };
+    }, [ai]);
 
-
-    const generateFurnitechVideo = async ({ prompt, image }) => {
-        if (!ai) return;
-
+    const generateFurnitechVideo = useCallback(async ({ prompt, image }) => {
         setIsGeneratingFurnitechVideo(true);
         setFurnitechVideoGenerationError('');
         setGeneratedFurnitechVideoUrl(null);
-
-        const videoMessages = [
-            "Our Furnitech director is reviewing your script...",
-            "Setting up the virtual cameras and lighting...",
-            "The digital actors are getting into character...",
-            "Rendering the first few frames...",
-            "This can take a few minutes, please wait...",
-            "Applying visual effects and color grading...",
-            "Finalizing the video production...",
-        ];
-        let messageIndex = 0;
-        setFurnitechVideoGenerationStatus(videoMessages[messageIndex]);
-        const statusInterval = setInterval(() => {
-            messageIndex = (messageIndex + 1) % videoMessages.length;
-            setFurnitechVideoGenerationStatus(videoMessages[messageIndex]);
-        }, 5000);
-
+        setFurnitechVideoGenerationStatus('Initializing...');
         try {
-            const requestPayload: any = {
-                model: 'veo-2.0-generate-001',
-                prompt: prompt,
-                config: { numberOfVideos: 1 }
-            };
-
+            let imagePart = undefined;
             if (image) {
-                requestPayload.image = {
-                    imageBytes: image.data,
-                    mimeType: image.mimeType
-                };
+                const base64String = await new Promise<string>((resolve, reject) => {
+                    const reader = new FileReader();
+                    // FIX: Cast reader.result to string to use split
+                    reader.onload = () => resolve((reader.result as string).split(',')[1]);
+                    reader.onerror = error => reject(error);
+                    reader.readAsDataURL(image);
+                });
+                imagePart = { imageBytes: base64String, mimeType: image.type };
             }
 
-            let operation = await ai.models.generateVideos(requestPayload);
+            let operation = await ai.models.generateVideos({
+                model: 'veo-2.0-generate-001',
+                prompt,
+                ...(imagePart && { image: imagePart }),
+                config: { numberOfVideos: 1 }
+            });
 
+            setFurnitechVideoGenerationStatus('Processing request...');
+            
             while (!operation.done) {
-                await new Promise(resolve => setTimeout(resolve, 10000)); // Poll every 10 seconds
-                operation = await ai.operations.getVideosOperation({ operation: operation });
+                await new Promise(resolve => setTimeout(resolve, 10000));
+                operation = await ai.operations.getVideosOperation({ operation });
+                const progress = operation.metadata?.progressPercentage || 0;
+                // FIX: Cast progress to number before calling toFixed
+                setFurnitechVideoGenerationStatus(`Rendering video... ${(progress as number).toFixed(0)}%`);
             }
             
-            clearInterval(statusInterval);
-            setFurnitechVideoGenerationStatus('');
-
             if (operation.response) {
                 const downloadLink = operation.response?.generatedVideos?.[0]?.video?.uri;
-                if (downloadLink) {
-                    setFurnitechVideoGenerationStatus("Downloading generated video...");
-                    const videoResponse = await fetch(`${downloadLink}&key=${process.env.API_KEY}`);
-                    if (!videoResponse.ok) {
-                        throw new Error(`Failed to download video: ${videoResponse.statusText}`);
-                    }
-                    const videoBlob = await videoResponse.blob();
-                    const videoUrl = URL.createObjectURL(videoBlob);
-                    setGeneratedFurnitechVideoUrl(videoUrl);
-                } else {
-                    throw new Error("Video generation completed, but no download link was provided.");
-                }
+                const response = await fetch(`${downloadLink}&key=${process.env.API_KEY}`);
+                const blob = await response.blob();
+                const videoUrl = URL.createObjectURL(blob);
+                setGeneratedFurnitechVideoUrl(videoUrl);
             } else {
-                 throw new Error("Video generation operation did not return a valid response.");
+                 throw new Error('Video generation finished but no video was returned.');
             }
 
         } catch (error) {
-            console.error("Failed to generate video:", error);
-            setFurnitechVideoGenerationError("Sorry, I couldn't generate the video. This might be due to a safety policy or a temporary issue. Please try a different prompt.");
-            clearInterval(statusInterval);
-            setFurnitechVideoGenerationStatus('');
+            console.error('Error generating video:', error);
+            setFurnitechVideoGenerationError('Failed to generate video. Please try again.');
         } finally {
             setIsGeneratingFurnitechVideo(false);
+            setFurnitechVideoGenerationStatus('');
         }
+    }, [ai]);
+
+    const startVisualization = (product) => {
+        setVisualizedProduct(product);
+        setVisualizationResult(null);
+        // Scroll to the visualizer card if it's far
+        document.querySelector('.card-title-main i.fa-vr-cardboard')?.closest('.card').scrollIntoView({ behavior: 'smooth' });
     };
 
-    const generateFurnitechResponse = async (prompt, useWebSearch) => {
-        if (!ai) return;
+    const clearVisualization = () => {
+        setVisualizedProduct(null);
+        setVisualizationResult(null);
+    };
 
-        setFurnitechAssistantHistory(prev => [...prev, { role: 'user', content: prompt }]);
-        setIsFurnitechAssistantGenerating(true);
-        setFurnitechAssistantError('');
-        
+    const visualizeProduct = useCallback(async (product, sceneDescription) => {
+        setIsVisualizingProduct(true);
+        setVisualizationResult(null);
         try {
-            const catalogString = initialProducts.map(p => `[SKU:${p.code}] ${p.name} (${p.category}) - ${formatCurrency(p.price, currency)}`).join('\n');
-            const systemInstruction = `You are OBRA's Furnitech Assistant, an expert in office design and furniture solutions. Your goal is to provide creative and helpful guidance to users.
-- Be creative and detailed in your suggestions. Consider the user's potential business type (e.g., startup, law firm) and offer a few different options to fit their style and budget, rather than a single best answer.
-- When you recommend a product, you MUST mention it using the format [SKU:PRODUCT_CODE_HERE].
-- Be friendly, helpful, and professional.
-- When the web search tool is enabled, use it to answer questions about current information or recent design trends, and always cite your sources.
-- Keep responses concise and easy to read. Use markdown for formatting.
-
-Product Catalog:
-${catalogString}`;
-
-            const config: { systemInstruction: string, tools?: any[] } = { systemInstruction };
-            if (useWebSearch) {
-                 config.tools = [{ googleSearch: {} }];
-            }
-
-            const response = await ai.models.generateContent({
-                model: 'gemini-2.5-flash',
-                contents: prompt,
-                config
+            const productImageUrl = product.imageUrl;
+            const response = await fetch(productImageUrl);
+            const blob = await response.blob();
+            // FIX: Type the promise to ensure base64Data is a string
+            const base64Data = await new Promise<string>((resolve, reject) => {
+                const reader = new FileReader();
+                // FIX: Cast reader.result to string to use split
+                reader.onload = () => resolve((reader.result as string).split(',')[1]);
+                reader.onerror = reject;
+                reader.readAsDataURL(blob);
             });
-
-            const groundingChunks = response.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
             
-            setFurnitechAssistantHistory(prev => [...prev, {
-                role: 'model',
-                content: response.text,
-                groundingChunks: groundingChunks
-            }]);
+            const prompt = `Realistically place the following product into this scene: "${sceneDescription}". The product should be the main focus. Maintain correct lighting and perspective.`;
 
-        } catch (error) {
-            console.error('Furnitech assistant error:', error);
-            setFurnitechAssistantError('Sorry, something went wrong. Please try again.');
-        } finally {
-            setIsFurnitechAssistantGenerating(false);
-        }
-    };
-
-    const summarizeChat = async () => {
-        if (!ai || furnitechAssistantHistory.length === 0) return;
-        setIsSummarizing(true);
-        setChatSummary(null);
-        setFurnitechAssistantError('');
-
-        try {
-            const historyString = furnitechAssistantHistory.map(msg => `${msg.role === 'user' ? 'Client' : 'Furnitech Assistant'}: ${msg.content}`).join('\n\n');
-            const prompt = `Please provide a concise summary of the following conversation between a client and a Furnitech assistant for an office furniture company. Highlight key product recommendations (including their SKUs if mentioned), client requirements, important decisions made, and any unresolved questions or action items.
-
-            **Conversation History:**
-            ${historyString}
-
-            **Summary:**`;
-
-            const response = await ai.models.generateContent({
-                model: 'gemini-2.5-flash',
-                contents: prompt,
+            const editResponse = await ai.models.generateContent({
+                model: 'gemini-2.5-flash-image-preview',
+                contents: {
+                    parts: [
+                        { inlineData: { data: base64Data, mimeType: blob.type } },
+                        { text: prompt },
+                    ],
+                },
+                config: { responseModalities: [Modality.IMAGE] },
             });
-
-            setChatSummary(response.text);
-
+            
+            const imagePart = editResponse.candidates[0].content.parts.find(p => p.inlineData);
+            if (imagePart) {
+                setVisualizationResult(`data:${imagePart.inlineData.mimeType};base64,${imagePart.inlineData.data}`);
+            } else {
+                throw new Error("Visualization failed to return an image.");
+            }
         } catch (error) {
-            console.error('Chat summary error:', error);
-            setFurnitechAssistantError('Sorry, I couldn\'t summarize the chat. Please try again.');
+            console.error('Error in product visualization:', error);
         } finally {
-            setIsSummarizing(false);
+            setIsVisualizingProduct(false);
         }
+    }, [ai]);
+
+    const contextValue = {
+        products: initialProducts,
+        cart, setCart,
+        clientInfo, setClientInfo,
+        currency, setCurrency,
+        generatedDescriptions, generating, generationError, generateDescription,
+        furnitechLayoutOptions, setFurnitechLayoutOptions,
+        selectedLayoutIndex, setSelectedLayoutIndex,
+        isPlanning, planError, generateLayoutPlan, addLayoutToCart,
+        furnitechAssistantHistory, isFurnitechAssistantGenerating, furnitechAssistantError, generateFurnitechResponse,
+        chatSummary, setChatSummary, isSummarizing, summarizeChat,
+        modalUrl, setModalUrl,
+        generatedFurnitechImages, isGeneratingFurnitechImages, furnitechImageGenerationError, generateFurnitechImages,
+        editedFurnitechImageResults, setEditedFurnitechImageResults, isEditingFurnitechImage, setIsEditingFurnitechImage: isEditingFurnitechImage, furnitechImageEditingError, editFurnitechImage,
+        wishlist, setWishlist,
+        generatedFurnitechVideoUrl, isGeneratingFurnitechVideo, furnitechVideoGenerationError, furnitechVideoGenerationStatus, generateFurnitechVideo,
+        isAuthenticated, setIsAuthenticated, showAuthModal, setShowAuthModal,
+        isVisualizingProduct, visualizedProduct, visualizationResult, visualizeProduct, startVisualization, clearVisualization,
+        initialStudioImage, setInitialStudioImage,
+        discount, setDiscount, discountType, setDiscountType, deliveryFee, setDeliveryFee,
+        logoPng
     };
-    
-    if (!ai) {
-      return html`
-        <div class="card" style=${{margin: '2rem', border: '1px solid #dc3545'}}>
-            <h2 style=${{color: '#dc3545'}}>Configuration Error</h2>
-            <p>The Furnitech service could not be initialized. Please ensure the API key is correctly configured in the environment variables.</p>
-        </div>
-      `;
-    }
 
     return html`
-        <${AppContext.Provider} value=${{
-            cart, setCart,
-            clientInfo, setClientInfo,
-            currency, setCurrency,
-            generatedDescriptions, generating, generationError, generateDescription,
-            furnitechLayoutOptions, setFurnitechLayoutOptions, selectedLayoutIndex, setSelectedLayoutIndex, isPlanning, planError, generateLayoutPlan, addLayoutToCart,
-            furnitechAssistantHistory, isFurnitechAssistantGenerating, furnitechAssistantError, generateFurnitechResponse,
-            chatSummary, setChatSummary, isSummarizing, summarizeChat,
-            modalUrl, setModalUrl,
-            generatedFurnitechImages, isGeneratingFurnitechImages, furnitechImageGenerationError, generateFurnitechImages,
-            editedFurnitechImageResults, setEditedFurnitechImageResults, isEditingFurnitechImage, setIsEditingFurnitechImage, furnitechImageEditingError, editFurnitechImage,
-            wishlist, setWishlist,
-            generatedFurnitechVideoUrl, isGeneratingFurnitechVideo, furnitechVideoGenerationError, furnitechVideoGenerationStatus, generateFurnitechVideo,
-            isAuthenticated, setIsAuthenticated, showAuthModal, setShowAuthModal,
-            isVisualizingProduct, visualizedProduct, visualizationResult, visualizeProduct, clearVisualization,
-            initialStudioImage, setInitialStudioImage,
-        }}>
-            <header>
-                <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Office Furniture Logo" class="header-logo" />
-                <div class="header-controls">
-                    <div class="currency-selector">
-                        <i class="fa-solid fa-coins"></i>
-                        <span>Currency:</span>
-                        <select value=${currency} onChange=${e => setCurrency(e.target.value)}>
-                            ${Object.keys(currencyRates).map(c => html`<option value=${c}>${c}</option>`)}
-                        </select>
-                    </div>
-                     ${!isAuthenticated
-                        ? html`
-                            <button class="btn" onClick=${() => setShowAuthModal(true)}>
-                                <i class="fa-solid fa-right-to-bracket"></i> Log In / Sign Up
-                            </button>`
-                        : html`
-                            <button class="btn" onClick=${() => setIsAuthenticated(false)}>
-                                <i class="fa-solid fa-right-from-bracket"></i> Log Out
-                            </button>`
-                    }
-                </div>
-            </header>
-            <main class="container">
-                <div class="main-layout">
-                    <div class="content-section">
-                        <${ProductBundles} />
-                        <${ProductGrid} />
-                    </div>
-
-                    <div class="quotation-builder-section">
-                        <h2 class="section-title">
-                            <i class="fa-solid fa-file-invoice-dollar"></i>
-                            Build Your Quotation
-                        </h2>
-                        <div class="quotation-builder-grid">
-                            <${ClientInfoForm} />
-                            <${Wishlist} />
-                            <${Quotation} />
-                        </div>
-                    </div>
-                    
-                    <div class="furnitech-tools-section">
-                         <h2 class="section-title">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            Advanced Furnitech Tools
-                        </h2>
-                        <div class="furnitech-tools-grid">
-                            <${GatedFeature} 
-                                title="Furnitech Office Space Planner" 
-                                iconClass="fa-solid fa-drafting-compass"
-                                description="Describe your space and get three AI-generated layout concepts with furniture recommendations and visualizations."
-                            >
-                                <${FurnitechSpacePlanner} />
-                            <//>
-                            <${GatedFeature} 
-                                title="Furnitech Image Studio" 
-                                iconClass="fa-solid fa-paintbrush"
-                                description="Generate inspirational images, logos, or product mockups. You can also edit existing images with a text prompt."
-                            >
-                                <${FurnitechImageStudio} />
-                            <//>
-                            <${GatedFeature} 
-                                title="Furnitech Video Studio" 
-                                iconClass="fa-solid fa-film"
-                                description="Create short promotional videos from a text description or a starting image to bring your concepts to life."
-                            >
-                                <${FurnitechVideoStudio} />
-                            <//>
-                             <${GatedFeature} 
-                                title="Furnitech Assistant" 
-                                iconClass="fa-solid fa-comments-dollar"
-                                description="Ask for product recommendations, design ideas, or the latest industry trends with our intelligent chat assistant."
-                             >
-                                <${FurnitechAssistant} />
-                            <//>
-                        </div>
-                    </div>
-                </div>
-            </main>
-            <footer>
-                <div class="footer-content">
-                    <div class="footer-contact">
-                        <a href="mailto:obrafurniture@gmail.com"><i class="fa-solid fa-envelope"></i> obrafurniture@gmail.com</a>
-                        <span><i class="fa-solid fa-phone"></i> +63 915 743 9188</span>
-                        <a href="https://facebook.com/obraofficefurniture" target="_blank"><i class="fa-brands fa-facebook"></i> facebook.com/obraofficefurniture</a>
-                    </div>
-                    <p>&copy; ${new Date().getFullYear()} OBRA Office Furniture. All rights reserved.</p>
-                </div>
-            </footer>
-            
-            ${modalUrl && html`<${WebsitePreviewModal} url=${modalUrl} onClose=${() => setModalUrl(null)} />`}
-            <${ProductVisualizationModal} />
-            <${OnboardingModal} />
-            <${AuthModal} />
-        <//>
+        <${AppContext.Provider} value=${contextValue}>
+            ${showOnboarding && html`<${OnboardingModal} onComplete=${() => setShowOnboarding(false)} />`}
+            ${showAuthModal && html`<${AuthModal} onAuthSuccess=${() => { setIsAuthenticated(true); setShowAuthModal(false); }} />`}
+            ${modalUrl && html`<${WebsiteModal} url=${modalUrl} onClose=${() => setModalUrl(null)} />`}
+            <div class="container">
+                <${Header} />
+                <${MainContent} />
+            </div>
+            <${Footer} />
+        </${AppContext.Provider}>
     `;
 }
 
