@@ -19,7 +19,7 @@ const getStyleDescriptionForOfficeType = (officeType, style) => {
         case 'Startup': return 'a collaborative and modern feel with vibrant accents, natural wood, and possibly some industrial elements';
         case 'Corporate': return 'a professional and structured look with a neutral color palette (grays, blues), high-end finishes, and clean lines';
         case 'Creative Agency': return 'an eclectic and artistic vibe with bold colors, unique furniture pieces, and flexible, multi-use spaces';
-        case 'Tech Hub': return 'a sleek, modern, and minimalist design, focusing on technology integration and perhaps incorporating brand colors';
+        case 'Tech Hub': return 'a sleek, modern, and minimalist design, focusing on technology integration, and perhaps incorporating brand colors';
         case 'Law Firm': return 'a traditional and elegant aesthetic, featuring dark wood, leather upholstery, and a sense of gravitas and stability';
         case 'Co-working Space': return 'a diverse, flexible, and comfortable environment with zoned areas that have different moods, often with a mix of industrial and residential touches';
         default: return 'a modern and functional';
@@ -27,7 +27,7 @@ const getStyleDescriptionForOfficeType = (officeType, style) => {
 };
 
 // Base64 encoded OBRA Office Furniture logo
-const obraLogo = "PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDMwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHN0eWxlPi50ZXh0IHsgZm9udC1mYW1pbHk6ICdQbGF5ZmFpciBEaXNwbGF5Jywgc2VyaWY7IGZvbnQtc2l6ZTogNjBweDsgZm9udC13ZWlnaHQ6IDcwMDsgZmlsbDogIzFjMWUyMTsgfS5zaGFwZSB7IGZpbGw6ICMwZDZlZmQ7IH08L3N0eWxlPjxwYXRoIGNsYXNzPSJzaGFwZSIgZD0iTTI1LDIwIEwyNSw4MCBMNDUsODAgTDQ5LDUwIEw2NSw1MCBMNjUsODAgTDg1LDgwIEw4NSwyMCBMNjUsMjAgTDY1LDQwIEw0NSw0MCBMNDUsMjAgWiIgLz48dGV4dCB4PSIxMDAiIHk9Ijc1IiBjbGFzcz0idGV4dCI+T0JSQTwvdGV4dD48L3N2Zz4=";
+const obraLogo = "PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDMwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHN0eWxlPi50ZXh0IHsgZm9udC1mYW1pbHk6ICdNb250c2VycmF0Jywgc2Fucy1zZXJpZjsgZm9udC1zaXplOiA0MHB4OyBmb250LXdlaWdodDogNzAwOyBmaWxsOiAjMWMxZTIxOyB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlOyB9IC5zaGFwZSB7IGZpbGw6ICMwZDZlZmQ7IH08L3N0eWxlPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDEwKSI+PHBhdGggY2xhc3M9InNoYXBlIiBkPSJNNDAsMCBDMTcuOSwwIDAsMTcuOSAwLDQwIEMwLDYyLjEgMTcuOSw4MCA0MCw4MCBDNjIuMSw4MCA4MCw2Mi4xIDgwLDQwIEM4MCwxNy45IDYyLjEsMCA0MCwwIFogTTQwLDcwIEMyMy40LDcwIDEwLDU2LjYgMTAsNDAgQzEwLDIzLjQgMjMuNCwxMCA0MCwxMCBDNTYuNiwxMCA3MCwyMy40IDcwLDQwIEM3MCw1Ni42IDU2LjYsNzAgNDAsNzAgWiIgLz48cmVjdCB4PSIzNSIgeT0iMjAiIHdpZHRoPSIxMCIgaGVpZ2h0PSI0MCIgcng9IjUiIGZpbGw9IiNmZmYiIC8+PC9nPjx0ZXh0IHg9Ijk1IiB5PSI2NSIgY2xhc3M9InRleHQiPk9CUkEgRnVybml0ZWNoPC90ZXh0Pjwvc3ZnPg==";
 
 const convertSvgToPng = (svgDataUrl: string): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -166,6 +166,10 @@ const AppContext = createContext({
     deliveryFee: 0,
     setDeliveryFee: (value: any) => {},
     logoPng: null,
+    canvasItems: [],
+    setCanvasItems: (value: any) => {},
+    expandedProductCode: null,
+    setExpandedProductCode: (value: any) => {},
 });
 
 const formatCurrency = (amount, currency) => {
@@ -335,7 +339,7 @@ function QuotationPreviewModal({ onClose }) {
             </div>
             <div class="modal-body">
                 <div class="preview-header">
-                    ${logoPng && html`<img src=${logoPng} alt="OBRA Logo" />`}
+                    ${logoPng && html`<img src=${logoPng} alt="OBRA Furnitech Logo" />`}
                     <h1>QUOTATION</h1>
                 </div>
                 <div class="preview-info">
@@ -347,10 +351,10 @@ function QuotationPreviewModal({ onClose }) {
                         <p>${clientInfo.email || 'N/A'}</p>
                     </div>
                     <div class="info-block align-right">
-                        <p><strong>OBRA Office Furniture</strong></p>
-                        <p>123 Furniture Ave, Business City</p>
-                        <p>contact@obrafurniture.com</p>
-                        <p>+1 (555) 123-4567</p>
+                        <p><strong>OBRA Furnitech</strong></p>
+                        <p>12 Santan Quezon City Philippines 1116</p>
+                        <p>obrafurniture@gmail.com</p>
+                        <p>+63915 743 9188</p>
                     </div>
                 </div>
                 <table class="preview-table">
@@ -627,13 +631,11 @@ function QuotationSummary() {
 }
 
 function QuotationCard() {
-    const { cart } = useContext(AppContext);
+    const { cart, setCart } = useContext(AppContext);
     const [showPreview, setShowPreview] = useState(false);
 
     const handleClear = () => {
         if (confirm('Are you sure you want to clear all items from the quotation?')) {
-            // This would normally be handled via context, but for a direct approach:
-            const { setCart } = useContext(AppContext);
             setCart([]);
         }
     };
@@ -643,7 +645,6 @@ function QuotationCard() {
             <div class="card-title-wrapper">
                 <div class="card-title-main">
                     <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" class="quotation-logo" />
-                    <h2 class="card-title">Quotation</h2>
                 </div>
                 <${HeaderControls} />
             </div>
@@ -669,9 +670,22 @@ function QuotationCard() {
     `;
 }
 
-function ProductCard({ product }) {
-    const { cart, setCart, generating, generatedDescriptions, generationError, generateDescription, wishlist, setWishlist } = useContext(AppContext);
+function ProductListItem({ product }) {
+    const { 
+        cart, setCart, currency,
+        wishlist, setWishlist,
+        startVisualization, isAuthenticated, setShowAuthModal,
+        generating, generatedDescriptions, generationError, generateDescription,
+        expandedProductCode, setExpandedProductCode
+    } = useContext(AppContext);
+
+    const isExpanded = expandedProductCode === product.code;
+    const [quantity, setQuantity] = useState(1);
     const [selectedColor, setSelectedColor] = useState(product.colors ? product.colors[0] : null);
+
+    const handleToggle = () => {
+        setExpandedProductCode(isExpanded ? null : product.code);
+    };
 
     const isGeneratingDesc = generating[product.code];
     const description = generatedDescriptions[product.code];
@@ -680,14 +694,13 @@ function ProductCard({ product }) {
     const handleAddToCart = () => {
         const existingItem = cart.find(item => item.product.code === product.code && item.selectedColor?.hex === selectedColor?.hex);
         if (existingItem) {
-            setCart(cart.map(item => item.id === existingItem.id ? { ...item, quantity: item.quantity + 1 } : item));
+            setCart(cart.map(item => item.id === existingItem.id ? { ...item, quantity: item.quantity + quantity } : item));
         } else {
-            setCart([...cart, { product, quantity: 1, id: Date.now(), selectedColor }]);
+            setCart([...cart, { product, quantity, id: Date.now(), selectedColor }]);
         }
     };
-
+    
     const isInWishlist = wishlist.some(p => p.code === product.code);
-
     const handleToggleWishlist = () => {
         if (isInWishlist) {
             setWishlist(wishlist.filter(p => p.code !== product.code));
@@ -696,77 +709,97 @@ function ProductCard({ product }) {
         }
     };
 
+    const handleVisualizeClick = () => {
+        if (!isAuthenticated) {
+            setShowAuthModal(true);
+        } else {
+            startVisualization(product);
+        }
+    };
+
     return html`
-        <div class="product-card">
-            <div class="product-image-wrapper">
-                <img class="product-image" src=${product.imageUrl} alt=${product.name} />
-            </div>
-            <div class="product-info">
-                <h3 class="product-name">${product.name}</h3>
-                <p class="product-sku">SKU: ${product.code}</p>
-                <p class="product-description">${product.description}</p>
-                 <div class="product-furnitech-actions">
-                    <button class="btn btn-secondary" onClick=${() => generateDescription(product)} disabled=${isGeneratingDesc}>
-                        ${isGeneratingDesc ? html`<div class="loading-spinner-small"></div>` : html`<i class="fa-solid fa-wand-magic-sparkles"></i>`}
-                        AI Description
-                    </button>
-                     <${GatedFeature} featureName="Product Visualizer" featureIcon="fa-solid fa-vr-cardboard" featureDescription="Virtually place products in a scene to see how they look.">
-                        <button class="btn btn-secondary" onClick=${() => useContext(AppContext).startVisualization(product)}>
-                            <i class="fa-solid fa-vr-cardboard"></i> Visualize
-                        </button>
-                     </${GatedFeature}>
+        <div class="product-list-item ${isExpanded ? 'expanded' : ''}">
+            <div class="product-list-item-header" onClick=${handleToggle}>
+                <div class="header-info">
+                    <h3 class="product-name">${product.name}</h3>
+                    <span class="product-category">${product.category}</span>
                 </div>
-                 ${(isGeneratingDesc || description || error) && html`
-                    <div class="furnitech-description-container">
-                        ${isGeneratingDesc && html`<div class="typing-indicator"><span></span><span></span><span></span></div>`}
-                        ${description && html`<p class="furnitech-description-text">${description}</p>`}
-                        ${error && html`<p class="furnitech-error-inline">${error}</p>`}
-                    </div>
-                `}
-                ${product.colors && html`
-                    <div class="color-options">
-                        <span class="color-label">Color:</span>
-                        <div class="color-swatches">
-                            ${product.colors.map(color => html`
-                                <div 
-                                    class="color-swatch ${selectedColor.hex === color.hex ? 'selected' : ''}" 
-                                    style=${{ backgroundColor: color.hex }}
-                                    onClick=${() => setSelectedColor(color)}
-                                    title=${color.name}
-                                ></div>
-                            `)}
-                        </div>
-                    </div>
-                `}
+                <div class="header-price-toggle">
+                    <span class="product-price">${formatCurrency(product.price, currency)}</span>
+                    <button class="btn-toggle-details" aria-expanded=${isExpanded}>
+                        <i class="fa-solid ${isExpanded ? 'fa-chevron-up' : 'fa-chevron-down'}"></i>
+                    </button>
+                </div>
             </div>
-            <div class="product-footer">
-                <span class="product-price">${formatCurrency(product.price, useContext(AppContext).currency)}</span>
-                <div class="product-card-actions">
-                     <button 
-                        class="btn-icon btn-wishlist ${isInWishlist ? 'active' : ''}" 
-                        onClick=${handleToggleWishlist} 
-                        aria-label="Toggle Wishlist"
-                        data-tooltip=${isInWishlist ? 'Remove from Wishlist' : 'Add to Wishlist'}
-                    >
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                    <button class="btn btn-primary" onClick=${handleAddToCart}>
-                        <i class="fa-solid fa-cart-plus"></i>
-                    </button>
+            <div class="product-list-item-details-wrapper">
+                <div class="product-list-item-details">
+                    <div class="details-image">
+                        <img src=${product.imageUrl} alt=${product.name} loading="lazy" />
+                    </div>
+                    <div class="details-info">
+                        <p class="details-description">${product.description}</p>
+                        
+                        ${product.colors && html`
+                            <div class="details-colors">
+                                <h4 class="detail-subtitle">Color: <span>${selectedColor.name}</span></h4>
+                                <div class="color-swatches">
+                                    ${product.colors.map(color => html`
+                                        <button 
+                                            class="color-swatch ${selectedColor.hex === color.hex ? 'selected' : ''}" 
+                                            style=${{ backgroundColor: color.hex }}
+                                            onClick=${() => setSelectedColor(color)}
+                                            aria-label=${`Select color ${color.name}`}
+                                        ></button>
+                                    `)}
+                                </div>
+                            </div>
+                        `}
+
+                        <div class="details-actions">
+                            <div class="quantity-selector">
+                                <button class="btn-quantity" onClick=${() => setQuantity(q => Math.max(1, q - 1))}>-</button>
+                                <span class="item-quantity">${quantity}</span>
+                                <button class="btn-quantity" onClick=${() => setQuantity(q => q + 1)}>+</button>
+                            </div>
+                            <button class="btn btn-primary btn-add-to-quote" onClick=${handleAddToCart}>
+                                <i class="fa-solid fa-cart-plus"></i> Add to Quote
+                            </button>
+                        </div>
+
+                        <div class="details-extra-actions">
+                            <button class="btn-extra-action" onClick=${handleToggleWishlist}>
+                                <i class="fa-solid fa-heart ${isInWishlist ? 'active' : ''}"></i> ${isInWishlist ? 'In Wishlist' : 'Add to Wishlist'}
+                            </button>
+                             <button class="btn-extra-action" onClick=${() => generateDescription(product)}>
+                                <i class="fa-solid fa-wand-magic-sparkles"></i> AI Description
+                            </button>
+                            <button class="btn-extra-action" onClick=${handleVisualizeClick}>
+                                <i class="fa-solid fa-vr-cardboard"></i> Visualize
+                            </button>
+                        </div>
+                         ${(isGeneratingDesc || description || error) && html`
+                            <div class="furnitech-description-container">
+                                ${isGeneratingDesc && html`<div class="typing-indicator"><span></span><span></span><span></span></div>`}
+                                ${description && html`<p class="furnitech-description-text">${description}</p>`}
+                                ${error && html`<p class="furnitech-error-inline">${error}</p>`}
+                            </div>
+                        `}
+                    </div>
                 </div>
             </div>
         </div>
     `;
 }
 
-function ProductGridCard() {
+
+function ProductCatalogCard() {
     const { products } = useContext(AppContext);
     const [searchTerm, setSearchTerm] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [category, setCategory] = useState('All');
     const [priceRange, setPriceRange] = useState([0, 30000]);
     const [sort, setSort] = useState('default');
-    const [displayedCount, setDisplayedCount] = useState(12);
+    const [displayedCount, setDisplayedCount] = useState(8);
     const [showFilters, setShowFilters] = useState(false);
 
     const fuse = useMemo(() => new Fuse(products, {
@@ -833,7 +866,7 @@ function ProductGridCard() {
     };
     
     return html`
-        <div class="card product-grid-card">
+        <div class="card product-catalog-card">
             <div class="product-grid-header">
                 <div class="card-title-wrapper">
                     <div class="card-title-main">
@@ -888,9 +921,9 @@ function ProductGridCard() {
                 </div>
             `}
             
-            <div class="product-grid">
+            <div class="product-list">
                 ${paginatedProducts.map((product, index) => html`
-                    <${ProductCard} key=${product.code} product=${product} />
+                    <${ProductListItem} key=${product.code} product=${product} />
                     ${index === 5 && html`
                         <div class="quotation-wrapper-inline">
                             <${QuotationCard} />
@@ -975,6 +1008,198 @@ function ProductBundles() {
                         </div>
                     `;
                 })}
+            </div>
+        </div>
+    `;
+}
+
+// --- HOME OFFICE DESIGNER ---
+
+function HomeOfficeDesigner() {
+    const { products, currency, canvasItems, setCanvasItems, setCart } = useContext(AppContext);
+    const canvasRef = useRef(null);
+    const [activeDrag, setActiveDrag] = useState(null);
+    const [selectedItem, setSelectedItem] = useState(null);
+
+    const totalCost = useMemo(() => canvasItems.reduce((acc, item) => acc + Number(item.product.price), 0), [canvasItems]);
+
+    const handlePaletteDragStart = (e, product) => {
+        e.dataTransfer.setData('productCode', product.code);
+    };
+
+    const handleCanvasDragOver = (e) => {
+        e.preventDefault();
+    };
+
+    const handleCanvasDrop = (e) => {
+        e.preventDefault();
+        const productCode = e.dataTransfer.getData('productCode');
+        if (productCode && canvasRef.current) {
+            const product = products.find(p => p.code === productCode);
+            if (!product) return;
+
+            const canvasRect = canvasRef.current.getBoundingClientRect();
+            const x = e.clientX - canvasRect.left - 50; // Adjust for item width
+            const y = e.clientY - canvasRect.top - 50;  // Adjust for item height
+
+            const newItem = {
+                id: Date.now(),
+                product,
+                x: Math.max(0, Math.min(x, canvasRect.width - 100)),
+                y: Math.max(0, Math.min(y, canvasRect.height - 100)),
+                rotation: 0,
+            };
+            setCanvasItems(prev => [...prev, newItem]);
+        }
+    };
+    
+    const handleItemMouseDown = (e, item) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setSelectedItem(item.id);
+        const isRotateHandle = e.target.classList.contains('rotate-handle');
+
+        setActiveDrag({
+            id: item.id,
+            isRotating: isRotateHandle,
+            // For moving
+            offsetX: e.clientX - item.x,
+            offsetY: e.clientY - item.y,
+            // For rotating
+            startX: e.clientX,
+            startY: e.clientY,
+            startRotation: item.rotation,
+            itemCenterX: item.x + 50, // Assuming 100px width
+            itemCenterY: item.y + 50, // Assuming 100px height
+        });
+    };
+
+    const handleMouseMove = useCallback((e) => {
+        if (!activeDrag) return;
+
+        if (activeDrag.isRotating) {
+             const angle = Math.atan2(e.clientY - activeDrag.itemCenterY, e.clientX - activeDrag.itemCenterX);
+             const degrees = angle * (180 / Math.PI);
+             setCanvasItems(prev => prev.map(item => 
+                item.id === activeDrag.id ? { ...item, rotation: degrees + 90 } : item
+            ));
+        } else {
+            const newX = e.clientX - activeDrag.offsetX;
+            const newY = e.clientY - activeDrag.offsetY;
+            
+            setCanvasItems(prev => prev.map(item =>
+                item.id === activeDrag.id ? { ...item, x: newX, y: newY } : item
+            ));
+        }
+    }, [activeDrag, setCanvasItems]);
+
+    const handleMouseUp = useCallback(() => {
+        setActiveDrag(null);
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseup', handleMouseUp);
+        };
+    }, [handleMouseMove, handleMouseUp]);
+    
+    const handleDeleteItem = (e, id) => {
+        e.stopPropagation();
+        setCanvasItems(prev => prev.filter(item => item.id !== id));
+    };
+
+    const handleAddAllToCart = () => {
+        if (canvasItems.length === 0) return;
+        
+        const itemsToAdd = canvasItems.map(item => ({
+            product: item.product,
+            quantity: 1, // Or implement quantity logic
+            id: Date.now() + Math.random(),
+            selectedColor: item.product.colors ? item.product.colors[0] : null
+        }));
+        
+        setCart(prev => {
+            const newCart = [...prev];
+            itemsToAdd.forEach(newItem => {
+                const existingItemIndex = newCart.findIndex(cartItem => cartItem.product.code === newItem.product.code && cartItem.selectedColor?.hex === newItem.selectedColor?.hex);
+                if (existingItemIndex > -1) {
+                    newCart[existingItemIndex].quantity += 1;
+                } else {
+                    newCart.push(newItem);
+                }
+            });
+            return newCart;
+        });
+    };
+
+    const handleClearCanvas = () => {
+        if (confirm('Are you sure you want to clear the canvas?')) {
+            setCanvasItems([]);
+        }
+    };
+
+    return html`
+        <div class="card home-office-designer-card">
+            <div class="card-title-wrapper">
+                <div class="card-title-main">
+                    <i class="fa-solid fa-drafting-compass"></i>
+                    <h2 class="card-title">Home Office Designer</h2>
+                </div>
+            </div>
+
+            <div class="designer-toolbar">
+                <div class="toolbar-info">
+                    <span class="toolbar-label">Total Cost:</span>
+                    <span class="toolbar-value">${formatCurrency(totalCost, currency)}</span>
+                </div>
+                <div class="toolbar-actions">
+                    <button class="btn btn-secondary" onClick=${handleClearCanvas}><i class="fa-solid fa-trash-can"></i> Clear</button>
+                    <button class="btn btn-primary" onClick=${handleAddAllToCart}><i class="fa-solid fa-cart-plus"></i> Add to Quote</button>
+                </div>
+            </div>
+            
+            <div class="designer-layout">
+                <div class="product-palette">
+                    ${products.map(p => html`
+                        <div class="palette-item" draggable="true" onDragStart=${(e) => handlePaletteDragStart(e, p)}>
+                            <img src=${p.imageUrl} alt=${p.name} />
+                            <div class="palette-item-info">
+                                <span class="palette-item-name">${p.name}</span>
+                                <span class="palette-item-price">${formatCurrency(p.price, currency)}</span>
+                            </div>
+                        </div>
+                    `)}
+                </div>
+                <div 
+                    class="designer-canvas" 
+                    ref=${canvasRef}
+                    onDragOver=${handleCanvasDragOver}
+                    onDrop=${handleCanvasDrop}
+                    onClick=${() => setSelectedItem(null)}
+                >
+                     ${canvasItems.length === 0 && html`
+                        <div class="canvas-placeholder">
+                            <i class="fa-solid fa-arrow-pointer"></i>
+                            <p>Drag products from the left panel and drop them here to start designing.</p>
+                        </div>
+                    `}
+                    ${canvasItems.map(item => html`
+                        <div 
+                            class="canvas-item ${selectedItem === item.id ? 'selected' : ''}"
+                            style=${{ transform: `translate(${item.x}px, ${item.y}px) rotate(${item.rotation}deg)` }}
+                            onMouseDown=${e => handleItemMouseDown(e, item)}
+                        >
+                            <img src=${item.product.imageUrl} alt=${item.product.name} draggable="false" />
+                            <div class="item-controls">
+                                <div class="control-handle rotate-handle" onMouseDown=${e => handleItemMouseDown(e, item)}><i class="fa-solid fa-arrows-rotate"></i></div>
+                                <div class="control-handle delete-handle" onClick=${e => handleDeleteItem(e, item.id)}><i class="fa-solid fa-trash-can"></i></div>
+                            </div>
+                        </div>
+                    `)}
+                </div>
             </div>
         </div>
     `;
@@ -1682,7 +1907,7 @@ function OnboardingModal({ onComplete }) {
     return html`
         <div class="onboarding-overlay">
             <div class="onboarding-modal">
-                <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" class="onboarding-logo" />
+                <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Furnitech Logo" class="onboarding-logo" />
                 <div class="onboarding-header">
                     <h1>Welcome to Furnitech</h1>
                     <p>The smartest way to design your office space.</p>
@@ -1713,7 +1938,7 @@ function OnboardingModal({ onComplete }) {
 function Header() {
     return html`
         <header class="app-header">
-            <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Logo" class="header-logo" />
+            <img src="data:image/svg+xml;base64,${obraLogo}" alt="OBRA Furnitech Logo" class="header-logo" />
             <${HeaderControls} />
         </header>
     `;
@@ -1745,10 +1970,13 @@ const MainContent = () => {
                     </div>
                 </div>
                 <div class="content-section">
-                    <${ProductGridCard} />
+                    <${ProductCatalogCard} />
                 </div>
                 <div class="content-section">
                     <${ProductBundles} />
+                </div>
+                <div class="content-section">
+                    <${HomeOfficeDesigner} />
                 </div>
                 <div class="content-section">
                      <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Furnitech AI Tools</h2>
@@ -1770,11 +1998,12 @@ function Footer() {
     return html`
         <footer>
             <div class="footer-content">
-                 <p>&copy; ${new Date().getFullYear()} OBRA Office Furniture. All rights reserved.</p>
+                 <p>&copy; ${new Date().getFullYear()} OBRA Furnitech. All rights reserved.</p>
                  <div class="footer-contact">
-                    <a href="mailto:contact@obrafurniture.com"><i class="fa-solid fa-envelope"></i> contact@obrafurniture.com</a>
-                    <span><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</span>
-                    <span><i class="fa-solid fa-map-marker-alt"></i> 123 Furniture Ave, Business City</span>
+                    <a href="https://facebook.com/obraofficefurniture" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i> OBRA Office Furniture</a>
+                    <a href="mailto:obrafurniture@gmail.com"><i class="fa-solid fa-envelope"></i> obrafurniture@gmail.com</a>
+                    <span><i class="fa-brands fa-viber"></i> +63915 743 9188</span>
+                    <span><i class="fa-solid fa-map-marker-alt"></i> 12 Santan, Quezon City, Philippines 1116</span>
                 </div>
             </div>
         </footer>
@@ -1816,6 +2045,8 @@ function App() {
     const [isVisualizingProduct, setIsVisualizingProduct] = useState(false);
     const [visualizationResult, setVisualizationResult] = useState(null);
     const [initialStudioImage, setInitialStudioImage] = useState(null);
+    const [canvasItems, setCanvasItems] = useState([]);
+    const [expandedProductCode, setExpandedProductCode] = useState(null);
 
     // Auth and onboarding
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -2205,7 +2436,9 @@ function App() {
         isVisualizingProduct, visualizedProduct, visualizationResult, visualizeProduct, startVisualization, clearVisualization,
         initialStudioImage, setInitialStudioImage,
         discount, setDiscount, discountType, setDiscountType, deliveryFee, setDeliveryFee,
-        logoPng
+        logoPng,
+        canvasItems, setCanvasItems,
+        expandedProductCode, setExpandedProductCode,
     };
 
     return html`
