@@ -170,6 +170,14 @@ const AppContext = createContext({
     setCanvasItems: (value: any) => {},
     expandedProductCode: null,
     setExpandedProductCode: (value: any) => {},
+    tasks: [],
+    setTasks: (value: any) => {},
+    isTaskModalOpen: false,
+    setIsTaskModalOpen: (value: any) => {},
+    editingTask: null,
+    setEditingTask: (value: any) => {},
+    taskSort: 'default',
+    setTaskSort: (value: any) => {},
 });
 
 const formatCurrency = (amount, currency) => {
@@ -429,6 +437,67 @@ function WebsiteModal({ url, onClose }) {
     `;
 }
 
+function TaskModal({ onClose }) {
+    const { editingTask, setTasks } = useContext(AppContext);
+    const [text, setText] = useState(editingTask ? editingTask.text : '');
+    const [priority, setPriority] = useState(editingTask ? editingTask.priority : 'Medium');
+    const [dueDate, setDueDate] = useState(editingTask ? editingTask.dueDate : '');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!text.trim()) return;
+
+        if (editingTask) {
+            setTasks(prev => prev.map(t => t.id === editingTask.id ? { ...t, text, priority, dueDate } : t));
+        } else {
+            const newTask = {
+                id: Date.now(),
+                text,
+                priority,
+                dueDate,
+                completed: false,
+            };
+            setTasks(prev => [...prev, newTask]);
+        }
+        onClose();
+    };
+    
+    return html`
+        <${Modal} onClose=${onClose}>
+            <form class="task-modal-form" onSubmit=${handleSubmit}>
+                 <div class="modal-header">
+                    <h2>${editingTask ? 'Edit Task' : 'Add New Task'}</h2>
+                    <button type="button" class="modal-close-btn" onClick=${onClose}>×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="taskText">Task Description</label>
+                        <input type="text" id="taskText" value=${text} onInput=${e => setText(e.target.value)} placeholder="e.g., Follow up with client" required />
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="taskPriority">Priority</label>
+                            <select id="taskPriority" value=${priority} onChange=${e => setPriority(e.target.value)}>
+                                <option>Low</option>
+                                <option>Medium</option>
+                                <option>High</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="taskDueDate">Due Date</label>
+                            <input type="date" id="taskDueDate" value=${dueDate} onInput=${e => setDueDate(e.target.value)} />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onClick=${onClose}>Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Task</button>
+                </div>
+            </form>
+        </${Modal}>
+    `;
+}
+
 // --- MAIN UI COMPONENTS ---
 
 function CtaBanner() {
@@ -479,6 +548,122 @@ function ClientInfoCard() {
     `;
 }
 
+function ProjectTasksCard() {
+    const { tasks, setTasks, setIsTaskModalOpen, setEditingTask, taskSort, setTaskSort } = useContext(AppContext);
+
+    const handleAddTask = () => {
+        setEditingTask(null);
+        setIsTaskModalOpen(true);
+    };
+
+    const handleEditTask = (task) => {
+        setEditingTask(task);
+        setIsTaskModalOpen(true);
+    };
+
+    const handleDeleteTask = (taskId) => {
+        if (confirm('Are you sure you want to delete this task?')) {
+            setTasks(prev => prev.filter(t => t.id !== taskId));
+        }
+    };
+
+    const handleToggleComplete = (taskId) => {
+        setTasks(prev => prev.map(t => t.id === taskId ? { ...t, completed: !t.completed } : t));
+    };
+
+    const priorityOrder = { 'High': 1, 'Medium': 2, 'Low': 3 };
+
+    const sortedTasks = useMemo(() => {
+        return [...tasks].sort((a, b) => {
+            if (a.completed !== b.completed) {
+                return a.completed ? 1 : -1;
+            }
+            switch (taskSort) {
+                case 'dueDate':
+                    if (!a.dueDate) return 1;
+                    if (!b.dueDate) return -1;
+                    return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
+                case 'priority':
+                    return (priorityOrder[a.priority] || 4) - (priorityOrder[b.priority] || 4);
+                default:
+                    return 0;
+            }
+        });
+    }, [tasks, taskSort]);
+
+    const incompleteTasksCount = useMemo(() => tasks.filter(t => !t.completed).length, [tasks]);
+
+    const isOverdue = (task) => {
+        if (task.completed || !task.dueDate) return false;
+        const dueDate = new Date(task.dueDate);
+        dueDate.setUTCHours(0, 0, 0, 0);
+        const today = new Date();
+        today.setUTCHours(0, 0, 0, 0);
+        return dueDate < today;
+    };
+
+    return html`
+        <div class="card">
+            <div class="card-title-wrapper">
+                 <div class="card-title-main">
+                    <i class="fa-solid fa-list-check"></i>
+                    <h2 class="card-title">Project Tasks</h2>
+                    ${incompleteTasksCount > 0 && html`<div class="task-count-badge">${incompleteTasksCount}</div>`}
+                </div>
+                <div class="card-header-controls">
+                    <div class="task-sort-control">
+                        <i class="fa-solid fa-arrow-down-wide-short"></i>
+                        <select value=${taskSort} onChange=${e => setTaskSort(e.target.value)}>
+                            <option value="default">Default</option>
+                            <option value="dueDate">Due Date</option>
+                            <option value="priority">Priority</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-secondary btn-add-task" onClick=${handleAddTask}>
+                        <i class="fa-solid fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            ${tasks.length === 0 ? html`
+                <div class="empty-tasks">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <p>No tasks yet.<br/>Add a task to get started.</p>
+                </div>
+            ` : html`
+                <div class="task-list">
+                    ${sortedTasks.map(task => html`
+                        <div class="task-item ${task.completed ? 'completed' : ''}" key=${task.id}>
+                            <div class="task-main">
+                                <input type="checkbox" checked=${task.completed} onChange=${() => handleToggleComplete(task.id)} class="task-checkbox" aria-label="Toggle task completion"/>
+                                <div class="task-details">
+                                    <p class="task-text">${task.text}</p>
+                                    <div class="task-meta">
+                                        ${task.dueDate && html`
+                                            <span class="task-due-date ${isOverdue(task) ? 'overdue' : ''}">
+                                                <i class="fa-regular fa-calendar"></i>
+                                                ${new Date(task.dueDate).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric' })}
+                                            </span>
+                                        `}
+                                        <span class="task-priority priority-${task.priority.toLowerCase()}">${task.priority}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="task-controls">
+                                <button class="btn-icon" onClick=${() => handleEditTask(task)} aria-label="Edit task" data-tooltip="Edit">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </button>
+                                <button class="btn-icon btn-delete" onClick=${() => handleDeleteTask(task.id)} aria-label="Delete task" data-tooltip="Delete">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `)}
+                </div>
+            `}
+        </div>
+    `;
+}
+
 function WishlistCard() {
     const { wishlist, setWishlist, cart, setCart, currency } = useContext(AppContext);
 
@@ -499,7 +684,7 @@ function WishlistCard() {
     };
 
     return html`
-        <div class="card">
+        <div class="card" id="wishlist-card">
             <div class="card-title-wrapper">
                  <div class="card-title-main">
                     <i class="fa-solid fa-heart"></i>
@@ -799,7 +984,6 @@ function ProductCatalogCard() {
     const [category, setCategory] = useState('All');
     const [priceRange, setPriceRange] = useState([0, 30000]);
     const [sort, setSort] = useState('default');
-    const [displayedCount, setDisplayedCount] = useState(8);
     const [showFilters, setShowFilters] = useState(false);
 
     const fuse = useMemo(() => new Fuse(products, {
@@ -836,8 +1020,6 @@ function ProductCatalogCard() {
         return results;
     }, [searchTerm, products, category, priceRange, sort, fuse]);
 
-    const paginatedProducts = useMemo(() => filteredProducts.slice(0, displayedCount), [filteredProducts, displayedCount]);
-
     const handleSearchChange = (e) => {
         const value = e.target.value;
         setSearchTerm(value);
@@ -851,10 +1033,6 @@ function ProductCatalogCard() {
     const selectSuggestion = (name) => {
         setSearchTerm(name);
         setSuggestions([]);
-    };
-
-    const loadMore = () => {
-        setDisplayedCount(prev => prev + 12);
     };
 
     const resetFilters = () => {
@@ -922,13 +1100,8 @@ function ProductCatalogCard() {
             `}
             
             <div class="product-list">
-                ${paginatedProducts.map((product, index) => html`
+                ${filteredProducts.map((product) => html`
                     <${ProductListItem} key=${product.code} product=${product} />
-                    ${index === 5 && html`
-                        <div class="quotation-wrapper-inline">
-                            <${QuotationCard} />
-                        </div>
-                    `}
                 `)}
             </div>
 
@@ -936,12 +1109,6 @@ function ProductCatalogCard() {
                 <div class="no-results">
                     <h3>No Products Found</h3>
                     <p>Try adjusting your search or filter criteria.</p>
-                </div>
-            `}
-            
-            ${displayedCount < filteredProducts.length && html`
-                <div class="product-grid-footer">
-                    <button class="btn" onClick=${loadMore}>Load More</button>
                 </div>
             `}
         </div>
@@ -1945,9 +2112,20 @@ function Header() {
 }
 
 function HeaderControls() {
-    const { currency, setCurrency } = useContext(AppContext);
+    const { currency, setCurrency, wishlist } = useContext(AppContext);
+    
+    const handleWishlistClick = (e) => {
+        e.preventDefault();
+        document.getElementById('wishlist-card')?.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return html`
         <div class="header-controls">
+            <a href="#wishlist-card" class="btn-wishlist-header" onClick=${handleWishlistClick}>
+                <i class="fa-solid fa-heart"></i>
+                <span>Wishlist</span>
+                ${wishlist.length > 0 && html`<span class="wishlist-header-count">${wishlist.length}</span>`}
+            </a>
             <div class="currency-selector">
                 <i class="fa-solid fa-coins"></i>
                 <select value=${currency} onChange=${e => setCurrency(e.target.value)}>
@@ -1963,21 +2141,33 @@ const MainContent = () => {
         <main class="main-content">
             <div class="main-layout">
                 <${CtaBanner} />
+                
                 <div class="content-section">
-                    <div class="intro-cards">
-                        <${ClientInfoCard} />
-                        <${WishlistCard} />
-                    </div>
+                    <${ClientInfoCard} />
                 </div>
+                
                 <div class="content-section">
                     <${ProductCatalogCard} />
                 </div>
+                
+                <div class="content-section post-catalog-section">
+                     <div class="quotation-column">
+                        <${QuotationCard} />
+                     </div>
+                     <div class="tasks-wishlist-column">
+                        <${ProjectTasksCard} />
+                        <${WishlistCard} />
+                     </div>
+                </div>
+
                 <div class="content-section">
                     <${ProductBundles} />
                 </div>
+                
                 <div class="content-section">
                     <${HomeOfficeDesigner} />
                 </div>
+                
                 <div class="content-section">
                      <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Furnitech AI Tools</h2>
                      <div class="furnitech-tools-grid">
@@ -2058,11 +2248,22 @@ function App() {
     const [discountType, setDiscountType] = useState('PHP');
     const [deliveryFee, setDeliveryFee] = useState(0);
 
+    // Project Tasks
+    const [tasks, setTasks] = useState([]);
+    const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
+    const [editingTask, setEditingTask] = useState(null);
+    const [taskSort, setTaskSort] = useState('default');
+
     const ai = useMemo(() => new GoogleGenAI({ apiKey: process.env.API_KEY }), []);
 
     useEffect(() => {
         convertSvgToPng(`data:image/svg+xml;base64,${obraLogo}`).then(setLogoPng);
     }, []);
+
+    const handleCloseTaskModal = () => {
+        setIsTaskModalOpen(false);
+        setEditingTask(null);
+    };
 
     const generateDescription = useCallback(async (product) => {
         setGenerating(prev => ({ ...prev, [product.code]: true }));
@@ -2439,6 +2640,8 @@ function App() {
         logoPng,
         canvasItems, setCanvasItems,
         expandedProductCode, setExpandedProductCode,
+        tasks, setTasks, isTaskModalOpen, setIsTaskModalOpen, editingTask, setEditingTask,
+        taskSort, setTaskSort,
     };
 
     return html`
@@ -2446,6 +2649,7 @@ function App() {
             ${showOnboarding && html`<${OnboardingModal} onComplete=${() => setShowOnboarding(false)} />`}
             ${showAuthModal && html`<${AuthModal} onAuthSuccess=${() => { setIsAuthenticated(true); setShowAuthModal(false); }} />`}
             ${modalUrl && html`<${WebsiteModal} url=${modalUrl} onClose=${() => setModalUrl(null)} />`}
+            ${isTaskModalOpen && html`<${TaskModal} onClose=${handleCloseTaskModal} />`}
             <div class="container">
                 <${Header} />
                 <${MainContent} />

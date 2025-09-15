@@ -131,11 +131,17 @@ header.app-header {
     gap: 2rem;
 }
 
-.intro-cards {
+.post-catalog-section {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
     gap: 2rem;
     align-items: start;
+}
+
+.tasks-wishlist-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 footer {
@@ -593,9 +599,7 @@ textarea {
     flex-direction: column;
     padding: 0 2rem 2rem;
 }
-.quotation-wrapper-inline {
-    margin: 1rem 0;
-}
+
 .product-grid-footer {
     padding: 1rem 2rem 2rem;
     text-align: center;
@@ -1776,6 +1780,183 @@ textarea {
     margin-left: 0.2rem;
 }
 
+/* --- Project Tasks Card --- */
+.card-title-wrapper {
+    flex-wrap: wrap;
+}
+.card-title-main {
+    flex-shrink: 0;
+}
+.card-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+}
+.task-count-badge {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    margin-left: 0.5rem;
+}
+.task-sort-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.task-sort-control i {
+    position: absolute;
+    left: 0.75rem;
+    color: var(--text-secondary);
+    pointer-events: none;
+    font-size: 0.9rem;
+}
+.task-sort-control select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.btn-add-task {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+}
+.empty-tasks {
+    text-align: center;
+    padding: 2.5rem 0;
+    color: var(--text-secondary);
+}
+.empty-tasks i {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    opacity: 0.7;
+}
+.task-list {
+    display: flex;
+    flex-direction: column;
+}
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem 0.25rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: opacity 0.3s;
+}
+.task-list .task-item:last-child {
+    border-bottom: none;
+}
+.task-item.completed {
+    opacity: 0.6;
+}
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+.task-main {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-grow: 1;
+    min-width: 0;
+}
+.task-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.task-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex-grow: 1;
+    min-width: 0;
+}
+.task-text {
+    font-weight: 500;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.task-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+.task-due-date {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.task-due-date.overdue {
+    color: #dc3545;
+    font-weight: 600;
+}
+.task-due-date.overdue i {
+    color: #dc3545;
+}
+.task-priority {
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.priority-low {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+.priority-medium {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+.priority-high {
+    background-color: #f8d7da;
+    color: #842029;
+}
+.task-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+.task-controls .btn-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+}
+.task-controls .btn-icon:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.task-controls .btn-delete:hover {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+
 /* --- Wishlist --- */
 .wishlist-count {
     background-color: var(--primary-color);
@@ -2032,6 +2213,44 @@ textarea {
 }
 .actions .btn {
     flex-grow: 1;
+}
+
+.btn-wishlist-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    background: white;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    position: relative;
+}
+.btn-wishlist-header:hover {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+.btn-wishlist-header i {
+    color: #dc3545;
+}
+.wishlist-header-count {
+    background-color: #dc3545;
+    color: white;
+    font-size: 0.75rem;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .currency-selector {
@@ -2439,9 +2658,6 @@ textarea {
 
 /* --- Responsiveness --- */
 @media (min-width: 992px) {
-    .intro-cards {
-        grid-template-columns: 1fr 1fr;
-    }
     .furnitech-tools-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -2451,6 +2667,9 @@ textarea {
 @media (max-width: 992px) {
     .designer-layout {
         grid-template-columns: 250px 1fr;
+    }
+    .post-catalog-section {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -2618,6 +2837,7 @@ textarea {
     align-items: center;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
 }
 .modal-header h2 {
     font-family: var(--font-heading);
@@ -2642,10 +2862,13 @@ textarea {
 .modal-body {
     flex-grow: 1;
     overflow: auto;
+    padding: 1.5rem;
+}
+.modal-content-website .modal-body {
     padding: 0.5rem;
     background: #eee;
 }
-.modal-body iframe {
+.modal-content-website .modal-body iframe {
     width: 100%;
     height: 100%;
     border: none;
@@ -2659,6 +2882,14 @@ textarea {
     justify-content: flex-end;
     gap: 1rem;
     background: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+}
+
+/* --- Task Modal --- */
+.task-modal-form .modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 /* --- Quotation Preview Modal --- */
