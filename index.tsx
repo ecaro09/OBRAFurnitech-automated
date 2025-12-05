@@ -67,7 +67,7 @@ const initialProducts = [
     {"code":"OBET-GT16","name":"Glass Top Executive Office Table","category":"Executive Tables","price":"19499.00","description":"Transform your workspace with our exquisite office furniture set. The centerpiece, a stunning tempered glass counter-top, sits atop robust melamine legs, ensuring stability and longevity.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/6-3.webp"},
     {"code":"OBOT-T01","name":"Metal Office Table","category":"Office Tables","price":"5499.00","description":"Introducing our eco-conscious office desk, meticulously crafted with an acid-washed phosphatized treatment and finished with an electrostatic powder coating to ensure durability while being kind to the planet.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/25-2.png"},
     {"code":"OBWT-4S","name":"4-Seater Workstation Table","category":"Workstations","price":"16899.00","description":"Transform your workspace with our stylish and functional 4-seater workstation, designed to foster collaboration and maximize efficiency. Each workstation boasts a chic oak gray wood top and a vibrant choice of red or blue dividers.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/1000035614.jpg", "colors": [{ "name": "Red Divider", "hex": "#dc3545" }, { "name": "Blue Divider", "hex": "#0d6efd" }] },
-    {"code":"OBGC-S4","name":"4-Seater Gang Chair","category":"Office Chairs","price":"8199.00","description":"Introducing the ultimate seating solution – our Gang Chair, engineered for durability and comfort in busy environments. With its sleek profile and robust construction, this chair is an ideal choice for offices, conference rooms, and classrooms.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/4-Gang-Chair.jpg"},
+    {"code":"OBGC-S4","name":"4-Seater Gang Chair","category":"Office Chairs","price":"8199.00","description":"Introducing the ultimate seating solution – our Gang Chair, engineered for durability and comfort in busy environments. With its sleek profile and robust construction, this chair is an ideal choice for offices, conference rooms, and classrooms."},
     {"code":"OBST-WLS28","name":"Glass Door Steel Cabinet","category":"Storage","price":"9999.00","description":"Present your collectibles, books, or awards in our elegant Metal Display Cabinet, a perfect blend of functionality and design. The robust powder-coated metal structure ensures durability, while the two swing glass doors offer a clear view.","imageUrl":"https://obrafurniture.com/wp-content/uploads/2024/06/22-2-1.jpg"}
 ];
 
@@ -101,7 +101,8 @@ const currencyRates = {
 };
 
 const AppContext = createContext({
-    products: initialProducts,
+    products: [],
+    setProducts: (value: any) => {},
     cart: [],
     setCart: (value: any) => {},
     clientInfo: { name: '', company: '', contact: '', email: '' },
@@ -1537,7 +1538,8 @@ function FurnitechSpacePlannerCard() {
         furnitechLayoutOptions, setFurnitechLayoutOptions,
         selectedLayoutIndex, setSelectedLayoutIndex,
         addLayoutToCart,
-        currency
+        currency,
+        products
     } = useContext(AppContext);
 
     const [floorPlan, setFloorPlan] = useState(null);
@@ -2149,19 +2151,18 @@ const MainContent = () => {
                 <div class="content-section">
                     <${ProductCatalogCard} />
                 </div>
-                
-                <div class="content-section post-catalog-section">
-                     <div class="quotation-column">
-                        <${QuotationCard} />
-                     </div>
-                     <div class="tasks-wishlist-column">
-                        <${ProjectTasksCard} />
-                        <${WishlistCard} />
-                     </div>
-                </div>
 
                 <div class="content-section">
                     <${ProductBundles} />
+                </div>
+                
+                <div class="content-section">
+                    <${QuotationCard} />
+                </div>
+                
+                <div class="content-section management-grid">
+                    <${ProjectTasksCard} />
+                    <${WishlistCard} />
                 </div>
                 
                 <div class="content-section">
@@ -2201,6 +2202,7 @@ function Footer() {
 }
 
 function App() {
+    const [products, setProducts] = useState(initialProducts);
     const [cart, setCart] = useState([]);
     const [clientInfo, setClientInfo] = useState({ name: '', company: '', contact: '', email: '' });
     const [currency, setCurrency] = useState('PHP');
@@ -2260,6 +2262,49 @@ function App() {
         convertSvgToPng(`data:image/svg+xml;base64,${obraLogo}`).then(setLogoPng);
     }, []);
 
+    useEffect(() => {
+        const generateMissingImages = async () => {
+            const productsToUpdate = products.filter(p => !p.imageUrl);
+            if (productsToUpdate.length === 0) return;
+
+            const updatePromises = productsToUpdate.map(async (product) => {
+                try {
+                    const prompt = `A professional, high-quality studio photograph of a "${product.name}", which is a type of office ${product.category}. The item should be centered on a pure white background, showcasing its design and functionality for an e-commerce catalog.`;
+                    const response = await ai.models.generateImages({
+                        model: 'imagen-4.0-generate-001',
+                        prompt: prompt,
+                        config: { 
+                            numberOfImages: 1, 
+                            outputMimeType: 'image/png',
+                            aspectRatio: '1:1',
+                        },
+                    });
+                    const imageData = `data:image/png;base64,${response.generatedImages[0].image.imageBytes}`;
+                    return { code: product.code, imageUrl: imageData };
+                } catch (error) {
+                    console.error(`Failed to generate image for ${product.name}:`, error);
+                    return null;
+                }
+            });
+
+            const resolvedUpdates = (await Promise.all(updatePromises)).filter(Boolean);
+            
+            if (resolvedUpdates.length > 0) {
+                setProducts(currentProducts => {
+                    const updatesMap = new Map(resolvedUpdates.map(p => [p.code, p.imageUrl]));
+                    return currentProducts.map(p => 
+                        updatesMap.has(p.code) 
+                            ? { ...p, imageUrl: updatesMap.get(p.code) } 
+                            : p
+                    );
+                });
+            }
+        };
+
+        generateMissingImages();
+    }, [ai]);
+
+
     const handleCloseTaskModal = () => {
         setIsTaskModalOpen(false);
         setEditingTask(null);
@@ -2289,7 +2334,7 @@ function App() {
         setFurnitechLayoutOptions(null);
         setSelectedLayoutIndex(null);
         try {
-            const productList = initialProducts.map(p => `- ${p.code}: ${p.name} (${p.category}) - ${formatCurrency(p.price, 'PHP')}`).join('\n');
+            const productList = products.map(p => `- ${p.code}: ${p.name} (${p.category}) - ${formatCurrency(p.price, 'PHP')}`).join('\n');
             const styleDesc = getStyleDescriptionForOfficeType(officeType, style);
             
             const prompt = `
@@ -2359,7 +2404,7 @@ function App() {
                 let totalItems = 0;
                 layout.zones.forEach(zone => {
                     zone.furniture.forEach(item => {
-                        const product = initialProducts.find(p => p.code === item.productCode);
+                        const product = products.find(p => p.code === item.productCode);
                         if (product) {
                             // FIX: Cast product price to number for calculation
                             totalCost += Number(product.price) * item.quantity;
@@ -2378,13 +2423,13 @@ function App() {
         } finally {
             setIsPlanning(false);
         }
-    }, [ai]);
+    }, [ai, products]);
     
     const addLayoutToCart = useCallback((layout) => {
         const itemsToAdd = [];
         layout.zones.forEach(zone => {
             zone.furniture.forEach(item => {
-                const product = initialProducts.find(p => p.code === item.productCode);
+                const product = products.find(p => p.code === item.productCode);
                 if (product) {
                     const selectedColor = product.colors ? product.colors[0] : null;
                     itemsToAdd.push({
@@ -2399,7 +2444,7 @@ function App() {
         setCart(prev => [...prev, ...itemsToAdd]);
         setFurnitechLayoutOptions(null);
         setSelectedLayoutIndex(null);
-    }, [setCart]);
+    }, [setCart, products]);
 
     const generateFurnitechResponse = useCallback(async (prompt, useWebSearch) => {
         setIsFurnitechAssistantGenerating(true);
@@ -2408,7 +2453,7 @@ function App() {
         setFurnitechAssistantHistory(currentHistory);
 
         try {
-            const productList = initialProducts.map(p => `code: ${p.code}, name: ${p.name}, category: ${p.category}, price: ${formatCurrency(p.price, 'PHP')}`).join('; ');
+            const productList = products.map(p => `code: ${p.code}, name: ${p.name}, category: ${p.category}, price: ${formatCurrency(p.price, 'PHP')}`).join('; ');
             const systemInstruction = `You are OBRA Furnitech's helpful AI assistant. Your goal is to help users choose the best office furniture. You are knowledgeable about the product catalog: [${productList}]. When you recommend a product, wrap its product code in [[PRODUCT:CODE]] format, for example: [[PRODUCT:OBET-528fJ]]. Do not invent products. Be friendly and professional.`;
             
             const response = await ai.models.generateContent({
@@ -2430,7 +2475,7 @@ function App() {
         } finally {
             setIsFurnitechAssistantGenerating(false);
         }
-    }, [ai, furnitechAssistantHistory]);
+    }, [ai, furnitechAssistantHistory, products]);
     
     const summarizeChat = useCallback(async () => {
         setIsSummarizing(true);
@@ -2618,7 +2663,7 @@ function App() {
     }, [ai]);
 
     const contextValue = {
-        products: initialProducts,
+        products, setProducts,
         cart, setCart,
         clientInfo, setClientInfo,
         currency, setCurrency,
